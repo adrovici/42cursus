@@ -6,7 +6,17 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:14:53 by umartin-          #+#    #+#             */
-/*   Updated: 2021/10/21 11:32:41 by umartin-         ###   ########.fr       */
+/*   Updated: 2021/10/21 11:48:45 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+int	ft_isalpha(int c)
+{
+	if ((c <= 'z' && c >= 'a') || (c <= 'Z' && c >= 'A'))
+	{
+		return (1);
+	}
+	return (0);
+}
