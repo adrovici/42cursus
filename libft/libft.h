@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:16:24 by umartin-          #+#    #+#             */
-/*   Updated: 2021/10/21 16:28:43 by umartin-         ###   ########.fr       */
+/*   Updated: 2021/10/22 11:53:14 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@
 # include <stdlib.h>
 
 void	*ft_memset(void *b, int c, size_t len);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t n);
+void	ft_bzero(void *b, size_t len);
+
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isprint(int c);
 int		ft_isdigit(int c);
 int		ft_isascii(int c);
-void	ft_bzero(void *b, size_t len);
+
 size_t	ft_strlen(const char *str);
 
 #endif
