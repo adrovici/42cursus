@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/20 12:04:06 by umartin-          #+#    #+#              #
-#    Updated: 2021/10/25 13:37:05 by umartin-         ###   ########.fr        #
+#    Updated: 2021/10/28 13:05:22 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,8 @@ ft_memchr.c \
 ft_memcmp.c\
 ft_strnstr.c\
 ft_atoi.c \
+ft_calloc.c \
+ft_strdup.c \
 
 
 OBJECTS = ft_isalpha.o \
@@ -55,6 +57,8 @@ ft_memchr.o \
 ft_memcmp.o\
 ft_strnstr.o\
 ft_atoi.o \
+ft_calloc.o \
+ft_strdup.o \
 
 
 CCFLAGS = -Wall -Werror -Wextra
