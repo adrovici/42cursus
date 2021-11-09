@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/20 12:04:06 by umartin-          #+#    #+#              #
-#    Updated: 2021/11/08 13:34:29 by umartin-         ###   ########.fr        #
+#    Updated: 2021/11/09 16:21:27 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,14 @@ ft_atoi.c \
 ft_calloc.c \
 ft_strdup.c \
 ft_substr.c \
-ft_strstrim.c \
+ft_strtrim.c \
 ft_strjoin.c \
 ft_split.c \
 ft_itoa.c \
 ft_strmapi.c \
+ft_striteri.c \
+ft_putchar_fd.c \
+ft_putstr_fd.c \
 
 OBJECTS = ft_isalpha.o \
 ft_isdigit.o \
@@ -65,11 +68,14 @@ ft_atoi.o \
 ft_calloc.o \
 ft_strdup.o \
 ft_substr.o \
-ft_strstrim.o \
+ft_strtrim.o \
 ft_strjoin.o \
 ft_split.o \
 ft_itoa.o \
 ft_strmapi.o \
+ft_striteri.o \
+ft_putchar_fd.o \
+ft_putstr_fd.o \
 
 CCFLAGS = -Wall -Werror -Wextra
 

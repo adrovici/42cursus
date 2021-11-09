@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:16:24 by umartin-          #+#    #+#             */
-/*   Updated: 2021/11/08 13:33:59 by umartin-         ###   ########.fr       */
+/*   Updated: 2021/11/09 16:20:56 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 void	ft_bzero(void *b, size_t len);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_calloc(size_t num, size_t size);
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
 
 int		ft_isalnum(int c);
 int		ft_atoi(const char *str);
