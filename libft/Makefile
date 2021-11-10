@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/20 12:04:06 by umartin-          #+#    #+#              #
-#    Updated: 2021/11/09 16:50:08 by umartin-         ###   ########.fr        #
+#    Updated: 2021/11/10 16:35:30 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,10 @@ ft_putstr_fd.c \
 ft_putendl_fd.c \
 ft_putnbr_fd.c \
 
+BONUS = ft_lstnew.c \
+ft_lstadd_front.c \
+ft_lstsize.c \
+
 OBJECTS = ft_isalpha.o \
 ft_isdigit.o \
 ft_isalnum.o \
@@ -81,6 +85,10 @@ ft_putstr_fd.o \
 ft_putendl_fd.o \
 ft_putnbr_fd.o \
 
+BONUS_OBJECTS = ft_lstnew.o \
+ft_lstadd_front.o \
+ft_lstsize.o \
+
 CCFLAGS = -Wall -Werror -Wextra
 
 CC = gcc
@@ -96,11 +104,14 @@ $(CSOURCE): $(SOURCE)
 	$(CC) $(CCFLAGS) -c $(SOURCE)
 	
 clean: 
-	$(RM) $(OBJECTS)
+	$(RM) $(OBJECTS) $(BONUS_OBJECTS)
 
 fclean: clean
 	$(RM) $(NAME)
 	
 re: fclean all
 
-.PHONY: clean re fclean all
+bonus: $(BONUS_OBJECTS)
+	$(ARRC) $(NAME) $(BONUS_OBJECTS)
+
+.PHONY: clean re fclean all bonus
