@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/20 12:04:06 by umartin-          #+#    #+#              #
-#    Updated: 2021/11/10 16:35:30 by umartin-         ###   ########.fr        #
+#    Updated: 2021/11/12 14:48:16 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,9 @@ ft_putnbr_fd.c \
 BONUS = ft_lstnew.c \
 ft_lstadd_front.c \
 ft_lstsize.c \
+ft_lstlast.c \
+ft_lstadd_back.c \
+ft_lstdelone.c \
 
 OBJECTS = ft_isalpha.o \
 ft_isdigit.o \
@@ -88,6 +91,9 @@ ft_putnbr_fd.o \
 BONUS_OBJECTS = ft_lstnew.o \
 ft_lstadd_front.o \
 ft_lstsize.o \
+ft_lstlast.o \
+ft_lstadd_back.o \
+ft_lstdelone.o \
 
 CCFLAGS = -Wall -Werror -Wextra
 
@@ -109,9 +115,9 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	
-re: fclean all
-
 bonus: $(BONUS_OBJECTS)
 	$(ARRC) $(NAME) $(BONUS_OBJECTS)
+	
+re: fclean all
 
 .PHONY: clean re fclean all bonus
