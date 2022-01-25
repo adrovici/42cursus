@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 17:19:34 by umartin-          #+#    #+#             */
-/*   Updated: 2022/01/25 19:24:50 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/01/25 20:06:50 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ char	*ft_clean_final(char *final);
 char	*ft_strjoin(char *final, char *rd);
 char	*ft_strchr(char *str, int c);
 
-size_t	ft_strlen(const char *str);
+size_t	ft_strlen(char *str);
 
 #endif

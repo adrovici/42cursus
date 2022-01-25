@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:35:40 by umartin-          #+#    #+#             */
-/*   Updated: 2022/01/25 19:30:52 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/01/25 20:15:58 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_final_rtn(char *final)
 		return (NULL);
 	while (final[i] && final[i] != '\n')
 		i++;
-	str = (char *)malloc(sizeof(char) * (i + 2));
+	str = (char *)malloc(sizeof(char) * (i + 1));
 	if (!str)
 		return (NULL);
 	i = 0;
