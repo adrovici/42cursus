@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:35:40 by umartin-          #+#    #+#             */
-/*   Updated: 2022/01/26 13:32:53 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/01/26 13:43:12 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ char	*get_next_line(int fd)
 	return (rtn);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	*line;
 	int		i;
@@ -122,4 +122,4 @@ int	main(void)
 	}
 	close(fd1);
 	return (0);
-}
+}*/

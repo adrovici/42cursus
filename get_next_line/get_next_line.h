@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 17:19:34 by umartin-          #+#    #+#             */
-/*   Updated: 2022/01/25 20:06:50 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/01/26 13:42:28 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
-# include <fcntl.h>
 
 char	*get_next_line(int fd);
 char	*ft_read_static(int fd, char *final);

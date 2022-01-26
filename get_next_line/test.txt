@@ -1,6 +1,0 @@
-hola buenas tardes
-esto es una prueba del g
-et_next_line get_next_line
-
-et_next_line
-
