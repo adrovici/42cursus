@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 16:35:40 by umartin-          #+#    #+#             */
-/*   Updated: 2022/01/26 13:32:53 by umartin-         ###   ########.fr       */
+/*   Created: 2022/01/26 12:45:45 by umartin-          #+#    #+#             */
+/*   Updated: 2022/01/26 13:24:09 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_final_rtn(char *final)
 		return (NULL);
 	while (final[i] && final[i] != '\n')
 		i++;
-	str = (char *)malloc(sizeof(char) * (i + 2));
+	str = (char *)malloc(sizeof(char) * (i + 1));
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -93,33 +93,14 @@ char	*ft_read_static(int fd, char *final)
 char	*get_next_line(int fd)
 {
 	char		*rtn;
-	static char	*final;
+	static char	*final[4096];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	final = ft_read_static(fd, final);
-	if (!final)
+	final[fd] = ft_read_static(fd, final[fd]);
+	if (!final[fd])
 		return (NULL);
-	rtn = ft_final_rtn(final);
-	final = ft_clean_final(final);
+	rtn = ft_final_rtn(final[fd]);
+	final[fd] = ft_clean_final(final[fd]);
 	return (rtn);
-}
-
-int	main(void)
-{
-	char	*line;
-	int		i;
-	int		fd1;
-
-	fd1 = open("test.txt", O_RDONLY);
-	i = 1;
-	while (i < 7)
-	{
-		line = get_next_line(fd1);
-		printf("line [%02d]: %s", i, line);
-		free(line);
-		i++;
-	}
-	close(fd1);
-	return (0);
 }
