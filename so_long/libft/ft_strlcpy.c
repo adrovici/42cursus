@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 13:12:57 by umartin-          #+#    #+#             */
-/*   Updated: 2022/01/27 12:11:33 by umartin-         ###   ########.fr       */
+/*   Created: 2021/10/22 12:02:12 by umartin-          #+#    #+#             */
+/*   Updated: 2021/10/25 13:41:21 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	count;
+	size_t	i;
 
-char	*get_next_line(int fd);
-char	*ft_read_static(int fd, char *final);
-char	*ft_final_rtn(char *final);
-char	*ft_clean_final(char *final);
-char	*ft_strjoin(char *final, char *rd);
-char	*ft_strchr(char *str, int c);
-
-size_t	ft_strlen(char *str);
-
-#endif
+	count = 0;
+	i = 0;
+	while (src[count] != '\0')
+		count++;
+	if (dstsize != 0)
+	{
+		while (src[i] != '\0' && i < (dstsize - 1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (count);
+}

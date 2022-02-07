@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 13:12:57 by umartin-          #+#    #+#             */
-/*   Updated: 2022/01/27 12:11:33 by umartin-         ###   ########.fr       */
+/*   Created: 2021/11/09 16:49:09 by umartin-          #+#    #+#             */
+/*   Updated: 2021/11/09 16:55:04 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+void	ft_putnbr_fd(int n, int fd)
+{
+	char	a;
+	int		i;
 
-char	*get_next_line(int fd);
-char	*ft_read_static(int fd, char *final);
-char	*ft_final_rtn(char *final);
-char	*ft_clean_final(char *final);
-char	*ft_strjoin(char *final, char *rd);
-char	*ft_strchr(char *str, int c);
-
-size_t	ft_strlen(char *str);
-
-#endif
+	i = n;
+	if (n <= -2147483647 - 1)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (i < 10 && i >= 0)
+	{
+		a = i + '0';
+		write(fd, &a, 1);
+	}
+	else if (i >= 10)
+	{
+		ft_putnbr_fd(i / 10, fd);
+		a = i % 10 + '0';
+		write(fd, &a, 1);
+	}
+	else
+	{
+		write(fd, "-", 1);
+		ft_putnbr_fd(n * -1, fd);
+	}
+}

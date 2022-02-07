@@ -6,11 +6,11 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 12:45:45 by umartin-          #+#    #+#             */
-/*   Updated: 2022/01/26 13:24:09 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/01/27 12:11:40 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_final_rtn(char *final)
 {
@@ -22,7 +22,7 @@ char	*ft_final_rtn(char *final)
 		return (NULL);
 	while (final[i] && final[i] != '\n')
 		i++;
-	str = (char *)malloc(sizeof(char) * (i + 1));
+	str = (char *)malloc(sizeof(char) * (i + 2));
 	if (!str)
 		return (NULL);
 	i = 0;
