@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:16:24 by umartin-          #+#    #+#             */
-/*   Updated: 2021/11/15 13:26:55 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/07 13:41:59 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,15 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+//Get Next Line
+char	*get_next_line(int fd);
+char	*ft_read_static(int fd, char *final);
+char	*ft_final_rtn(char *final);
+char	*ft_clean_final(char *final);
+char	*ft_strjoin_gnl(char *final, char *rd);
+char	*ft_strchr_gnl(char *str, int c);
+
+size_t	ft_strlen_gnl(char *str);
 
 #endif

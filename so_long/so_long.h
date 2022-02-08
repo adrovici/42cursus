@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:25:02 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/07 12:57:10 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:33:14 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "../mlx/mlx.h"
 # include "../libft/libft.h"
-# include "../gnl/get_next_line.h"
 # include <stdio.h>
 # include <fcntl.h>
 
@@ -33,10 +32,13 @@ typedef struct s_game
 	int		n_items;
 	int		n_player;
 	int		n_exit;
+	int		win_x;
+	int		win_y;
+	int		end;
 
 }	t_game;
 
-char	**ft_read_map(char *map);
+char	**ft_read_map(char **map);
 int		ft_map_validator(t_game *game);
 int		ft_is_rectangular(char **map);
 int		ft_01cep(char **map);

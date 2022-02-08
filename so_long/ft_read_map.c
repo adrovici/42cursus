@@ -6,21 +6,21 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 12:30:40 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/03 13:55:37 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/07 13:23:34 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**ft_read_map(char *map)
+char	**ft_read_map(char **map)
 {
 	int		fd;
 	char	*line;
 	char	*temp;
 	char	*temp_map;
-	char	**map;
+	char	**mapp;
 
-	fd = open(map, O_RDONLY);
+	fd = open(*map, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
 	temp_map = ft_strdup("");
@@ -34,7 +34,7 @@ char	**ft_read_map(char *map)
 		free(line);
 		free(temp);
 	}
-	map = ft_split(temp_map, '\n');
+	mapp = ft_split(temp_map, '\n');
 	free(temp_map);
-	return (map);
+	return (mapp);
 }

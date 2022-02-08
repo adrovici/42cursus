@@ -6,13 +6,13 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:35:40 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/02 12:21:25 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/07 14:03:42 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_final_rtn(char *final)
+char	*ft_final_rtn_gnl(char *final)
 {
 	char	*str;
 	int		i;
@@ -54,7 +54,7 @@ char	*ft_clean_final(char *final)
 		free (final);
 		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen(final) - i + 1));
+	str = (char *)malloc(sizeof(char) * (ft_strlen_gnl(final) - i + 1));
 	if (!str)
 		return (NULL);
 	i++;
@@ -66,7 +66,7 @@ char	*ft_clean_final(char *final)
 	return (str);
 }
 
-char	*ft_read_static(int fd, char *final)
+char	*ft_read_static_gnl(int fd, char *final)
 {
 	char	*rd;
 	int		i;
@@ -75,7 +75,7 @@ char	*ft_read_static(int fd, char *final)
 	if (!rd)
 		return (NULL);
 	i = 1;
-	while (!ft_strchr(final, '\n') && i != 0)
+	while (!ft_strchr_gnl(final, '\n') && i != 0)
 	{
 		i = read(fd, rd, BUFFER_SIZE);
 		if (i == -1)
@@ -84,7 +84,7 @@ char	*ft_read_static(int fd, char *final)
 			return (NULL);
 		}
 		rd[i] = '\0';
-		final = ft_strjoin(final, rd);
+		final = ft_strjoin_gnl(final, rd);
 	}
 	free (rd);
 	return (final);
@@ -97,10 +97,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	final = ft_read_static(fd, final);
+	final = ft_read_static_gnl(fd, final);
 	if (!final)
 		return (NULL);
-	rtn = ft_final_rtn(final);
+	rtn = ft_final_rtn_gnl(final);
 	final = ft_clean_final(final);
 	return (rtn);
 }

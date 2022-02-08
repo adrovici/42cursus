@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/20 12:04:06 by umartin-          #+#    #+#              #
-#    Updated: 2021/11/15 13:11:56 by umartin-         ###   ########.fr        #
+#    Updated: 2022/02/07 13:53:37 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,8 @@ ft_putchar_fd.c \
 ft_putstr_fd.c \
 ft_putendl_fd.c \
 ft_putnbr_fd.c \
+get_next_line.c \
+get_next_line_utils.c
 
 BONUS = ft_lstnew.c \
 ft_lstadd_front.c \
@@ -90,6 +92,8 @@ ft_putchar_fd.o \
 ft_putstr_fd.o \
 ft_putendl_fd.o \
 ft_putnbr_fd.o \
+get_next_line.o \
+get_next_line_utils.o
 
 BONUS_OBJECTS = ft_lstnew.o \
 ft_lstadd_front.o \

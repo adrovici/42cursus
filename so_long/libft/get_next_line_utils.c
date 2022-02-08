@@ -6,13 +6,13 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:10:18 by umartin-          #+#    #+#             */
-/*   Updated: 2022/01/26 12:38:36 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/07 13:54:42 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen_gnl(char *str)
 {
 	size_t	c;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(char *str)
 	return (c);
 }
 
-char	*ft_strchr(char *str, int c)
+char	*ft_strchr_gnl(char *str, int c)
 {
 	int	i;
 
@@ -32,7 +32,7 @@ char	*ft_strchr(char *str, int c)
 	if (!str)
 		return (0);
 	if (c == '\0')
-		return ((char *)&str[ft_strlen(str)]);
+		return ((char *)&str[ft_strlen_gnl(str)]);
 	while (str[i] != '\0')
 	{
 		if (str[i] == (char) c)
@@ -42,7 +42,7 @@ char	*ft_strchr(char *str, int c)
 	return (0);
 }
 
-char	*ft_strjoin(char *final, char *rd)
+char	*ft_strjoin_gnl(char *final, char *rd)
 {
 	char	*result;
 	size_t	i;
@@ -55,7 +55,8 @@ char	*ft_strjoin(char *final, char *rd)
 	}
 	if (!final || !rd)
 		return (NULL);
-	result = malloc(sizeof(char) * ((ft_strlen(final) + ft_strlen(rd)) + 1));
+	result = malloc(sizeof(char) * ((ft_strlen_gnl(final)
+					+ ft_strlen_gnl(rd)) + 1));
 	if (result == NULL)
 		return (NULL);
 	i = -1;

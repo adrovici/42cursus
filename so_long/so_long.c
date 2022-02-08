@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:09:53 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/03 15:14:01 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/08 15:43:21 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,17 @@ int	main(int argc, char **argv)
 	int		check;
 
 	if (argc != 2)
+		exit(1);
+	game.map = ft_read_map(&argv[1]);
+	if (!game.map)
+		exit(1);
+	check = ft_map_validator(&game);
+	if (check == 0)
 	{
-		game.map = ft_read_map(argv[1]);
-		if (!game.map)
-			exit(1);
-		check = ft_map_validator(game.map);
+		printf("no válido");
+		exit(1);
 	}
+	else
+		printf("mapa valido mi rey");
+	return (0);
 }
