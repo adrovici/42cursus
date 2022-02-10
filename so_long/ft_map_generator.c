@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 13:05:52 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/09 14:22:55 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/10 18:00:35 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,28 @@ void	image_generator(t_game *game)
 		(game->mlx, "assets/images/0.xpm", &i, &i);
 	game->img_wall = mlx_xpm_file_to_image
 		(game->mlx, "assets/images/1.xpm", &i, &i);
-	game->img_player = mlx_xpm_file_to_image
-		(game->mlx, "assets/images/player_d.xpm", &i, &i);
 	game->img_item = mlx_xpm_file_to_image
 		(game->mlx, "assets/images/c_00.xpm", &i, &i);
 	game->img_exit = mlx_xpm_file_to_image
 		(game->mlx, "assets/images/exit_off.xpm", &i, &i);
+	game->taken = 0;
+	game->moves = 0;
+	game->anim = 0;
+}
+
+void	player_generator(t_game *game)
+{
+	int	i;
+
+	i = 64;
+	game->img_player_w = mlx_xpm_file_to_image
+		(game->mlx, "assets/images/player_w.xpm", &i, &i);
+	game->img_player_a = mlx_xpm_file_to_image
+		(game->mlx, "assets/images/player_a.xpm", &i, &i);
+	game->img_player_s = mlx_xpm_file_to_image
+		(game->mlx, "assets/images/player_s.xpm", &i, &i);
+	game->img_player_d = mlx_xpm_file_to_image
+		(game->mlx, "assets/images/player_d.xpm", &i, &i);
 }
 
 void	map_generator(t_game *game)
@@ -49,5 +65,6 @@ void	map_generator(t_game *game)
 	game->moves = 0;
 	game->end = 0;
 	image_generator(game);
+	player_generator(game);
 	map_draw(game);
 }

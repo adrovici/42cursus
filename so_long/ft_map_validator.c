@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 15:15:35 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/08 13:52:43 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:18:51 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	ft_at_least(t_game *game)
 		}
 		i++;
 	}
-	if (game->n_items == 0 || game->n_exit == 0 || game->n_player != 1)
+	if (game->n_items == 0 || game->n_exit != 1 || game->n_player != 1)
 		return (0);
 	return (1);
 }

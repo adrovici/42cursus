@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:15:25 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/09 15:19:01 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:34:13 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	player_draw(t_game *game, int x, int y)
 	game->player_x = x;
 	game->player_y = y;
 	mlx_put_image_to_window
-		(game->mlx, game->win, game->img_player, x * 64, y * 64);
+		(game->mlx, game->win, game->img_player_s, x * 64, y * 64);
 }
 
 void	img_draw(t_game *game, void *image, int x, int y)

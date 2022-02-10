@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:25:02 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/10 12:29:25 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/10 18:02:22 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ typedef struct s_game
 	char	**map;
 	void	*img_back;
 	void	*img_wall;
-	void	*img_player;
+	void	*img_player_w;
+	void	*img_player_a;
+	void	*img_player_s;
+	void	*img_player_d;
 	void	*img_item;
 	void	*img_exit;
 	int		moves;
@@ -43,6 +46,8 @@ typedef struct s_game
 	int		player_y;
 	int		win_y;
 	int		end;
+	int		taken;
+	int		anim;
 
 }	t_game;
 
@@ -55,14 +60,26 @@ int		ft_at_least(t_game *game);
 
 void	map_size(t_game *game);
 void	image_generator(t_game *game);
+void	player_generator(t_game *game);
 void	map_generator(t_game *game);
 void	map_draw(t_game *game);
 void	player_draw(t_game *game, int x, int y);
+void	img_draw(t_game *game, void *image, int x, int y);
 
 void	gameplay(t_game *game);
 int		ft_keypress(int keycode, t_game *game);
 int		ft_close(t_game *game);
 
 void	game_events(int keycode, t_game *game);
+void	player_w(t_game *game);
+void	player_w_move(t_game *game);
+void	player_a(t_game *game);
+void	player_a_move(t_game *game);
+void	player_s(t_game *game);
+void	player_s_move(t_game *game);
+void	player_d(t_game *game);
+void	player_d_move(t_game *game);
+
+void	portal(t_game *game);
 
 #endif

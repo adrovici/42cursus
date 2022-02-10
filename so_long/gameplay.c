@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:27:08 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/10 12:27:43 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/10 14:39:27 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ int	ft_keypress(int keycode, t_game *game)
 		exit(0);
 	}
 	else if (!game->end)
+	{
+		game->moves++;
+		printf("MOVES: %d\n", game->moves);
 		game_events(keycode, game);
+	}
 	return (0);
 }
 
