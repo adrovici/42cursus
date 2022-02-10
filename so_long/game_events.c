@@ -1,35 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   game_events.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 18:09:53 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/09 16:39:09 by umartin-         ###   ########.fr       */
+/*   Created: 2022/02/10 12:16:28 by umartin-          #+#    #+#             */
+/*   Updated: 2022/02/10 12:29:14 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
-{
-	t_game	game;
-	int		check;
-
-	if (argc != 2)
-		exit(1);
-	game.map = ft_read_map(&argv[1]);
-	if (!game.map)
-		exit(1);
-	check = ft_map_validator(&game);
-	if (check == 0)
-	{
-		printf("no válido");
-		exit(1);
-	}
-	map_generator(&game);
-	gameplay(&game);
-	mlx_loop(game.mlx);
-	return (0);
-}
+void	game_events(int keycode, t_game *game)

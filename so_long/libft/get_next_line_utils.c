@@ -6,11 +6,11 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:10:18 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/07 13:54:42 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:52:31 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 size_t	ft_strlen_gnl(char *str)
 {

@@ -6,11 +6,11 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:35:40 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/07 14:03:42 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:52:23 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*ft_final_rtn_gnl(char *final)
 {

@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/19 13:31:00 by umartin-          #+#    #+#              #
-#    Updated: 2022/02/07 13:51:50 by umartin-         ###   ########.fr        #
+#    Updated: 2022/02/10 12:16:13 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,18 @@ NAME = so_long
 SRC = so_long.c \
 ft_map_validator.c \
 ft_read_map.c \
+ft_map_generator.c \
+map_draw.c \
+gameplay.c \
+game_events.c \
 
 OBJ = so_long.o \
 ft_map_validator.o \
 ft_read_map.o \
+ft_map_generator.o \
+map_draw.o \
+gameplay.o \
+game_events.o \
 
 CC = gcc
 CCFLAGS = -Wall -Wextra -Werror
@@ -34,6 +42,8 @@ ARRC = ar rc
 all: $(NAME)
 
 %.o: %.c
+	make -C libft
+	make -C mlx
 	$(CC) $(CCFLAGS) -Imlx -c $^ -o $@
 
 $(NAME): $(OBJ)

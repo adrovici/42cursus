@@ -6,17 +6,23 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:25:02 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/08 16:33:14 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/10 12:29:25 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../mlx/mlx.h"
-# include "../libft/libft.h"
+# include "mlx/mlx.h"
+# include "libft/libft.h"
 # include <stdio.h>
 # include <fcntl.h>
+
+# define KEY_ESC 53
+# define KEY_W 13
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
 
 typedef struct s_game
 {
@@ -33,6 +39,8 @@ typedef struct s_game
 	int		n_player;
 	int		n_exit;
 	int		win_x;
+	int		player_x;
+	int		player_y;
 	int		win_y;
 	int		end;
 
@@ -44,5 +52,17 @@ int		ft_is_rectangular(char **map);
 int		ft_01cep(char **map);
 int		ft_walls(char **map);
 int		ft_at_least(t_game *game);
+
+void	map_size(t_game *game);
+void	image_generator(t_game *game);
+void	map_generator(t_game *game);
+void	map_draw(t_game *game);
+void	player_draw(t_game *game, int x, int y);
+
+void	gameplay(t_game *game);
+int		ft_keypress(int keycode, t_game *game);
+int		ft_close(t_game *game);
+
+void	game_events(int keycode, t_game *game);
 
 #endif

@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   gameplay.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 18:09:53 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/09 16:39:09 by umartin-         ###   ########.fr       */
+/*   Created: 2022/02/09 15:27:08 by umartin-          #+#    #+#             */
+/*   Updated: 2022/02/10 12:27:43 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+int	ft_close(t_game *game)
 {
-	t_game	game;
-	int		check;
-
-	if (argc != 2)
-		exit(1);
-	game.map = ft_read_map(&argv[1]);
-	if (!game.map)
-		exit(1);
-	check = ft_map_validator(&game);
-	if (check == 0)
-	{
-		printf("no válido");
-		exit(1);
-	}
-	map_generator(&game);
-	gameplay(&game);
-	mlx_loop(game.mlx);
+	mlx_destroy_window(game->mlx, game->win);
+	exit (0);
 	return (0);
+}
+
+int	ft_keypress(int keycode, t_game *game)
+{
+	if (keycode == KEY_ESC)
+	{
+		mlx_destroy_window(game->mlx, game->win);
+		exit(0);
+	}
+	else if (!game->end)
+		game_events(keycode, game);
+	return (0);
+}
+
+void	gameplay(t_game *game)
+{
+	mlx_hook(game->win, 2, 1L << 0, ft_keypress, game);
+	mlx_hook(game->win, 17, 1L << 17, ft_close, game);
 }
