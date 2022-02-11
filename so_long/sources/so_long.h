@@ -6,15 +6,15 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:25:02 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 13:50:05 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/11 16:08:46 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "mlx/mlx.h"
-# include "libft/libft.h"
+# include "../mlx/mlx.h"
+# include "../libft/libft.h"
 # include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
@@ -92,6 +92,8 @@ void	player_s(t_game *game);
 void	player_s_move(t_game *game);
 void	player_d(t_game *game);
 void	player_d_move(t_game *game);
+void	movement(t_game *game);
+void	portal_message(t_game *game);
 
 int		anim(t_game *game);
 int		all_anim(t_game *game);

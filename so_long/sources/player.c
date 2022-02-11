@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 12:40:30 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/10 20:10:36 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/11 16:08:42 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	player_w(t_game *game)
 	else if (game->map[game->player_y - 1][game->player_x] == 'E')
 	{
 		if (game->taken != game->n_items)
-			return ;
+			portal_message(game);
 		else
 			exit (0);
 	}
@@ -50,7 +50,7 @@ void	player_a(t_game *game)
 	else if (game->map[game->player_y][game->player_x - 1] == 'E')
 	{
 		if (game->taken != game->n_items)
-			return ;
+			portal_message(game);
 		else
 			exit (0);
 	}
@@ -73,7 +73,7 @@ void	player_s(t_game *game)
 	else if (game->map[game->player_y + 1][game->player_x] == 'E')
 	{
 		if (game->taken != game->n_items)
-			return ;
+			portal_message(game);
 		else
 			exit (0);
 	}
@@ -96,7 +96,7 @@ void	player_d(t_game *game)
 	else if (game->map[game->player_y][game->player_x + 1] == 'E')
 	{
 		if (game->taken != game->n_items)
-			return ;
+			portal_message(game);
 		else
 			exit (0);
 	}
