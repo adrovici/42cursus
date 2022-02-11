@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:25:02 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/10 18:02:22 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/11 13:50:05 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "libft/libft.h"
 # include <stdio.h>
 # include <fcntl.h>
+# include <stdlib.h>
 
 # define KEY_ESC 53
 # define KEY_W 13
@@ -37,6 +38,10 @@ typedef struct s_game
 	void	*img_player_d;
 	void	*img_item;
 	void	*img_exit;
+	void	*img_exit_00;
+	void	*img_exit_01;
+	void	*img_exit_02;
+	void	*img_exit_03;
 	int		moves;
 	int		n_items;
 	int		n_player;
@@ -47,7 +52,12 @@ typedef struct s_game
 	int		win_y;
 	int		end;
 	int		taken;
-	int		anim;
+	int		exit_x;
+	int		exit_y;
+	int		loop;
+	int		finish;
+	int		counter;
+	int		i;
 
 }	t_game;
 
@@ -61,9 +71,12 @@ int		ft_at_least(t_game *game);
 void	map_size(t_game *game);
 void	image_generator(t_game *game);
 void	player_generator(t_game *game);
+void	structure_generator(t_game *game);
 void	map_generator(t_game *game);
 void	map_draw(t_game *game);
 void	player_draw(t_game *game, int x, int y);
+void	exit_draw(t_game *game);
+void	item_draw(t_game *game);
 void	img_draw(t_game *game, void *image, int x, int y);
 
 void	gameplay(t_game *game);
@@ -80,6 +93,8 @@ void	player_s_move(t_game *game);
 void	player_d(t_game *game);
 void	player_d_move(t_game *game);
 
-void	portal(t_game *game);
+int		anim(t_game *game);
+int		all_anim(t_game *game);
+int		item_anim(t_game *game);
 
 #endif

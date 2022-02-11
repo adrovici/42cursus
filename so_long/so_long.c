@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:09:53 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/10 18:00:52 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/11 13:27:40 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,8 @@ int	main(int argc, char **argv)
 		exit(1);
 	}
 	map_generator(&game);
+	mlx_loop_hook(game.mlx, anim, &game);
 	gameplay(&game);
-	while (game.anim != 1)
-	{
-		if (game.taken == game.n_items)
-			portal(&game);
-	}
 	mlx_loop(game.mlx);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/19 13:31:00 by umartin-          #+#    #+#              #
-#    Updated: 2022/02/10 17:29:18 by umartin-         ###   ########.fr        #
+#    Updated: 2022/02/11 13:01:55 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ map_draw.c \
 gameplay.c \
 game_events.c \
 player.c \
-portal.c \
+anim.c \
 
 OBJ = so_long.o \
 ft_map_validator.o \
@@ -36,7 +36,7 @@ map_draw.o \
 gameplay.o \
 game_events.o \
 player.o \
-portal.o \
+anim.o \
 
 CC = gcc
 CCFLAGS = -Wall -Wextra -Werror
