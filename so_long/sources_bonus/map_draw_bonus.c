@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_draw.c                                         :+:      :+:    :+:   */
+/*   map_draw_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:15:25 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 13:21:33 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/11 18:13:32 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	exit_draw(t_game *game)
 {
@@ -83,6 +83,8 @@ void	map_draw(t_game *game)
 				player_draw(game, x, y);
 			if (game->map[y][x] == 'E')
 				img_draw(game, game->img_exit, x, y);
+			if (game->map[y][x] == 'K')
+				img_draw(game, game->img_enemy, x, y);
 			x++;
 		}
 		y++;

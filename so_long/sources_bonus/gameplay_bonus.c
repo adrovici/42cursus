@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gameplay.c                                         :+:      :+:    :+:   */
+/*   gameplay_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:27:08 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 16:10:50 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/11 17:36:13 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	ft_close(t_game *game)
 {
@@ -27,7 +27,8 @@ int	ft_keypress(int keycode, t_game *game)
 		exit(0);
 	}
 	else if (!game->end)
-		game_events(keycode, game);
+		if (game->dead == 0)
+			game_events(keycode, game);
 	return (0);
 }
 

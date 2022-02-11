@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:25:02 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 16:08:46 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/11 16:41:12 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ void	structure_generator(t_game *game);
 void	map_generator(t_game *game);
 void	map_draw(t_game *game);
 void	player_draw(t_game *game, int x, int y);
-void	exit_draw(t_game *game);
-void	item_draw(t_game *game);
 void	img_draw(t_game *game, void *image, int x, int y);
 
 void	gameplay(t_game *game);
@@ -94,9 +92,5 @@ void	player_d(t_game *game);
 void	player_d_move(t_game *game);
 void	movement(t_game *game);
 void	portal_message(t_game *game);
-
-int		anim(t_game *game);
-int		all_anim(t_game *game);
-int		item_anim(t_game *game);
 
 #endif

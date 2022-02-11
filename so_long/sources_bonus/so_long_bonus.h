@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:25:02 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 16:08:46 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/11 18:16:13 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "../mlx/mlx.h"
 # include "../libft/libft.h"
@@ -37,6 +37,7 @@ typedef struct s_game
 	void	*img_player_s;
 	void	*img_player_d;
 	void	*img_item;
+	void	*img_enemy;
 	void	*img_exit;
 	void	*img_exit_00;
 	void	*img_exit_01;
@@ -58,6 +59,7 @@ typedef struct s_game
 	int		finish;
 	int		counter;
 	int		i;
+	int		dead;
 
 }	t_game;
 
@@ -84,6 +86,7 @@ int		ft_keypress(int keycode, t_game *game);
 int		ft_close(t_game *game);
 
 void	game_events(int keycode, t_game *game);
+void	player_dead(t_game *game);
 void	player_w(t_game *game);
 void	player_w_move(t_game *game);
 void	player_a(t_game *game);

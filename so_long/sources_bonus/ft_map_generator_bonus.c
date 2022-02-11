@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map_generator.c                                 :+:      :+:    :+:   */
+/*   ft_map_generator_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 13:05:52 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 13:50:19 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/11 18:15:35 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	map_size(t_game *game)
 {
@@ -33,6 +33,8 @@ void	image_generator(t_game *game)
 		(game->mlx, "assets/images/item_00.xpm", &game->i, &game->i);
 	game->img_exit = mlx_xpm_file_to_image
 		(game->mlx, "assets/images/exit_off.xpm", &game->i, &game->i);
+	game->img_enemy = mlx_xpm_file_to_image
+		(game->mlx, "assets/images/enemy_00.xpm", &game->i, &game->i);
 }
 
 void	structure_generator(t_game *game)
@@ -43,6 +45,7 @@ void	structure_generator(t_game *game)
 	game->loop = 0;
 	game->finish = 0;
 	game->counter = 4;
+	game->dead = 0;
 }
 
 void	player_generator(t_game *game)

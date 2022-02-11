@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map_validator.c                                 :+:      :+:    :+:   */
+/*   ft_map_validator_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 15:15:35 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/10 13:18:51 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/11 18:18:47 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	ft_is_rectangular(char **map)
 {
@@ -40,7 +40,8 @@ int	ft_01cep(char **map)
 		while (map[i][j] != '\0')
 		{
 			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != 'C'
-						&& map[i][j] != 'E' && map[i][j] != 'P')
+						&& map[i][j] != 'E' && map[i][j] != 'P'
+							&& map[i][j] != 'K')
 				return (0);
 			j++;
 		}

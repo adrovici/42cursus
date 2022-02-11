@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/19 13:31:00 by umartin-          #+#    #+#              #
-#    Updated: 2022/02/11 16:22:22 by umartin-         ###   ########.fr        #
+#    Updated: 2022/02/11 16:52:33 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ sources/map_draw.c \
 sources/gameplay.c \
 sources/game_events.c \
 sources/player.c \
-sources/exit_anim.c \
 
 OBJ = sources/so_long.o \
 sources/ft_map_validator.o \
@@ -37,7 +36,6 @@ sources/map_draw.o \
 sources/gameplay.o \
 sources/game_events.o \
 sources/player.o \
-sources/anim.o \
 
 SRC_BONUS = sources_bonus/so_long_bonus.c \
 sources_bonus/ft_map_validator_bonus.c \
@@ -47,7 +45,7 @@ sources_bonus/map_draw_bonus.c \
 sources_bonus/gameplay_bonus.c \
 sources_bonus/game_events_bonus.c \
 sources_bonus/player_bonus.c \
-sources_bonus/exit_anim_bonus.c \
+sources_bonus/anim_bonus.c \
 
 OBJ_BONUS = sources_bonus/so_long_bonus.o \
 sources_bonus/ft_map_validator_bonus.o \
@@ -64,7 +62,11 @@ CCFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 ARRC = ar rc
 
-all: $(NAME)
+all: $(NAME) $(NAME_BONUS)
+
+make m: $(NAME)
+
+make bonus: $(NAME_BONUS)
 
 %.o: %.c
 	make -C libft

@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 13:05:52 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 13:50:19 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/11 16:36:21 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,6 @@ void	structure_generator(t_game *game)
 	game->i = 64;
 	game->taken = 0;
 	game->moves = 0;
-	game->loop = 0;
-	game->finish = 0;
-	game->counter = 4;
 }
 
 void	player_generator(t_game *game)
