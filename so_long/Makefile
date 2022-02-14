@@ -6,18 +6,18 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/19 13:31:00 by umartin-          #+#    #+#              #
-#    Updated: 2022/02/11 16:52:33 by umartin-         ###   ########.fr        #
+#    Updated: 2022/02/14 21:59:34 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+NAME = so_long
+NAME_BONUS = so_long_bonus
 
 LIBFT_PATH		=	./libft
 LIBFT			=	$(LIBFT_PATH)/libft.a
 
 MINILIBX_PATH	=	./mlx
 MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
-
-NAME = so_long
-NAME_BONUS = so_long_bonus
 
 SRC = sources/so_long.c \
 sources/ft_map_validator.c \
@@ -46,6 +46,9 @@ sources_bonus/gameplay_bonus.c \
 sources_bonus/game_events_bonus.c \
 sources_bonus/player_bonus.c \
 sources_bonus/anim_bonus.c \
+sources_bonus/anim_utils_bonus.c \
+sources_bonus/anim_utils_2_bonus.c \
+sources_bonus/obstacle_generator.c \
 
 OBJ_BONUS = sources_bonus/so_long_bonus.o \
 sources_bonus/ft_map_validator_bonus.o \
@@ -56,34 +59,40 @@ sources_bonus/gameplay_bonus.o \
 sources_bonus/game_events_bonus.o \
 sources_bonus/player_bonus.o \
 sources_bonus/anim_bonus.o \
+sources_bonus/anim_utils_bonus.o \
+sources_bonus/anim_utils_2_bonus.o \
+sources_bonus/obstacle_generator.o \
 
 CC = gcc
-CCFLAGS = -Wall -Wextra -Werror
+CCFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 RM = rm -f
 ARRC = ar rc
 
-all: $(NAME) $(NAME_BONUS)
+all: $(NAME)
 
-make m: $(NAME)
+m: $(NAME)
 
-make bonus: $(NAME_BONUS)
-
-%.o: %.c
-	make -C libft
-	make -C mlx
-	$(CC) $(CCFLAGS) -Imlx -c $^ -o $@
+bonus: $(NAME_BONUS)
+#gcc -lmlx -Lmlx -framework OpenGL -framework AppKit -g3 -fsanitize=address -I sources_bonus/*.h libft/libft.a  sources_bonus/*.c  -o solongi
 
 $(NAME): $(OBJ)
-	$(CC) $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit $^ -o $@
+	make -C libft
+	make -C mlx
+	$(CC) $(CCFLAGS) -lmlx -Lmlx -framework OpenGL -framework AppKit $(LIBFT) $^ -o $@
 
+%.o: %.c
+	$(CC)  -Imlx -c $^ -o $@
+	
 $(NAME_BONUS): $(OBJ_BONUS)
-	$(CC) $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit $^ -o $@
+	make -C libft
+	make -C mlx
+	$(CC) $(CCFLAGS) -lmlx -Lmlx -framework OpenGL -framework AppKit $(LIBFT) $^ -o $@
 
-$(CSRC): $(SRC)
-	$(CC) $(CCFLAGS) -c $(SRC)
+#$(CSRC): $(SRC)
+#	$(CC) $(CCFLAGS) -c $(SRC)
 
-$(CSRC_BONUS): $(SRC_BONUS)
-	$(CC) $(CCFLAGS) -c $(SRC_BONUS)
+#$(CSRC_BONUS): $(SRC_BONUS)
+#	$(CC) $(CCFLAGS) -c $(SRC_BONUS) -o $(CSRC_BONUS)
 
 clean: 
 	$(RM) $(OBJ) $(OBJ_BONUS)
@@ -95,4 +104,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean re fclean all bonus
+rebonus: fclean bonus
+
+.PHONY: clean re fclean all bonus m rebonus

@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:15:25 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 18:13:32 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:01:49 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	item_draw(t_game *game)
 		while (game->map[y][x] != '\0')
 		{
 			if (game->map[y][x] == 'C')
-				img_draw(game, game->img_item, x, y);
+				mlx_put_image_to_window
+					(game->mlx, game->win, game->img_item, x * 64, y * 64);
 			x++;
 		}
 		y++;
@@ -76,15 +77,17 @@ void	map_draw(t_game *game)
 		while (game->map[y][x] != '\0')
 		{
 			if (game->map[y][x] == '1')
-				img_draw(game, game->img_wall, x, y);
+			{
+				obstacle_checker(game, x, y);
+				mlx_put_image_to_window
+					(game->mlx, game->win, game->img_wall, x * 64, y * 64);
+			}
 			if (game->map[y][x] == '0')
 				img_draw(game, game->img_back, x, y);
 			if (game->map[y][x] == 'P')
 				player_draw(game, x, y);
 			if (game->map[y][x] == 'E')
 				img_draw(game, game->img_exit, x, y);
-			if (game->map[y][x] == 'K')
-				img_draw(game, game->img_enemy, x, y);
 			x++;
 		}
 		y++;

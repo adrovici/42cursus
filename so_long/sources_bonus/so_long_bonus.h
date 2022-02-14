@@ -6,18 +6,19 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:25:02 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 18:16:13 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:00:40 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
 
-# include "../mlx/mlx.h"
-# include "../libft/libft.h"
+# include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include "../mlx/mlx.h"
+# include "../libft/libft.h"
 
 # define KEY_ESC 53
 # define KEY_W 13
@@ -78,6 +79,7 @@ void	map_generator(t_game *game);
 void	map_draw(t_game *game);
 void	player_draw(t_game *game, int x, int y);
 void	exit_draw(t_game *game);
+void	enemy_draw(t_game *game);
 void	item_draw(t_game *game);
 void	img_draw(t_game *game, void *image, int x, int y);
 
@@ -99,7 +101,16 @@ void	movement(t_game *game);
 void	portal_message(t_game *game);
 
 int		anim(t_game *game);
-int		all_anim(t_game *game);
+int		full_anim(t_game *game);
 int		item_anim(t_game *game);
+void	full_anim_frame_00(t_game *game);
+void	full_anim_frame_01(t_game *game);
+void	full_anim_frame_02(t_game *game);
+void	full_anim_frame_03(t_game *game);
+void	part_anim_frame_00(t_game *game);
+void	part_anim_frame_01(t_game *game);
+void	part_anim_frame_02(t_game *game);
+void	part_anim_frame_03(t_game *game);
+void	obstacle_checker(t_game *game, int i, int j);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 12:30:40 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 16:26:27 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/14 21:08:53 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,26 @@ char	**ft_read_map(char **map)
 	mapp = ft_split(temp_map, '\n');
 	free(temp_map);
 	return (mapp);
+}
+
+void	enemy_draw(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (game->map[y] != NULL)
+	{
+		x = 0;
+		while (game->map[y][x] != '\0')
+		{
+			if (game->map[y][x] == 'K')
+			{
+				mlx_put_image_to_window
+					(game->mlx, game->win, game->img_enemy, x * 64, y * 64);
+			}
+			x++;
+		}
+		y++;
+	}
 }
