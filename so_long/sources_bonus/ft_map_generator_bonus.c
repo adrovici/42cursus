@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 13:05:52 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 18:15:35 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/16 12:48:23 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ void	map_size(t_game *game)
 void	image_generator(t_game *game)
 {
 	game->img_back = mlx_xpm_file_to_image
-		(game->mlx, "assets/images/0.xpm", &game->i, &game->i);
+		(game->mlx, "images/0.xpm", &game->i, &game->i);
 	game->img_wall = mlx_xpm_file_to_image
-		(game->mlx, "assets/images/1.xpm", &game->i, &game->i);
+		(game->mlx, "images/1.xpm", &game->i, &game->i);
 	game->img_item = mlx_xpm_file_to_image
-		(game->mlx, "assets/images/item_00.xpm", &game->i, &game->i);
+		(game->mlx, "images/item_00.xpm", &game->i, &game->i);
 	game->img_exit = mlx_xpm_file_to_image
-		(game->mlx, "assets/images/exit_off.xpm", &game->i, &game->i);
+		(game->mlx, "images/exit_off.xpm", &game->i, &game->i);
 	game->img_enemy = mlx_xpm_file_to_image
-		(game->mlx, "assets/images/enemy_00.xpm", &game->i, &game->i);
+		(game->mlx, "images/enemy_00.xpm", &game->i, &game->i);
 }
 
 void	structure_generator(t_game *game)
@@ -51,13 +51,13 @@ void	structure_generator(t_game *game)
 void	player_generator(t_game *game)
 {
 	game->img_player_w = mlx_xpm_file_to_image
-		(game->mlx, "assets/images/player_w.xpm", &game->i, &game->i);
+		(game->mlx, "images/player_w.xpm", &game->i, &game->i);
 	game->img_player_a = mlx_xpm_file_to_image
-		(game->mlx, "assets/images/player_a.xpm", &game->i, &game->i);
+		(game->mlx, "images/player_a.xpm", &game->i, &game->i);
 	game->img_player_s = mlx_xpm_file_to_image
-		(game->mlx, "assets/images/player_s.xpm", &game->i, &game->i);
+		(game->mlx, "images/player_s.xpm", &game->i, &game->i);
 	game->img_player_d = mlx_xpm_file_to_image
-		(game->mlx, "assets/images/player_d.xpm", &game->i, &game->i);
+		(game->mlx, "images/player_d.xpm", &game->i, &game->i);
 }
 
 void	map_generator(t_game *game)
@@ -71,5 +71,7 @@ void	map_generator(t_game *game)
 	image_generator(game);
 	structure_generator(game);
 	player_generator(game);
+	wall_draw(game);
+	obstacle_draw(game);
 	map_draw(game);
 }

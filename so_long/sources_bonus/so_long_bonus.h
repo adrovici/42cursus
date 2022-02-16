@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:25:02 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/14 22:00:40 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/16 12:43:41 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ typedef struct s_game
 	int		counter;
 	int		i;
 	int		dead;
+	int		map_n;
+	int		map_l;
 
 }	t_game;
 
@@ -111,6 +113,9 @@ void	part_anim_frame_00(t_game *game);
 void	part_anim_frame_01(t_game *game);
 void	part_anim_frame_02(t_game *game);
 void	part_anim_frame_03(t_game *game);
-void	obstacle_checker(t_game *game, int i, int j);
+void	obstacle_draw(t_game *game);
+void	wall_draw(t_game *game);
+void	obstacle_rand(t_game *game);
+void	display_moves(t_game *game);
 
 #endif

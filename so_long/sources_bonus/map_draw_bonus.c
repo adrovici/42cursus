@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:15:25 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/14 22:01:49 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/16 12:43:59 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,6 @@ void	map_draw(t_game *game)
 		x = 0;
 		while (game->map[y][x] != '\0')
 		{
-			if (game->map[y][x] == '1')
-			{
-				obstacle_checker(game, x, y);
-				mlx_put_image_to_window
-					(game->mlx, game->win, game->img_wall, x * 64, y * 64);
-			}
 			if (game->map[y][x] == '0')
 				img_draw(game, game->img_back, x, y);
 			if (game->map[y][x] == 'P')

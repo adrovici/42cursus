@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 12:40:30 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 18:25:30 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/16 12:47:02 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,12 +116,12 @@ void	player_dead(t_game *game)
 {
 	game->dead = 1;
 	game->img_player_w = mlx_xpm_file_to_image
-		(game->mlx, "assets/images/player_dead.xpm", &game->i, &game->i);
+		(game->mlx, "images/player_dead.xpm", &game->i, &game->i);
 	game->img_player_a = mlx_xpm_file_to_image
-		(game->mlx, "assets/images/player_dead.xpm", &game->i, &game->i);
+		(game->mlx, "images/player_dead.xpm", &game->i, &game->i);
 	game->img_player_s = mlx_xpm_file_to_image
-		(game->mlx, "assets/images/player_dead.xpm", &game->i, &game->i);
+		(game->mlx, "images/player_dead.xpm", &game->i, &game->i);
 	game->img_player_d = mlx_xpm_file_to_image
-		(game->mlx, "assets/images/player_dead.xpm", &game->i, &game->i);
+		(game->mlx, "images/player_dead.xpm", &game->i, &game->i);
 	player_draw(game, game->player_x, game->player_y);
 }
