@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 12:40:30 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/16 12:47:02 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:37:21 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ void	player_w(t_game *game)
 	}
 	else if (game->map[game->player_y - 1][game->player_x] == 'E')
 	{
-		if (game->taken != game->n_items)
-			portal_message(game);
-		else
+		if (game->taken == game->n_items)
 			exit (0);
 	}
 	else if (game->map[game->player_y - 1][game->player_x] == 'K')
@@ -51,9 +49,7 @@ void	player_a(t_game *game)
 	}
 	else if (game->map[game->player_y][game->player_x - 1] == 'E')
 	{
-		if (game->taken != game->n_items)
-			portal_message(game);
-		else
+		if (game->taken == game->n_items)
 			exit (0);
 	}
 	else if (game->map[game->player_y][game->player_x - 1] == 'K')
@@ -76,9 +72,7 @@ void	player_s(t_game *game)
 	}
 	else if (game->map[game->player_y + 1][game->player_x] == 'E')
 	{
-		if (game->taken != game->n_items)
-			portal_message(game);
-		else
+		if (game->taken == game->n_items)
 			exit (0);
 	}
 	else if (game->map[game->player_y + 1][game->player_x] == 'K')
@@ -101,9 +95,7 @@ void	player_d(t_game *game)
 	}
 	else if (game->map[game->player_y][game->player_x + 1] == 'E')
 	{
-		if (game->taken != game->n_items)
-			portal_message(game);
-		else
+		if (game->taken == game->n_items)
 			exit (0);
 	}
 	else if (game->map[game->player_y][game->player_x + 1] == 'K')

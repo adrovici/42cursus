@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:25:02 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/16 12:43:41 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:37:55 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_game
 	void	*img_exit_01;
 	void	*img_exit_02;
 	void	*img_exit_03;
+	void	*el_haki;
 	int		moves;
 	int		n_items;
 	int		n_player;
@@ -100,7 +101,6 @@ void	player_s_move(t_game *game);
 void	player_d(t_game *game);
 void	player_d_move(t_game *game);
 void	movement(t_game *game);
-void	portal_message(t_game *game);
 
 int		anim(t_game *game);
 int		full_anim(t_game *game);
@@ -117,5 +117,10 @@ void	obstacle_draw(t_game *game);
 void	wall_draw(t_game *game);
 void	obstacle_rand(t_game *game);
 void	display_moves(t_game *game);
+
+void	w_key(t_game *game);
+void	a_key(t_game *game);
+void	s_key(t_game *game);
+void	d_key(t_game *game);
 
 #endif

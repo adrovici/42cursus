@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:09:53 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 16:26:02 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/16 14:47:14 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	check = ft_map_validator(&game);
 	if (check == 0)
 	{
-		printf("no válido");
+		printf("map not valid");
 		exit(1);
 	}
 	map_generator(&game);

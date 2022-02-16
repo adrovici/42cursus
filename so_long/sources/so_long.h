@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:25:02 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 16:41:12 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:23:33 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,10 @@ void	player_d(t_game *game);
 void	player_d_move(t_game *game);
 void	movement(t_game *game);
 void	portal_message(t_game *game);
+
+void	w_key(t_game *game);
+void	a_key(t_game *game);
+void	s_key(t_game *game);
+void	d_key(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/19 13:31:00 by umartin-          #+#    #+#              #
-#    Updated: 2022/02/14 21:59:34 by umartin-         ###   ########.fr        #
+#    Updated: 2022/02/16 15:33:35 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ sources/map_draw.c \
 sources/gameplay.c \
 sources/game_events.c \
 sources/player.c \
+sources/game_events_utils.c \
 
 OBJ = sources/so_long.o \
 sources/ft_map_validator.o \
@@ -36,6 +37,7 @@ sources/map_draw.o \
 sources/gameplay.o \
 sources/game_events.o \
 sources/player.o \
+sources/game_events_utils.o \
 
 SRC_BONUS = sources_bonus/so_long_bonus.c \
 sources_bonus/ft_map_validator_bonus.c \
@@ -49,6 +51,7 @@ sources_bonus/anim_bonus.c \
 sources_bonus/anim_utils_bonus.c \
 sources_bonus/anim_utils_2_bonus.c \
 sources_bonus/obstacle_generator.c \
+sources_bonus/game_events_utils_bonus.c \
 
 OBJ_BONUS = sources_bonus/so_long_bonus.o \
 sources_bonus/ft_map_validator_bonus.o \
@@ -62,6 +65,7 @@ sources_bonus/anim_bonus.o \
 sources_bonus/anim_utils_bonus.o \
 sources_bonus/anim_utils_2_bonus.o \
 sources_bonus/obstacle_generator.o \
+sources_bonus/game_events_utils_bonus.o \
 
 CC = gcc
 CCFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address

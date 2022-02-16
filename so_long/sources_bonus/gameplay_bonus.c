@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:27:08 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 17:36:13 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:37:46 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,16 @@ int	ft_keypress(int keycode, t_game *game)
 		exit(0);
 	}
 	else if (!game->end)
+	{
 		if (game->dead == 0)
 			game_events(keycode, game);
+		else
+		{
+			img_draw(game, game->el_haki, 0, game->map_n + 1.35);
+			mlx_string_put(game->mlx, game->win, 10,
+				(game->map_n + 1.35) * 64, 0xFFFFFF, "GAME OVER");
+		}
+	}
 	return (0);
 }
 
@@ -40,13 +48,13 @@ void	gameplay(t_game *game)
 
 void	movement(t_game *game)
 {
-	game->moves++;
-	printf("MOVES %d\n", game->moves);
-}
+	char	*str;
 
-void	portal_message(t_game *game)
-{
-	game->moves--;
-	printf("NOT ENOUGH POWER!!\n");
-	return ;
+	game->moves++;
+	str = ft_itoa(game->moves);
+	img_draw(game, game->el_haki, 0, game->map_n + 1.35);
+	mlx_string_put(game->mlx, game->win, 10,
+		(game->map_n + 1.35) * 64, 0xFFFFFF, "MOVES: ");
+	mlx_string_put(game->mlx, game->win, 60,
+		(game->map_n + 1.35) * 64, 0xFFFFFF, str);
 }

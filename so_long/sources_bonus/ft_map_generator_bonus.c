@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 13:05:52 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/16 12:48:23 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/16 13:40:20 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,16 @@ void	map_size(t_game *game)
 	i = 0;
 	while (game->map[i] != NULL)
 		i++;
-	game->win_y = i * 64;
+	game->win_y = i * 64 + 32;
 }
 
 void	image_generator(t_game *game)
 {
+	int	a;
+	int	b;
+
+	a = 32;
+	b = 128;
 	game->img_back = mlx_xpm_file_to_image
 		(game->mlx, "images/0.xpm", &game->i, &game->i);
 	game->img_wall = mlx_xpm_file_to_image
@@ -35,6 +40,8 @@ void	image_generator(t_game *game)
 		(game->mlx, "images/exit_off.xpm", &game->i, &game->i);
 	game->img_enemy = mlx_xpm_file_to_image
 		(game->mlx, "images/enemy_00.xpm", &game->i, &game->i);
+	game->el_haki = mlx_xpm_file_to_image
+		(game->mlx, "images/el_haki.xpm", &b, &a);
 }
 
 void	structure_generator(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:27:08 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 16:10:50 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:26:01 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,5 @@ void	movement(t_game *game)
 
 void	portal_message(t_game *game)
 {
-	game->moves--;
 	printf("NOT ENOUGH POWER!!\n");
-	return ;
 }

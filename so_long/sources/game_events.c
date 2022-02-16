@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 12:16:28 by umartin-          #+#    #+#             */
-/*   Updated: 2022/02/11 16:02:19 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:29:49 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,19 @@ void	game_events(int keycode, t_game *game)
 {
 	if (keycode == KEY_W)
 	{
-		player_w(game);
-		if (game->map[game->player_y - 1][game->player_x] != '1')
-			movement(game);
+		w_key(game);
 	}
 	if (keycode == KEY_A)
 	{
-		player_a(game);
-		if (game->map[game->player_y][game->player_x - 1] != '1')
-			movement(game);
+		a_key(game);
 	}
 	if (keycode == KEY_S)
 	{
-		player_s(game);
-		if (game->map[game->player_y + 1][game->player_x] != '1')
-			movement(game);
+		s_key(game);
 	}
 	if (keycode == KEY_D)
 	{
-		player_d(game);
-		if (game->map[game->player_y][game->player_x + 1] != '1')
-			movement(game);
+		d_key(game);
 	}
 }
 
