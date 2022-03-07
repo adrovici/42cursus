@@ -6,18 +6,16 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 15:31:35 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/07 17:57:44 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/07 19:41:34 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	addnumbers(t_list **sta, char **av)
+void	addnumbers(t_list **sta, char **av, int i)
 {
-	int	i;
 	int	number;
 
-	i = 0;
 	while (av[++i] != NULL)
 	{
 		number = ft_atoi_psw(av[i]);
