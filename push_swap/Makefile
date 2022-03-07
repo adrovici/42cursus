@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 15:07:52 by umartin-          #+#    #+#              #
-#    Updated: 2022/03/03 17:12:06 by umartin-         ###   ########.fr        #
+#    Updated: 2022/03/07 18:05:56 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,10 @@ LIBFT_PATH		=	./libft
 LIBFT			=	$(LIBFT_PATH)/libft.a
 
 SRC = push_swap.c \
+push_swap_add.c \
 
 OBJ = push_swap.o \
+push_swap_add.o \
 
 CC = gcc
 CCFLAGS = -Wall -Wextra -Werror

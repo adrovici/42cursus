@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/20 12:04:06 by umartin-          #+#    #+#              #
-#    Updated: 2022/02/17 16:40:36 by umartin-         ###   ########.fr        #
+#    Updated: 2022/03/07 17:51:58 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,8 +50,7 @@ get_next_line_utils.c \
 ft_printf.c \
 ft_put.c \
 ft_puthexa.c \
-
-BONUS = ft_lstnew.c \
+t_lstnew.c \
 ft_lstadd_front.c \
 ft_lstsize.c \
 ft_lstlast.c \
@@ -100,8 +99,7 @@ get_next_line_utils.o \
 ft_printf.o \
 ft_put.o \
 ft_puthexa.o \
-
-BONUS_OBJECTS = ft_lstnew.o \
+ft_lstnew.o \
 ft_lstadd_front.o \
 ft_lstsize.o \
 ft_lstlast.o \
@@ -130,10 +128,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	
-bonus: $(BONUS_OBJECTS)
-	$(ARRC) $(NAME) $(BONUS_OBJECTS)
-	
+
 re: fclean all
 
 .PHONY: clean re fclean all bonus
