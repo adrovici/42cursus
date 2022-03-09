@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 15:07:52 by umartin-          #+#    #+#              #
-#    Updated: 2022/03/09 14:48:07 by umartin-         ###   ########.fr        #
+#    Updated: 2022/03/09 19:11:23 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CCFLAGS) $(LIBFT) $^ -o $@
 
 %.o: %.c
-	$(CC) -c $^ -o $@
+	$(CC) -g3 -fsanitize=address -c $^ -o $@
 	
 
 #$(CSRC): $(SRC)

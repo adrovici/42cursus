@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:36:59 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/09 16:14:05 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/09 19:27:42 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	main(int ac, char **av)
 	t_list	*stb;
 	int		i;
 
+	sta = NULL;
+	stb = NULL;
 	if (ac < 2)
 		return (0);
 	if (checker(ac, av))
@@ -31,12 +33,6 @@ int	main(int ac, char **av)
 			addnumbers(&sta, av, 0);
 		else
 			addnumbers(&sta, ft_split(av[1], ' '), -1);
-	}
-	psw_rra(&sta);
-	while (sta)
-	{
-		printf("%i\n", sta->content);
-		sta = sta->next;
 	}
 	return (0);
 }

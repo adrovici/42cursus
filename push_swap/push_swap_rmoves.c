@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:07:47 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/08 16:41:34 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/09 17:30:23 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	psw_ra(t_list **sta)
 {
 	t_list	*temp1;
-	t_list	*temp2;
 
 	if (*sta == NULL)
 		return ;
@@ -32,7 +31,6 @@ void	psw_ra(t_list **sta)
 void	psw_rb(t_list **stb)
 {
 	t_list	*temp1;
-	t_list	*temp2;
 
 	if (*stb == NULL)
 		return ;

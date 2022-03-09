@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_smoves.c                                 :+:      :+:    :+:   */
+/*   push_swap_spmoves.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 18:46:03 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/08 15:21:31 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/09 19:25:39 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,36 @@ void	psw_ss(t_list **sta, t_list **stb)
 	psw_sa(&sta);
 	psw_sb(&stb);
 	ft_printf("ss\n");
+}
+
+void	psw_pa(t_list **sta, t_list **stb)
+{
+	t_list	*temp1;
+
+	if (*stb == NULL)
+		return ;
+	temp1 = *stb;
+	if (temp1->next != NULL)
+		*stb = temp1->next;
+	else
+		*stb = NULL;
+	ft_lstadd_front(sta, temp1);
+	temp1->next = NULL;
+	ft_printf("pa\n");
+}
+
+void	psw_pb(t_list **sta, t_list **stb)
+{
+	t_list	*temp1;
+
+	if (*sta == NULL)
+		return ;
+	temp1 = *sta;
+	if (temp1->next != NULL)
+		*sta = temp1->next;
+	else
+		*sta = NULL;
+	ft_lstadd_front(stb, temp1);
+	temp1->next = NULL;
+	ft_printf("pb\n");
 }
