@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 15:07:52 by umartin-          #+#    #+#              #
-#    Updated: 2022/03/09 19:11:23 by umartin-         ###   ########.fr        #
+#    Updated: 2022/03/09 19:37:41 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,14 @@ push_swap_add.c \
 push_swap_spmoves.c \
 push_swap_rmoves.c \
 push_swap_rrmoves.c \
+push_swap_checker.c \
 
 OBJ = push_swap.o \
 push_swap_add.o \
 push_swap_spmoves.o \
 push_swap_rmoves.o \
 push_swap_rrmoves.o \
+push_swap_checker.o \
 
 CC = gcc
 CCFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
