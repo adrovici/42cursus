@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:43:23 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/08 15:08:43 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/09 14:47:28 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,9 @@ void	addnumbers(t_list **sta, char **av, int i);
 void	psw_sa(t_list **sta);
 void	psw_sb(t_list **stb);
 void	psw_ss(t_list **sta, t_list **stb);
+void	psw_ra(t_list **sta);
+void	psw_rb(t_list **sta);
+void	psw_rr(t_list **sta, t_list **stb);
+void	psw_rra(t_list **sta);
 
 #endif

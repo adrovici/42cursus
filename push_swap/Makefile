@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 15:07:52 by umartin-          #+#    #+#              #
-#    Updated: 2022/03/08 15:12:44 by umartin-         ###   ########.fr        #
+#    Updated: 2022/03/09 14:48:07 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,16 +17,18 @@ LIBFT			=	$(LIBFT_PATH)/libft.a
 
 SRC = push_swap.c \
 push_swap_add.c \
-push_swap_smoves.c \
+push_swap_spmoves.c \
 push_swap_rmoves.c \
+push_swap_rrmoves.c \
 
 OBJ = push_swap.o \
 push_swap_add.o \
-push_swap_smoves.o \
+push_swap_spmoves.o \
 push_swap_rmoves.o \
+push_swap_rrmoves.o \
 
 CC = gcc
-CCFLAGS = -Wall -Wextra -Werror
+CCFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 RM = rm -f
 ARRC = ar rc
 

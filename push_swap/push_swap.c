@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:36:59 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/08 14:33:44 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/09 16:14:05 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 		else
 			addnumbers(&sta, ft_split(av[1], ' '), -1);
 	}
-	psw_sa(&sta);
+	psw_rra(&sta);
 	while (sta)
 	{
 		printf("%i\n", sta->content);
