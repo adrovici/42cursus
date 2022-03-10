@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:43:23 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/10 14:34:47 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/10 15:55:09 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,9 @@ int		checker(int ac, char **av);
 
 // ALgorithm
 void	case_3(t_list	**sta);
-void	arg_num_chkr(int ac, t_list **sta);
+void	arg_num_chkr(t_list **sta, t_list **stb);
 void	case_3_1(t_list	**sta);
 void	case_3_2(t_list	**sta);
+void	case_5(t_list **sta, t_list **stb);
 
 #endif
