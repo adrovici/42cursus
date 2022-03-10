@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:36:59 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/09 20:28:57 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/10 13:38:15 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,14 @@ int	main(int ac, char **av)
 		else
 			addnumbers(&sta, ft_split(av[1], ' '), -1);
 	}
-	if (rep_nums(&sta))
-		printf("repetido");
-	if (alr_ord(&sta))
-		printf("ordenado");
+	if (rep_nums(&sta) || alr_ord(&sta))
+		errormsg();
+	arg_num_chkr(ac, &sta);
+	while (sta)
+	{
+		printf("%i\n", sta->content);
+		sta = sta->next;
+	}
 	return (0);
 }
 

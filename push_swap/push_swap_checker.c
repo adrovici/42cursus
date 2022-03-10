@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 19:36:11 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/09 20:28:17 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/10 13:32:39 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,10 @@ int	alr_ord(t_list	**sta)
 		temp1 = temp1->next;
 	}
 	return (1);
+}
+
+void	arg_num_chkr(int ac, t_list **sta)
+{
+	if (ac == 4)
+		case_3(sta);
 }
