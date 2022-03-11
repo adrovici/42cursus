@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:07:47 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/09 17:30:23 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/11 14:04:21 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,10 @@ void	psw_rr(t_list **sta, t_list **stb)
 	psw_ra(&sta);
 	psw_rb(&stb);
 	ft_printf("rr\n");
+}
+
+void	doble_pa(t_list **sta, t_list **stb)
+{
+	psw_pa(sta, stb);
+	psw_pa(sta, stb);
 }

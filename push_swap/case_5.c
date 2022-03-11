@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:59:41 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/11 13:29:34 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/11 14:15:26 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,83 +32,80 @@ void	case_5(t_list **sta, t_list **stb)
 		temp = temp->next;
 	}
 	temp = *sta;
+	cc = case_5_4(sta, stb, t, cc);
+	if (cc < (c / 2 + 1))
+		case_5_2(sta, stb, t);
+	if (cc >= (c / 2 + 1))
+		case_5_3(sta, stb, t);
+}
+
+int	case_5_4(t_list **sta, t_list **stb, int t, int cc)
+{
+	t_list	*temp;
+
+	temp = *sta;
 	while (temp->content != t)
 	{
 		temp = temp->next;
 		cc++;
 	}
+	return (cc);
+}
+
+void	case_5_2(t_list **sta, t_list **stb, int t)
+{
+	t_list	*temp;
+	t_list	*tempb;
+
 	temp = *sta;
-	if (cc < (c / 2 + 1))
+	if (t == temp->content)
+		case_5_1(sta, stb);
+	else
 	{
-		if (t == temp->content)
-		{
-			psw_pb(sta, stb);
-			temp = *sta;
-			if (ft_lstsize(temp) != 3)
-				case_5(sta, stb);
-			else if (ft_lstsize(temp) == 3)
-			{
-				case_3(sta);
-				tempb = *stb;
-				if (ft_lstsize(tempb) == 1)
-					psw_pa(sta, stb);
-				else
-				{
-					if (tempb->content < tempb->next->content)
-					{
-						psw_sb(stb);
-						psw_pa(sta, stb);
-						psw_pa(sta, stb);
-					}
-					else
-					{
-						psw_pa(sta, stb);
-						psw_pa(sta, stb);
-					}
-				}
-			}
-		}
-		else
-		{
-			psw_ra(sta);
-			case_5(sta, stb);
-		}
+		psw_ra(sta);
+		case_5(sta, stb);
 	}
+}
+
+void	case_5_3(t_list **sta, t_list **stb, int t)
+{
+	t_list	*temp;
+	t_list	*tempb;
+
 	temp = *sta;
-	if (cc >= (c / 2 + 1))
+	if (t == temp->content)
+		case_5_1(sta, stb);
+	else
 	{
-		if (t == temp->content)
-		{
-			psw_pb(sta, stb);
+		psw_rra(sta);
+		case_5(sta, stb);
+	}
+}
+
+void	case_5_1(t_list **sta, t_list **stb)
+{
+	t_list	*temp;
+	t_list	*tempb;
+
+	psw_pb(sta, stb);
 			temp = *sta;
-			if (ft_lstsize(temp) != 3)
-				case_5(sta, stb);
-			else
-			{
-				case_3(sta);
-				tempb = *stb;
-				if (ft_lstsize(tempb) == 1)
-					psw_pa(sta, stb);
-				else
-				{
-					if (tempb->content < tempb->next->content)
-					{
-						psw_sb(stb);
-						psw_pa(sta, stb);
-						psw_pa(sta, stb);
-					}
-					else
-					{
-						psw_pa(sta, stb);
-						psw_pa(sta, stb);
-					}
-				}
-			}
-		}
+	if (ft_lstsize(temp) != 3)
+		case_5(sta, stb);
+	else if (ft_lstsize(temp) == 3)
+	{
+		case_3(sta);
+		tempb = *stb;
+		if (ft_lstsize(tempb) == 1)
+			psw_pa(sta, stb);
 		else
 		{
-			psw_rra(sta);
-			case_5(sta, stb);
+			if (tempb->content < tempb->next->content)
+			{
+				psw_sb(stb);
+				doble_pa(sta, stb);
+			}
+			else
+				doble_pa(sta, stb);
 		}
 	}
 }
