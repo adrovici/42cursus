@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 18:46:03 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/09 19:25:39 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/11 13:26:38 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	psw_pa(t_list **sta, t_list **stb)
 	else
 		*stb = NULL;
 	ft_lstadd_front(sta, temp1);
-	temp1->next = NULL;
 	ft_printf("pa\n");
 }
 
@@ -79,6 +78,5 @@ void	psw_pb(t_list **sta, t_list **stb)
 	else
 		*sta = NULL;
 	ft_lstadd_front(stb, temp1);
-	temp1->next = NULL;
 	ft_printf("pb\n");
 }

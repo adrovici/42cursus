@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:59:41 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/10 16:53:38 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/11 13:29:34 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	case_5(t_list **sta, t_list **stb)
 	cc = 0;
 	t = temp->content;
 	temp = temp->next;
-	while (temp->next != NULL)
+	while (temp != NULL)
 	{
 		if (temp->content < t)
 			t = temp->content;
@@ -37,65 +37,78 @@ void	case_5(t_list **sta, t_list **stb)
 		temp = temp->next;
 		cc++;
 	}
-	printf ("me cago en todo lo cagable %i\n", cc);
-	if (cc > (c / 2))
+	temp = *sta;
+	if (cc < (c / 2 + 1))
 	{
-		psw_rra(sta);
-		temp = *sta;
-		if (t != temp->content)
-			case_5(sta, stb);
-		else
+		if (t == temp->content)
 		{
 			psw_pb(sta, stb);
 			temp = *sta;
-			if (ft_lstsize(temp) == 3)
+			if (ft_lstsize(temp) != 3)
+				case_5(sta, stb);
+			else if (ft_lstsize(temp) == 3)
 			{
 				case_3(sta);
 				tempb = *stb;
-				if (tempb->content < tempb->next->content)
-				{
-					psw_sb(stb);
+				if (ft_lstsize(tempb) == 1)
 					psw_pa(sta, stb);
-					psw_pa(sta, stb);
-				}
 				else
 				{
-					psw_pa(sta, stb);
-					psw_pa(sta, stb);
+					if (tempb->content < tempb->next->content)
+					{
+						psw_sb(stb);
+						psw_pa(sta, stb);
+						psw_pa(sta, stb);
+					}
+					else
+					{
+						psw_pa(sta, stb);
+						psw_pa(sta, stb);
+					}
 				}
 			}
-			else
-				case_5(sta, stb);
+		}
+		else
+		{
+			psw_ra(sta);
+			case_5(sta, stb);
 		}
 	}
-	else
+	temp = *sta;
+	if (cc >= (c / 2 + 1))
 	{
-		psw_ra(sta);
-		temp = *sta;
-		if (t != temp->content)
-			case_5(sta, stb);
-		else
+		if (t == temp->content)
 		{
 			psw_pb(sta, stb);
 			temp = *sta;
-			if (ft_lstsize(temp) == 3)
+			if (ft_lstsize(temp) != 3)
+				case_5(sta, stb);
+			else
 			{
 				case_3(sta);
 				tempb = *stb;
-				if (tempb->content < tempb->next->content)
-				{
-					psw_sb(stb);
+				if (ft_lstsize(tempb) == 1)
 					psw_pa(sta, stb);
-					psw_pa(sta, stb);
-				}
 				else
 				{
-					psw_pa(sta, stb);
-					psw_pa(sta, stb);
+					if (tempb->content < tempb->next->content)
+					{
+						psw_sb(stb);
+						psw_pa(sta, stb);
+						psw_pa(sta, stb);
+					}
+					else
+					{
+						psw_pa(sta, stb);
+						psw_pa(sta, stb);
+					}
 				}
 			}
-			else
-				case_5(sta, stb);
+		}
+		else
+		{
+			psw_rra(sta);
+			case_5(sta, stb);
 		}
 	}
 }

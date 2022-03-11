@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:36:59 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/10 15:55:02 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/11 13:27:19 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,34 @@ int	main(int ac, char **av)
 	if (rep_nums(&sta) || alr_ord(&sta))
 		errormsg();
 	arg_num_chkr(&sta, &stb);
-	while (sta)
-	{
-		printf("%i\n", sta->content);
-		sta = sta->next;
-	}
+	imprimir (&sta, &stb);
 	return (0);
+}
+
+void	imprimir(char **sta, char **stb)
+{
+	t_list	*tempa;
+	t_list	*tempb;
+
+	tempa = *sta;
+	tempb = *stb;
+	printf("\n");
+	printf ("/////////////////////////////\n");
+	printf ("STACK A\n");
+	while (tempa)
+	{
+		printf("%i\n", tempa->content);
+		tempa = tempa->next;
+	}
+	printf("\n");
+	printf ("STACK B\n");
+	while (tempb)
+	{
+		printf("%i\n", tempb->content);
+		tempb = tempb->next;
+	}
+	printf ("/////////////////////////////\n");
+	printf("\n");
 }
 
 int	checker(int ac, char **av)
