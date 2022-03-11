@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 15:07:52 by umartin-          #+#    #+#              #
-#    Updated: 2022/03/10 15:41:21 by umartin-         ###   ########.fr        #
+#    Updated: 2022/03/11 14:46:30 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ push_swap_rrmoves.c \
 push_swap_checker.c \
 case_3.c \
 case_5.c \
+case_standard.c \
 
 OBJ = push_swap.o \
 push_swap_add.o \
@@ -32,6 +33,7 @@ push_swap_rrmoves.o \
 push_swap_checker.o \
 case_3.o \
 case_5.o \
+case_standard.o \
 
 CC = gcc
 CCFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address

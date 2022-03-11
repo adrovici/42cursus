@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:59:41 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/11 14:15:26 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/11 15:03:55 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ void	case_5(t_list **sta, t_list **stb)
 		temp = temp->next;
 	}
 	temp = *sta;
-	cc = case_5_4(sta, stb, t, cc);
+	cc = min_pos_finder(sta, stb, t, cc);
 	if (cc < (c / 2 + 1))
 		case_5_2(sta, stb, t);
 	if (cc >= (c / 2 + 1))
 		case_5_3(sta, stb, t);
 }
 
-int	case_5_4(t_list **sta, t_list **stb, int t, int cc)
+int	min_pos_finder(t_list **sta, t_list **stb, int t, int cc)
 {
 	t_list	*temp;
 
@@ -88,7 +88,7 @@ void	case_5_1(t_list **sta, t_list **stb)
 	t_list	*tempb;
 
 	psw_pb(sta, stb);
-			temp = *sta;
+	temp = *sta;
 	if (ft_lstsize(temp) != 3)
 		case_5(sta, stb);
 	else if (ft_lstsize(temp) == 3)
