@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:59:41 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/11 15:03:55 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:26:39 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	case_5(t_list **sta, t_list **stb)
 	temp = *sta;
 	c = ft_lstsize(temp);
 	cc = 0;
-	t = temp->content;
+	t = (int)temp->content;
 	temp = temp->next;
 	while (temp != NULL)
 	{
-		if (temp->content < t)
-			t = temp->content;
+		if ((int)temp->content < t)
+			t = (int)temp->content;
 		temp = temp->next;
 	}
 	temp = *sta;
@@ -44,7 +44,7 @@ int	min_pos_finder(t_list **sta, t_list **stb, int t, int cc)
 	t_list	*temp;
 
 	temp = *sta;
-	while (temp->content != t)
+	while ((int)temp->content != t)
 	{
 		temp = temp->next;
 		cc++;
@@ -58,7 +58,7 @@ void	case_5_2(t_list **sta, t_list **stb, int t)
 	t_list	*tempb;
 
 	temp = *sta;
-	if (t == temp->content)
+	if (t == (int)temp->content)
 		case_5_1(sta, stb);
 	else
 	{
@@ -73,7 +73,7 @@ void	case_5_3(t_list **sta, t_list **stb, int t)
 	t_list	*tempb;
 
 	temp = *sta;
-	if (t == temp->content)
+	if (t == (int)temp->content)
 		case_5_1(sta, stb);
 	else
 	{
@@ -99,7 +99,7 @@ void	case_5_1(t_list **sta, t_list **stb)
 			psw_pa(sta, stb);
 		else
 		{
-			if (tempb->content < tempb->next->content)
+			if ((int)tempb->content < (int)tempb->next->content)
 			{
 				psw_sb(stb);
 				doble_pa(sta, stb);

@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 14:38:31 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/14 16:40:04 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:27:10 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	case_standard(t_list **sta, t_list **stb)
 	temp = *sta;
 	c = ft_lstsize(temp);
 	cc = 0;
-	t = temp->content;
+	t = (int)temp->content;
 	temp = temp->next;
 	while (temp != NULL)
 	{
-		if (temp->content < t)
-			t = temp->content;
+		if ((int)temp->content < t)
+			t = (int)temp->content;
 		temp = temp->next;
 	}
 	temp = *sta;
@@ -45,7 +45,7 @@ void	case_standard_utils_ra(t_list **sta, t_list **stb, int t, int c)
 	t_list	*tempb;
 
 	temp = *sta;
-	if (t == temp->content)
+	if (t == (int)temp->content)
 	{
 		psw_pb(sta, stb);
 		temp = *sta;
@@ -72,7 +72,7 @@ void	case_standard_utils_rra(t_list **sta, t_list **stb, int t, int c)
 	t_list	*tempb;
 
 	temp = *sta;
-	if (t == temp->content)
+	if (t == (int)temp->content)
 	{
 		psw_pb(sta, stb);
 		temp = *sta;

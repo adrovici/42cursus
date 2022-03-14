@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:36:59 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/14 15:16:26 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:24:25 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	main(int ac, char **av)
 			addnumbers(&sta, ft_split(av[1], ' '), -1);
 	}
 	if (rep_nums(&sta) || alr_ord(&sta))
-		errormsg();
+		exit (0);
 	arg_num_chkr(&sta, &stb);
-	//imprimir (&sta, &stb);
+	imprimir (&sta, &stb);
 	return (0);
 }
 
@@ -53,14 +53,14 @@ void	imprimir(char **sta, char **stb)
 	printf ("STACK A\n");
 	while (tempa)
 	{
-		printf("%i\n", tempa->content);
+		printf("%i\n", (int)tempa->content);
 		tempa = tempa->next;
 	}
 	printf("\n");
 	printf ("STACK B\n");
 	while (tempb)
 	{
-		printf("%i\n", tempb->content);
+		printf("%i\n", (int)tempb->content);
 		tempb = tempb->next;
 	}
 	printf ("/////////////////////////////\n");
@@ -135,7 +135,7 @@ int	num_checker(char *str)
 		}
 		return (0);
 	}
-	i = 1;
+	i = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')
