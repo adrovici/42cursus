@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 14:38:31 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/11 15:51:48 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:40:04 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,48 +34,62 @@ void	case_standard(t_list **sta, t_list **stb)
 	temp = *sta;
 	cc = min_pos_finder(sta, stb, t, cc);
 	if (cc < (c / 2 + 1))
+		case_standard_utils_ra(sta, stb, t, c);
+	if (cc >= (c / 2 + 1))
+		case_standard_utils_rra(sta, stb, t, c);
+}
+
+void	case_standard_utils_ra(t_list **sta, t_list **stb, int t, int c)
+{
+	t_list	*temp;
+	t_list	*tempb;
+
+	temp = *sta;
+	if (t == temp->content)
 	{
-		if (t == temp->content)
-		{
-			psw_pb(sta, stb);
-			temp = *sta;
-			if (ft_lstsize(temp) != (0))
-				case_standard(sta, stb);
-			else
-			{
-				tempb = *stb;
-				while (c-- != 0)
-				{
-					all_b_to_a(sta, stb);
-				}
-				return ;
-			}
-		}
+		psw_pb(sta, stb);
+		temp = *sta;
+		if (ft_lstsize(temp) != (0))
+			case_standard(sta, stb);
 		else
 		{
-			psw_ra(sta);
-			case_standard(sta, stb);
+			tempb = *stb;
+			while (c-- != 0)
+				all_b_to_a(sta, stb);
+			return ;
 		}
 	}
-	if (cc >= (c / 2 + 1))
+	else
 	{
-		if (t == temp->content)
-		{
-			psw_pb(sta, stb);
-			temp = *sta;
-			if (ft_lstsize(temp) != (0))
-				case_standard(sta, stb);
-			else
-			{
-				all_b_to_a(sta, stb);
-				return ;
-			}
-		}
+		psw_ra(sta);
+		case_standard(sta, stb);
+	}
+}
+
+void	case_standard_utils_rra(t_list **sta, t_list **stb, int t, int c)
+{
+	t_list	*temp;
+	t_list	*tempb;
+
+	temp = *sta;
+	if (t == temp->content)
+	{
+		psw_pb(sta, stb);
+		temp = *sta;
+		if (ft_lstsize(temp) != (0))
+			case_standard(sta, stb);
 		else
 		{
-			psw_rra(sta);
-			case_standard(sta, stb);
+			tempb = *stb;
+			while (c-- != 0)
+				all_b_to_a(sta, stb);
+			return ;
 		}
+	}
+	else
+	{
+		psw_rra(sta);
+		case_standard(sta, stb);
 	}
 }
 

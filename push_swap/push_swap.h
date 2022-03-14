@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:43:23 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/11 15:52:04 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:38:38 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	case_5_3(t_list **sta, t_list **stb, int t);
 int		min_pos_finder(t_list **sta, t_list **stb, int t, int cc);
 void	all_b_to_a(t_list **sta, t_list **stb);
 void	case_standard(t_list **sta, t_list **stb);
+void	case_standard_utils_ra(t_list **sta, t_list **stb, int t, int c);
+void	case_standard_utils_rra(t_list **sta, t_list **stb, int t, int c);
 
 void	imprimir(char **sta, char **stb);
 

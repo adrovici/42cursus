@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 15:31:35 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/10 12:42:02 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:16:42 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,10 @@ int	ft_atoi_psw(const char *str)
 		c++;
 	}
 	return (res * s);
+}
+
+void	errormsg(void)
+{
+	ft_printf("Error\n");
+	exit (0);
 }

@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:36:59 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/11 17:38:35 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:16:26 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,10 +143,4 @@ int	num_checker(char *str)
 		i++;
 	}
 	return (0);
-}
-
-void	errormsg(void)
-{
-	ft_printf("Error\n");
-	exit (0);
 }
