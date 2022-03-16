@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:36:59 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/16 12:07:49 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/16 19:17:25 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int ac, char **av)
 	if (rep_nums(&sta) || alr_ord(&sta))
 		exit (0);
 	arg_num_chkr(&sta, &stb);
-	imprimir (&sta, &stb);
+	//imprimir (&sta, &stb);
 	return (0);
 }
 

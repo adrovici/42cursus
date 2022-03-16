@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 18:06:27 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/16 18:17:46 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/16 18:20:43 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ void	i_case_3_1(t_list	**stb)
 
 void	i_case_3_2(t_list	**stb)
 {
-	psw_rrbpsw_sb(stb);
+	psw_rrb(stb);
 	psw_sb(stb);
 }

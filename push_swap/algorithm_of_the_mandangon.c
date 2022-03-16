@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:21:56 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/16 18:12:35 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/16 20:10:10 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ void	algorithm_of_the_mandangon(t_list **sta, t_list **stb)
 	int		cla;
 
 	temp = *sta;
-	while (ft_lstsize(temp) > 20)
+	while (ft_lstsize(temp) > 0)
 	{
 		cla = cla_finder(sta);
 		i = 0;
+		temp = *sta;
 		while (i < 20)
 		{
+			temp = *sta;
 			current = current_finder(sta, cla);
 			while ((int)temp->content != current)
 			{
@@ -36,13 +38,16 @@ void	algorithm_of_the_mandangon(t_list **sta, t_list **stb)
 				temp = *sta;
 			}
 			temp = *stb;
-			printf ("una me habla malo, y la otra me dice que me quiere %i\n", ft_lstsize(temp));
+			//printf ("una me habla malo, y la otra me dice que me quiere %i\n", ft_lstsize(temp));
 			imprimir(sta, stb);
 			if ((ft_lstsize(temp) == 0) || (ft_lstsize(temp) == 1)
 				|| (ft_lstsize(temp) == 2))
 				psw_pb(sta, stb);
 			else if (ft_lstsize(temp) == 3)
+			{
 				i_case_3(stb);
+				psw_pb(sta, stb);
+			}
 			else
 				case_b(sta, stb, current);
 			temp = *sta;
@@ -78,7 +83,6 @@ int	r_or_rr_b(t_list **stb, int current)
 	t_list	*tempb;
 	int		i;
 
-	printf("MARICON\n");
 	tempb = *stb;
 	i = 0;
 	while (tempb)

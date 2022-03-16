@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 19:15:44 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/16 15:40:51 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/16 20:18:24 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ int	current_finder_2(t_list **sta, int current, int counter)
 	temp = *sta;
 	counter2 = ft_lstsize(temp) - counter2;
 	if (counter > counter2)
-		counter = current_finder_2_2(sta, current, counter2);
+		current = current_finder_2_2(sta, current, counter2);
 	else
-		counter = current_finder_2_2(sta, current, counter);
+		current = current_finder_2_3(sta, current, counter);
 	return (current);
 }
 
@@ -98,4 +98,5 @@ int	current_finder_2_3(t_list **sta, int current, int counter2)
 		current = (int)temp->content;
 		temp = temp->next;
 	}
+	return (current);
 }

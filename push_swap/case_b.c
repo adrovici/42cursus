@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:03:52 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/16 18:03:04 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/16 20:13:15 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@ void	case_b(t_list **sta, t_list **stb, int current)
 	int		i;
 
 	c = 0;
-	printf ("el toto flow langosta %i\n", current);
-	if (!case_b_is_possible(stb, current))
+	if (case_b_is_possible(stb, current))
 		is_minim(sta, stb);
+	if (case_b_is_possible(stb, current))
+		psw_pb(sta, stb);
 	else
 	{
-		next = next_min_num(sta, current);
-		printf ("el problema %i\n", next);
-		tempb = *stb;
+		next = next_min_num(stb, current);
 		if (r_or_rr_b(stb, next))
 		{
 			i = 0;
@@ -60,16 +59,23 @@ void	case_b(t_list **sta, t_list **stb, int current)
 
 void	rrb_solver(t_list **stb, int i)
 {
-	while (i > 0)
+	i = i + 1;
+	while (i >= 0)
+	{
+		psw_sb(stb);
 		psw_rb(stb);
+		i--;
+	}
 }
 
 void	rb_solver(t_list **stb, int i)
 {
-	psw_sb(stb);
-	i = i + 2;
-	while (i > 0)
+	i = i + 1;
+	while (i >= 0)
+	{
 		psw_rrb(stb);
+		i--;
+	}
 }
 
 int	case_b_is_possible(t_list **stb, int current)
@@ -81,8 +87,22 @@ int	case_b_is_possible(t_list **stb, int current)
 	{
 		if ((int)tempb->content > current)
 			return (0);
+		tempb = tempb->next;
 	}
-	printf("no c puede\n");
+	return (1);
+}
+
+int	case_b_is_possible_m(t_list **stb, int current)
+{
+	t_list	*tempb;
+
+	tempb = *stb;
+	while (tempb)
+	{
+		if ((int)tempb->content > current)
+			return (0);
+		tempb = tempb->next;
+	}
 	return (1);
 }
 

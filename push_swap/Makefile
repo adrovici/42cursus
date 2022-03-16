@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 15:07:52 by umartin-          #+#    #+#              #
-#    Updated: 2022/03/16 18:10:20 by umartin-         ###   ########.fr        #
+#    Updated: 2022/03/16 18:20:28 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ push_swap_rmoves.o \
 push_swap_rrmoves.o \
 push_swap_checker.o \
 case_3.o \
-i_case_3.c \
+i_case_3.o \
 case_5.o \
 case_standard.o \
 algorithm_of_the_mandangon.o \
