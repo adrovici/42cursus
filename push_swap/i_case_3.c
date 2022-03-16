@@ -1,54 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   case_3.c                                           :+:      :+:    :+:   */
+/*   i_case_3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 12:47:52 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/15 20:43:40 by umartin-         ###   ########.fr       */
+/*   Created: 2022/03/16 18:06:27 by umartin-          #+#    #+#             */
+/*   Updated: 2022/03/16 18:17:46 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	case_3(t_list	**sta)
+#include "push_swap.h"
+
+void	i_case_3(t_list	**stb)
 {
 	t_list	*temp;
 
-	temp = *sta;
+	temp = *stb;
 	if (temp == NULL || temp->next == NULL || temp->next->next == NULL)
 		return ;
-	else if (((int)temp->content > (int)temp->next->content)
-		&& ((int)temp->next->content > (int)temp->next->next->content)
-		&& ((int)temp->content > (int)temp->next->next->content))
-		case_3_1(sta);
-	else if (((int)temp->content > (int)temp->next->content)
+	else if (((int)temp->content < (int)temp->next->content)
 		&& ((int)temp->next->content < (int)temp->next->next->content)
 		&& ((int)temp->content < (int)temp->next->next->content))
-		psw_sa(sta);
-	else if (((int)temp->content > (int)temp->next->content)
-		&& ((int)temp->next->content < (int)temp->next->next->content)
-		&& ((int)temp->content > (int)temp->next->next->content))
-		psw_ra(sta);
+		i_case_3_1(stb);
 	else if (((int)temp->content < (int)temp->next->content)
 		&& ((int)temp->next->content > (int)temp->next->next->content)
 		&& ((int)temp->content > (int)temp->next->next->content))
-		psw_rra(sta);
+		psw_sb(stb);
 	else if (((int)temp->content < (int)temp->next->content)
 		&& ((int)temp->next->content > (int)temp->next->next->content)
 		&& ((int)temp->content < (int)temp->next->next->content))
-		case_3_2(sta);
+		psw_rb(stb);
+	else if (((int)temp->content > (int)temp->next->content)
+		&& ((int)temp->next->content < (int)temp->next->next->content)
+		&& ((int)temp->content < (int)temp->next->next->content))
+		psw_rrb(stb);
+	else if (((int)temp->content > (int)temp->next->content)
+		&& ((int)temp->next->content < (int)temp->next->next->content)
+		&& ((int)temp->content > (int)temp->next->next->content))
+		i_case_3_2(stb);
 }
 
-void	case_3_1(t_list	**sta)
+void	i_case_3_1(t_list	**stb)
 {
-	psw_ra(sta);
-	psw_sa(sta);
+	psw_rb(stb);
+	psw_sb(stb);
 }
 
-void	case_3_2(t_list	**sta)
+void	i_case_3_2(t_list	**stb)
 {
-	psw_rra(sta);
-	psw_sa(sta);
+	psw_rrbpsw_sb(stb);
+	psw_sb(stb);
 }

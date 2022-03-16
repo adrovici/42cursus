@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 19:36:11 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/14 17:27:35 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/16 11:39:30 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,10 @@ void	arg_num_chkr(t_list **sta, t_list **stb)
 		case_3(sta);
 	else if (n == 4 || n == 5)
 		case_5(sta, stb);
-	else if ((n > 5) && (n < 100))
+	else if ((n > 5) && (n < 20))
 		case_standard(sta, stb);
 	else if (n == 2)
 		psw_sa(sta);
+	else if (n >= 20)
+		algorithm_of_the_mandangon(sta, stb);
 }
