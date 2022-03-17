@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 19:15:44 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/16 20:18:24 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/17 15:01:09 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,88 +15,57 @@
 int	current_finder(t_list **sta, int cla)
 {
 	t_list	*temp;
-	int		counter;
-	int		mid_num;
 	int		current;
+	int		c;
+	int		c2;
 
-	counter = 0;
-	if (*sta == NULL)
-		exit(0);
+	c = 1;
+	c2 = 1;
 	temp = *sta;
-	mid_num = ft_lstsize(temp) / 2;
-	while (temp != NULL)
+	while (temp)
 	{
-		if ((int)temp->content <= cla)
+		if ((int)temp->content < cla)
 			break ;
-		counter++;
+		c++;
 		temp = temp->next;
 	}
-	current = current_finder_3(sta, current, cla);
-	current = current_finder_2(sta, current, counter);
-	return (current);
-}
-
-int	current_finder_3(t_list **sta, int current, int cla)
-{
-	t_list	*temp;
-
 	temp = *sta;
-	while (temp != NULL)
+	while (temp)
 	{
-		if ((int)temp->content <= cla)
+		if ((int)temp->content < cla)
 			current = (int)temp->content;
 		temp = temp->next;
 	}
-	return (current);
-}
-
-int	current_finder_2(t_list **sta, int current, int counter)
-{
-	t_list	*temp;
-	int		counter2;
-
-	counter2 = 0;
 	temp = *sta;
-	while (temp != NULL)
+	while (temp)
 	{
 		if ((int)temp->content == current)
 			break ;
-		counter2++;
+		c2++;
 		temp = temp->next;
 	}
 	temp = *sta;
-	counter2 = ft_lstsize(temp) - counter2;
-	if (counter > counter2)
-		current = current_finder_2_2(sta, current, counter2);
+	c2 = ft_lstsize(temp) - c2 + 1;
+	if (c < c2)
+	{
+		while (c > 0)
+		{
+			current = (int)temp->content;
+			temp = temp->next;
+			c--;
+		}
+	}
 	else
-		current = current_finder_2_3(sta, current, counter);
-	return (current);
-}
-
-int	current_finder_2_2(t_list **sta, int current, int counter)
-{
-	t_list	*temp;
-
-	temp = *sta;
-	counter++;
-	while (counter-- > 0)
 	{
-		current = (int)temp->content;
-		temp = temp->next;
+		temp = *sta;
+		c2 = ft_lstsize(temp) - c2 + 1;
+		while (c2 > 0)
+		{
+			current = (int)temp->content;
+			temp = temp->next;
+			c2--;
+		}
 	}
 	return (current);
 }
 
-int	current_finder_2_3(t_list **sta, int current, int counter2)
-{
-	t_list	*temp;
-
-	temp = *sta;
-	counter2 = ft_lstsize(temp) - counter2 + 1;
-	while (counter2-- > 0)
-	{
-		current = (int)temp->content;
-		temp = temp->next;
-	}
-	return (current);
-}

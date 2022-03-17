@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:21:56 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/16 20:10:10 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/17 15:04:03 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ void	algorithm_of_the_mandangon(t_list **sta, t_list **stb)
 				else
 					psw_ra(sta);
 				temp = *sta;
+				imprimir(sta, stb);
 			}
 			temp = *stb;
-			//printf ("una me habla malo, y la otra me dice que me quiere %i\n", ft_lstsize(temp));
-			imprimir(sta, stb);
 			if ((ft_lstsize(temp) == 0) || (ft_lstsize(temp) == 1)
 				|| (ft_lstsize(temp) == 2))
 				psw_pb(sta, stb);
@@ -52,6 +51,7 @@ void	algorithm_of_the_mandangon(t_list **sta, t_list **stb)
 				case_b(sta, stb, current);
 			temp = *sta;
 			i++;
+			i = 20;
 		}
 	temp = *sta;
 	}
@@ -63,7 +63,7 @@ int	r_or_rr(t_list **sta, int current)
 	int		i;
 
 	temp = *sta;
-	i = 0;
+	i = 1;
 	while (temp)
 	{
 		if (temp->content == current)

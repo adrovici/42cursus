@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:03:52 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/16 20:13:15 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/17 14:36:28 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	case_b(t_list **sta, t_list **stb, int current)
 	c = 0;
 	if (case_b_is_possible(stb, current))
 		is_minim(sta, stb);
-	if (case_b_is_possible(stb, current))
+	else if (case_b_is_possible_m(stb, current))
 		psw_pb(sta, stb);
 	else
 	{
