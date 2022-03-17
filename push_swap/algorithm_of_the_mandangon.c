@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:21:56 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/17 15:04:03 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/17 17:31:46 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	algorithm_of_the_mandangon(t_list **sta, t_list **stb)
 	int		cla;
 
 	temp = *sta;
-	while (ft_lstsize(temp) > 0)
+	while (ft_lstsize(temp) > 20)
 	{
 		cla = cla_finder(sta);
 		i = 0;
 		temp = *sta;
-		while (i < 20)
+		while (i < 19)
 		{
 			temp = *sta;
 			current = current_finder(sta, cla);
@@ -36,25 +36,31 @@ void	algorithm_of_the_mandangon(t_list **sta, t_list **stb)
 				else
 					psw_ra(sta);
 				temp = *sta;
-				imprimir(sta, stb);
 			}
 			temp = *stb;
-			if ((ft_lstsize(temp) == 0) || (ft_lstsize(temp) == 1)
-				|| (ft_lstsize(temp) == 2))
+			if ((ft_lstsize(temp) == 0) || (ft_lstsize(temp) == 1))
 				psw_pb(sta, stb);
-			else if (ft_lstsize(temp) == 3)
+			else if (ft_lstsize(temp) == 2)
 			{
-				i_case_3(stb);
 				psw_pb(sta, stb);
+				i_case_3(stb);
 			}
 			else
 				case_b(sta, stb, current);
 			temp = *sta;
 			i++;
-			i = 20;
 		}
 	temp = *sta;
 	}
+	temp = *sta;
+	while (ft_lstsize(temp) != 0)
+	{
+		temp = *sta;
+		current = (int)temp->content;
+		case_b(sta, stb, current);
+		temp = *sta;
+	}
+	all_b_to_a(sta, stb);
 }
 
 int	r_or_rr(t_list **sta, int current)

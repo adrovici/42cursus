@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:43:23 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/16 19:45:38 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/17 15:53:54 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	case_standard_utils_ra(t_list **sta, t_list **stb, int t, int c);
 void	case_standard_utils_rra(t_list **sta, t_list **stb, int t, int c);
 void	algorithm_of_the_mandangon(t_list **sta, t_list **stb);
 int		next_min_num(t_list	**sta, int min);
+int		previous_finder(t_list **stb, int min);
 int		cla_finder(t_list	**sta);
 int		current_finder(t_list **sta, int cla);
 int		current_finder_2(t_list **sta, int current, int counter);
