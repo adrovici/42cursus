@@ -6,13 +6,13 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:59:41 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/14 18:37:34 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/21 15:36:13 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	case_5(t_list **sta, t_list **stb)
+void	case_5(t_list **sta, t_list **stb, t_list **result)
 {
 	t_list	*temp;
 	t_list	*tempb;
@@ -34,9 +34,9 @@ void	case_5(t_list **sta, t_list **stb)
 	temp = *sta;
 	cc = min_pos_finder(sta, stb, t, cc);
 	if (cc < (c / 2 + 1))
-		case_5_2(sta, stb, t);
+		case_5_2(sta, stb, t, result);
 	if (cc >= (c / 2 + 1))
-		case_5_3(sta, stb, t);
+		case_5_3(sta, stb, t, result);
 }
 
 int	min_pos_finder(t_list **sta, t_list **stb, int t, int cc)
@@ -52,60 +52,60 @@ int	min_pos_finder(t_list **sta, t_list **stb, int t, int cc)
 	return (cc);
 }
 
-void	case_5_2(t_list **sta, t_list **stb, int t)
+void	case_5_2(t_list **sta, t_list **stb, int t, t_list **result)
 {
 	t_list	*temp;
 	t_list	*tempb;
 
 	temp = *sta;
 	if (t == (int)temp->content)
-		case_5_1(sta, stb);
+		case_5_1(sta, stb, result);
 	else
 	{
-		psw_ra(sta);
-		case_5(sta, stb);
+		psw_ra(sta, result);
+		case_5(sta, stb, result);
 	}
 }
 
-void	case_5_3(t_list **sta, t_list **stb, int t)
+void	case_5_3(t_list **sta, t_list **stb, int t, t_list **result)
 {
 	t_list	*temp;
 	t_list	*tempb;
 
 	temp = *sta;
 	if (t == (int)temp->content)
-		case_5_1(sta, stb);
+		case_5_1(sta, stb, result);
 	else
 	{
-		psw_rra(sta);
-		case_5(sta, stb);
+		psw_rra(sta, result);
+		case_5(sta, stb, result);
 	}
 }
 
-void	case_5_1(t_list **sta, t_list **stb)
+void	case_5_1(t_list **sta, t_list **stb, t_list **result)
 {
 	t_list	*temp;
 	t_list	*tempb;
 
-	psw_pb(sta, stb);
+	psw_pb(sta, stb, result);
 	temp = *sta;
 	if (ft_lstsize(temp) != 3)
-		case_5(sta, stb);
+		case_5(sta, stb, result);
 	else if (ft_lstsize(temp) == 3)
 	{
-		case_3(sta);
+		case_3(sta, result);
 		tempb = *stb;
 		if (ft_lstsize(tempb) == 1)
-			psw_pa(sta, stb);
+			psw_pa(sta, stb, result);
 		else
 		{
 			if ((int)tempb->content < (int)tempb->next->content)
 			{
-				psw_sb(stb);
-				doble_pa(sta, stb);
+				psw_sb(stb, result);
+				doble_pa(sta, stb, result);
 			}
 			else
-				doble_pa(sta, stb);
+				doble_pa(sta, stb, result);
 		}
 	}
 }

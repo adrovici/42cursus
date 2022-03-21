@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:36:59 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/17 17:19:36 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/21 19:45:19 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ int	main(int ac, char **av)
 {
 	t_list	*sta;
 	t_list	*stb;
+	t_list	*result;
 	int		i;
 
 	sta = NULL;
 	stb = NULL;
+	result = NULL;
 	if (ac < 2)
 		return (0);
 	if (checker(ac, av))
@@ -34,9 +36,12 @@ int	main(int ac, char **av)
 		else
 			addnumbers(&sta, ft_split(av[1], ' '), -1);
 	}
-	if (rep_nums(&sta) || alr_ord(&sta))
+	if (alr_ord(&sta))
 		exit (0);
-	arg_num_chkr(&sta, &stb);
+	if (rep_nums(&sta))
+		errormsg();
+	arg_num_chkr(&sta, &stb, &result);
+	result_printer(&result);
 	//imprimir (&sta, &stb);
 	return (0);
 }

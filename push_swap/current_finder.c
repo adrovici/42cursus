@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 19:15:44 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/17 15:01:09 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/18 16:53:55 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,3 @@ int	current_finder(t_list **sta, int cla)
 	}
 	return (current);
 }
-

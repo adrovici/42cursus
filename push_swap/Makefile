@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 15:07:52 by umartin-          #+#    #+#              #
-#    Updated: 2022/03/16 18:20:28 by umartin-         ###   ########.fr        #
+#    Updated: 2022/03/21 16:56:20 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ algorithm_of_the_mandangon.c \
 current_finder.c \
 push_swap_utils.c \
 case_b.c \
+result_printer.c \
+
 
 OBJ = push_swap.o \
 push_swap_add.o \
@@ -44,6 +46,7 @@ algorithm_of_the_mandangon.o \
 current_finder.o \
 push_swap_utils.o \
 case_b.o \
+result_printer.o \
 
 CC = gcc
 CCFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address

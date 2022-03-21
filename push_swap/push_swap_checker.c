@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 19:36:11 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/16 11:39:30 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/21 15:44:21 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	alr_ord(t_list	**sta)
 	return (1);
 }
 
-void	arg_num_chkr(t_list **sta, t_list **stb)
+void	arg_num_chkr(t_list **sta, t_list **stb, t_list **result)
 {
 	t_list	*temp;
 	int		n;
@@ -66,13 +66,13 @@ void	arg_num_chkr(t_list **sta, t_list **stb)
 	temp = *sta;
 	n = ft_lstsize(temp);
 	if (n == 3)
-		case_3(sta);
+		case_3(sta, result);
 	else if (n == 4 || n == 5)
-		case_5(sta, stb);
+		case_5(sta, stb, result);
 	else if ((n > 5) && (n < 20))
-		case_standard(sta, stb);
+		case_standard(sta, stb, result);
 	else if (n == 2)
-		psw_sa(sta);
+		psw_sa(sta, result);
 	else if (n >= 20)
-		algorithm_of_the_mandangon(sta, stb);
+		algorithm_of_the_mandangon(sta, stb, result);
 }

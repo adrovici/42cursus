@@ -6,13 +6,13 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:21:56 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/17 17:31:46 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/21 15:59:20 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	algorithm_of_the_mandangon(t_list **sta, t_list **stb)
+void	algorithm_of_the_mandangon(t_list **sta, t_list **stb, t_list **result)
 {
 	t_list	*temp;
 	int		current;
@@ -20,33 +20,33 @@ void	algorithm_of_the_mandangon(t_list **sta, t_list **stb)
 	int		cla;
 
 	temp = *sta;
-	while (ft_lstsize(temp) > 20)
+	while (ft_lstsize(temp) > 9)
 	{
 		cla = cla_finder(sta);
 		i = 0;
 		temp = *sta;
-		while (i < 19)
+		while (i < 8)
 		{
 			temp = *sta;
 			current = current_finder(sta, cla);
 			while ((int)temp->content != current)
 			{
 				if (r_or_rr(sta, current))
-					psw_rra(sta);
+					psw_rra(sta, result);
 				else
-					psw_ra(sta);
+					psw_ra(sta, result);
 				temp = *sta;
 			}
 			temp = *stb;
 			if ((ft_lstsize(temp) == 0) || (ft_lstsize(temp) == 1))
-				psw_pb(sta, stb);
+				psw_pb(sta, stb, result);
 			else if (ft_lstsize(temp) == 2)
 			{
-				psw_pb(sta, stb);
-				i_case_3(stb);
+				psw_pb(sta, stb, result);
+				i_case_3(stb, result);
 			}
 			else
-				case_b(sta, stb, current);
+				case_b(sta, stb, current, result);
 			temp = *sta;
 			i++;
 		}
@@ -57,10 +57,10 @@ void	algorithm_of_the_mandangon(t_list **sta, t_list **stb)
 	{
 		temp = *sta;
 		current = (int)temp->content;
-		case_b(sta, stb, current);
+		case_b(sta, stb, current, result);
 		temp = *sta;
 	}
-	all_b_to_a(sta, stb);
+	all_b_to_a(sta, stb, result);
 }
 
 int	r_or_rr(t_list **sta, int current)
@@ -128,7 +128,7 @@ int	cla_finder(t_list	**sta)
 	i = 0;
 	min = min_num_finder(sta);
 	cla = next_min_num(sta, min);
-	while (i++ < 18)
+	while (i++ < 7)
 		cla = next_min_num(sta, cla);
 	return (cla);
 }

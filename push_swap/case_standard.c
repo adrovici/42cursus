@@ -6,13 +6,13 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 14:38:31 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/14 17:27:10 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/21 15:55:27 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	case_standard(t_list **sta, t_list **stb)
+void	case_standard(t_list **sta, t_list **stb, t_list **result)
 {
 	t_list	*temp;
 	t_list	*tempb;
@@ -34,12 +34,12 @@ void	case_standard(t_list **sta, t_list **stb)
 	temp = *sta;
 	cc = min_pos_finder(sta, stb, t, cc);
 	if (cc < (c / 2 + 1))
-		case_standard_utils_ra(sta, stb, t, c);
+		case_standard_utils_ra(sta, stb, t, c, result);
 	if (cc >= (c / 2 + 1))
-		case_standard_utils_rra(sta, stb, t, c);
+		case_standard_utils_rra(sta, stb, t, c, result);
 }
 
-void	case_standard_utils_ra(t_list **sta, t_list **stb, int t, int c)
+void	case_standard_utils_ra(t_list **sta, t_list **stb, int t, int c, t_list **result)
 {
 	t_list	*temp;
 	t_list	*tempb;
@@ -47,26 +47,26 @@ void	case_standard_utils_ra(t_list **sta, t_list **stb, int t, int c)
 	temp = *sta;
 	if (t == (int)temp->content)
 	{
-		psw_pb(sta, stb);
+		psw_pb(sta, stb, result);
 		temp = *sta;
 		if (ft_lstsize(temp) != (0))
-			case_standard(sta, stb);
+			case_standard(sta, stb, result);
 		else
 		{
 			tempb = *stb;
 			while (c-- != 0)
-				all_b_to_a(sta, stb);
+				all_b_to_a(sta, stb, result);
 			return ;
 		}
 	}
 	else
 	{
-		psw_ra(sta);
-		case_standard(sta, stb);
+		psw_ra(sta, result);
+		case_standard(sta, stb, result);
 	}
 }
 
-void	case_standard_utils_rra(t_list **sta, t_list **stb, int t, int c)
+void	case_standard_utils_rra(t_list **sta, t_list **stb, int t, int c, t_list **result)
 {
 	t_list	*temp;
 	t_list	*tempb;
@@ -74,26 +74,26 @@ void	case_standard_utils_rra(t_list **sta, t_list **stb, int t, int c)
 	temp = *sta;
 	if (t == (int)temp->content)
 	{
-		psw_pb(sta, stb);
+		psw_pb(sta, stb, result);
 		temp = *sta;
 		if (ft_lstsize(temp) != (0))
-			case_standard(sta, stb);
+			case_standard(sta, stb, result);
 		else
 		{
 			tempb = *stb;
 			while (c-- != 0)
-				all_b_to_a(sta, stb);
+				all_b_to_a(sta, stb, result);
 			return ;
 		}
 	}
 	else
 	{
-		psw_rra(sta);
-		case_standard(sta, stb);
+		psw_rra(sta, result);
+		case_standard(sta, stb, result);
 	}
 }
 
-void	all_b_to_a(t_list **sta, t_list **stb)
+void	all_b_to_a(t_list **sta, t_list **stb, t_list **result)
 {
 	t_list	*temp;
 	int		a;
@@ -104,7 +104,7 @@ void	all_b_to_a(t_list **sta, t_list **stb)
 	a = ft_lstsize(temp);
 	while (a != 0)
 	{
-		psw_pa(sta, stb);
+		psw_pa(sta, stb, result);
 		temp = *stb;
 		a = ft_lstsize(temp);
 	}

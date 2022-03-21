@@ -6,18 +6,20 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:07:47 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/16 15:32:15 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/21 16:45:32 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	psw_ra(t_list **sta)
+void	psw_ra(t_list **sta, t_list **result)
 {
 	t_list	*temp1;
+	int		r;
 
 	if (*sta == NULL)
 		return ;
+	r = 11;
 	temp1 = *sta;
 	if (temp1->next != NULL)
 		*sta = temp1->next;
@@ -25,15 +27,18 @@ void	psw_ra(t_list **sta)
 		*sta = NULL;
 	ft_lstadd_back(sta, temp1);
 	temp1->next = NULL;
-	ft_printf("ra\n");
+	//ft_printf("ra\n");
+	ft_lstadd_back(result, ft_lstnew(r));
 }
 
-void	psw_rb(t_list **stb)
+void	psw_rb(t_list **stb, t_list **result)
 {
 	t_list	*temp1;
+	int		r;
 
 	if (*stb == NULL)
 		return ;
+	r = 12;
 	temp1 = *stb;
 	if (temp1->next != NULL)
 		*stb = temp1->next;
@@ -41,18 +46,19 @@ void	psw_rb(t_list **stb)
 		*stb = NULL;
 	ft_lstadd_back(stb, temp1);
 	temp1->next = NULL;
-	ft_printf("rb\n");
+	//ft_printf("rb\n");
+	ft_lstadd_back(result, ft_lstnew(r));
 }
 
-void	psw_rr(t_list **sta, t_list **stb)
-{
-	psw_ra(&sta);
-	psw_rb(&stb);
-	ft_printf("rr\n");
-}
+// void	psw_rr(t_list **sta, t_list **stb)
+// {
+// 	psw_ra(&sta);
+// 	psw_rb(&stb);
+// 	ft_printf("rr\n");
+// }
 
-void	doble_pa(t_list **sta, t_list **stb)
+void	doble_pa(t_list **sta, t_list **stb, t_list **result)
 {
-	psw_pa(sta, stb);
-	psw_pa(sta, stb);
+	psw_pa(sta, stb, result);
+	psw_pa(sta, stb, result);
 }
