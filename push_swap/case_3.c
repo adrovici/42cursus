@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:47:52 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/21 15:32:58 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/24 13:47:12 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ void	case_3(t_list **sta, t_list **result)
 
 void	case_3_1(t_list	**sta, t_list **result)
 {
-	psw_ra(sta, result);
 	psw_sa(sta, result);
+	psw_rra(sta, result);
 }
 
 void	case_3_2(t_list	**sta, t_list **result)
 {
-	psw_rra(sta, result);
 	psw_sa(sta, result);
+	psw_ra(sta, result);
 }

@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:07:47 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/21 16:45:32 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/24 17:49:19 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	psw_ra(t_list **sta, t_list **result)
 		*sta = NULL;
 	ft_lstadd_back(sta, temp1);
 	temp1->next = NULL;
-	//ft_printf("ra\n");
 	ft_lstadd_back(result, ft_lstnew(r));
 }
 
@@ -46,16 +45,8 @@ void	psw_rb(t_list **stb, t_list **result)
 		*stb = NULL;
 	ft_lstadd_back(stb, temp1);
 	temp1->next = NULL;
-	//ft_printf("rb\n");
 	ft_lstadd_back(result, ft_lstnew(r));
 }
-
-// void	psw_rr(t_list **sta, t_list **stb)
-// {
-// 	psw_ra(&sta);
-// 	psw_rb(&stb);
-// 	ft_printf("rr\n");
-// }
 
 void	doble_pa(t_list **sta, t_list **stb, t_list **result)
 {

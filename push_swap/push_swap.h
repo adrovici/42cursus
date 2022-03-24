@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:43:23 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/21 17:39:29 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/22 16:47:01 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	i_case_3_1(t_list	**stb, t_list **result);
 void	i_case_3_2(t_list	**stb, t_list **result);
 
 void	result_printer(t_list **res);
+void	real_printer(t_list **res);
 
 void	imprimir(char **sta, char **stb);
 
