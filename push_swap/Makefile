@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 15:07:52 by umartin-          #+#    #+#              #
-#    Updated: 2022/03/21 16:56:20 by umartin-         ###   ########.fr        #
+#    Updated: 2022/03/29 13:57:55 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,8 @@ current_finder.c \
 push_swap_utils.c \
 case_b.c \
 result_printer.c \
+the_chosen_one.c \
+no_op_printer.c \
 
 
 OBJ = push_swap.o \
@@ -47,6 +49,8 @@ current_finder.o \
 push_swap_utils.o \
 case_b.o \
 result_printer.o \
+the_chosen_one.o \
+no_op_printer.o \
 
 CC = gcc
 CCFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
