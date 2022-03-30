@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:43:23 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/29 14:57:30 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/30 16:16:30 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,14 @@ void	real_printer(t_list **res);
 void	the_chosen_one(t_list **sta, t_list **stb, t_list **result);
 int		cla_mid_finder(t_list	**sta, int a);
 void	b_to_a_splitter(t_list **sta, t_list **stb, t_list **result);
+void	a_to_b_splitter(t_list **sta, t_list **stb, t_list **result, int a);
 void	b_to_a_orden(t_list **sta, t_list **stb, t_list **result);
+void	a_to_b_to_ord(t_list **sta, t_list **stb, t_list **result, int a);
+int		cla_next_finder(t_list	**sta, int a);
+int		min_num_finder_algo(t_list	**sta, int a);
+int		next_min_num_algo(t_list	**sta, int min, int a);
+int		max_num_finder_algo(t_list	**sta, int a);
+int		nums_until_min(t_list	**sta, int a);
 
 void	imprimir(char **sta, char **stb);
 void	no_op_printer(t_list **res);

@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:49:47 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/17 17:18:17 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/03/30 11:35:17 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	next_min_num(t_list	**sta, int min)
 
 	temp = *sta;
 	n = max_num_finder(sta);
-	while (temp->next != NULL)
+	while (temp != NULL)
 	{
 		if ((int)temp->content < n && (int)temp->content > min)
 			n = (int)temp->content;
