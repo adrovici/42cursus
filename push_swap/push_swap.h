@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:43:23 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/30 16:16:30 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/01 16:43:57 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@ int		main(int ac, char **av);
 void	errormsg(void);
 int		ft_atoi_psw(const char *str);
 void	addnumbers(t_list **sta, char **av, int i);
+
+typedef struct s_push
+{
+	int		max;
+	int		min;
+	int		stack1;
+	int		stack2;
+	int		stack3;
+	int		stack4;
+	int		stack5;
+	int		stack6;
+	int		stack7;
+
+}	t_push;
 
 // Movements
 
@@ -45,7 +59,7 @@ int		checker(int ac, char **av);
 
 // Algorithm
 void	case_3(t_list **sta, t_list **result);
-void	arg_num_chkr(t_list **sta, t_list **stb, t_list **result);
+void	arg_num_chkr(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	case_3_1(t_list	**sta, t_list **result);
 void	case_3_2(t_list	**sta, t_list **result);
 void	case_5(t_list **sta, t_list **stb, t_list **result);
@@ -66,7 +80,7 @@ void	case_standard_utils_rra(t_list **sta, t_list **stb, int t, int c, t_list **
 void	algorithm_of_the_mandangon(t_list **sta, t_list **stb, t_list **result);
 int		next_min_num(t_list	**sta, int min);
 int		previous_finder(t_list **stb, int min);
-int		cla_finder(t_list	**sta);
+int		cla_finder(t_list	**sta, int a);
 int		current_finder(t_list **sta, int cla);
 int		current_finder_2(t_list **sta, int current, int counter);
 int		current_finder_3(t_list **sta, int current, int cla);
@@ -92,12 +106,18 @@ void	i_case_3_2(t_list	**stb, t_list **result);
 void	result_printer(t_list **res);
 void	real_printer(t_list **res);
 
-void	the_chosen_one(t_list **sta, t_list **stb, t_list **result);
+void	the_chosen_one(t_list **sta, t_list **stb, t_list **result, t_push *push);
+void	stack2_split(t_list **sta, t_list **stb, t_list **result, t_push *push);
+void	stack4_split(t_list **sta, t_list **stb, t_list **result, t_push *push);
 int		cla_mid_finder(t_list	**sta, int a);
-void	b_to_a_splitter(t_list **sta, t_list **stb, t_list **result);
+void	list_stack_init(t_list **sta, t_push *push, int aux);
+int		b_to_a_splitter(t_list **sta, t_list **stb, t_list **result, int aux_aux);
 void	a_to_b_splitter(t_list **sta, t_list **stb, t_list **result, int a);
 void	b_to_a_orden(t_list **sta, t_list **stb, t_list **result);
 void	a_to_b_to_ord(t_list **sta, t_list **stb, t_list **result, int a);
+int		until_next_stack(t_list **sta, t_push *push);
+int		until_next_two_stacks(t_list **sta, t_push *push);
+
 int		cla_next_finder(t_list	**sta, int a);
 int		min_num_finder_algo(t_list	**sta, int a);
 int		next_min_num_algo(t_list	**sta, int min, int a);

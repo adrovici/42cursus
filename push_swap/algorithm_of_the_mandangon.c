@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:21:56 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/29 12:50:20 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:00:29 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ void	algorithm_of_the_mandangon(t_list **sta, t_list **stb, t_list **result)
 	int		current;
 	int		i;
 	int		cla;
+	int		a;
 
 	temp = *sta;
+	a = 9;
 	while (ft_lstsize(temp) > 9)
 	{
-		cla = cla_finder(sta);
+		cla = cla_finder(sta, a);
 		i = 0;
 		temp = *sta;
 		while (i < 8)
@@ -118,7 +120,7 @@ int	current_checker(t_list **sta, int cla)
 	return (1);
 }
 
-int	cla_finder(t_list	**sta)
+int	cla_finder(t_list	**sta, int a)
 {
 	t_list	*temp;
 	int		i;
@@ -128,7 +130,7 @@ int	cla_finder(t_list	**sta)
 	i = 0;
 	min = min_num_finder(sta);
 	cla = next_min_num(sta, min);
-	while (i++ < 7)
+	while (i++ < a - 2)
 		cla = next_min_num(sta, cla);
 	return (cla);
 }

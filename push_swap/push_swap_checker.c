@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 19:36:11 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/29 12:56:22 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/01 14:12:00 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	alr_ord(t_list	**sta)
 	return (1);
 }
 
-void	arg_num_chkr(t_list **sta, t_list **stb, t_list **result)
+void	arg_num_chkr(t_list **sta, t_list **stb, t_list **result, t_push *push)
 {
 	t_list	*temp;
 	int		n;
@@ -74,5 +74,5 @@ void	arg_num_chkr(t_list **sta, t_list **stb, t_list **result)
 	else if (n == 2)
 		psw_sa(sta, result);
 	else if (n >= 20)
-		the_chosen_one(sta, stb, result);
+		the_chosen_one(sta, stb, result, push);
 }

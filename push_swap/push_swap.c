@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:36:59 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/29 13:59:27 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/01 13:33:46 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	main(int ac, char **av)
 {
+	t_push	push;
 	t_list	*sta;
 	t_list	*stb;
 	t_list	*result;
@@ -40,7 +41,7 @@ int	main(int ac, char **av)
 		exit (0);
 	if (rep_nums(&sta))
 		errormsg();
-	arg_num_chkr(&sta, &stb, &result);
+	arg_num_chkr(&sta, &stb, &result, &push);
 	//real_printer(&result);
 	no_op_printer(&result);
 	return (0);
