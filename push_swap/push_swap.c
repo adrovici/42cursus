@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:36:59 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/01 13:33:46 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/04 19:27:42 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ int	main(int ac, char **av)
 	t_list	*sta;
 	t_list	*stb;
 	t_list	*result;
-	int		i;
+	t_list	*stemp;
 
 	sta = NULL;
 	stb = NULL;
+	stemp = NULL;
 	result = NULL;
 	if (ac < 2)
 		return (0);
@@ -33,10 +34,11 @@ int	main(int ac, char **av)
 	else
 	{
 		if (ac > 2)
-			addnumbers(&sta, av, 0);
+			addnumbers(&stemp, av, 0);
 		else
-			addnumbers(&sta, ft_split(av[1], ' '), -1);
+			addnumbers(&stemp, ft_split(av[1], ' '), -1);
 	}
+	list_init(&stemp, &sta);
 	if (alr_ord(&sta))
 		exit (0);
 	if (rep_nums(&sta))

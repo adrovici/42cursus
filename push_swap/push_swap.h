@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:43:23 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/01 16:43:57 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/04 18:14:28 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,21 +108,26 @@ void	real_printer(t_list **res);
 
 void	the_chosen_one(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	stack2_split(t_list **sta, t_list **stb, t_list **result, t_push *push);
+void	stack2_split_2(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	stack4_split(t_list **sta, t_list **stb, t_list **result, t_push *push);
 int		cla_mid_finder(t_list	**sta, int a);
 void	list_stack_init(t_list **sta, t_push *push, int aux);
 int		b_to_a_splitter(t_list **sta, t_list **stb, t_list **result, int aux_aux);
-void	a_to_b_splitter(t_list **sta, t_list **stb, t_list **result, int a);
+void	a_to_b_splitter(t_list **sta, t_list **stb, t_list **result, t_push *push, int a);
+void	a_to_b_splitter_4(t_list **sta, t_list **stb, t_list **result, t_push *push, int a);
+void	a_to_b_spl_8(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	b_to_a_orden(t_list **sta, t_list **stb, t_list **result);
 void	a_to_b_to_ord(t_list **sta, t_list **stb, t_list **result, int a);
 int		until_next_stack(t_list **sta, t_push *push);
 int		until_next_two_stacks(t_list **sta, t_push *push);
+int		until_next_four_stacks(t_list **sta, t_push *push);
 
 int		cla_next_finder(t_list	**sta, int a);
 int		min_num_finder_algo(t_list	**sta, int a);
 int		next_min_num_algo(t_list	**sta, int min, int a);
 int		max_num_finder_algo(t_list	**sta, int a);
 int		nums_until_min(t_list	**sta, int a);
+void	list_init(t_list **stemp, t_list **sta);
 
 void	imprimir(char **sta, char **stb);
 void	no_op_printer(t_list **res);

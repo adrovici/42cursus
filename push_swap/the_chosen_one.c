@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 12:51:41 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/01 16:55:10 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/04 21:35:31 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,40 +23,29 @@ void	the_chosen_one(t_list **sta, t_list **stb, t_list **result, t_push *push)
 	temp = *sta;
 	aux = (ft_lstsize(temp) / 8);
 	list_stack_init(sta, push, aux);
-	mid = (ft_lstsize(temp) / 2);
-	cla = cla_mid_finder(sta, ft_lstsize(temp));
-	while (ft_lstsize(temp) > mid)
-	{
-		temp = *sta;
-		if ((int)temp->content <= cla)
-			psw_pb(sta, stb, result);
-		else
-			psw_ra(sta, result);
-		temp = *sta;
-	}
-	temp = *stb;
+	a_to_b_spl_8 (sta, stb, result, push);
 	stack4_split(sta, stb, result, push);
 	stack2_split(sta, stb, result, push);
 	b_to_a_orden(sta, stb, result);
 	aux_aux = until_next_stack(sta, push);
+	printf ("AUX_AUX = %i\n", aux_aux);
 	a_to_b_to_ord(sta, stb, result, aux_aux);
 	aux_aux = until_next_two_stacks(sta, push);
-	a_to_b_splitter(sta, stb, result, aux_aux);
+	a_to_b_splitter(sta, stb, result, push, aux_aux);
 	b_to_a_orden(sta, stb, result);
 	aux_aux = until_next_stack(sta, push);
 	a_to_b_to_ord(sta, stb, result, aux_aux);
-	// a_to_b_to_ord(sta, stb, result, aux_aux);
-	// a_to_b_splitter(sta, stb, result, aux * 2 + 1);
-	// b_to_a_orden(sta, stb, result);
-	// a_to_b_to_ord(sta, stb, result, aux + 1);
-	// a_to_b_splitter(sta, stb, result, nums_until_min(sta, min_num_finder(sta)));
-	// aux_aux = b_to_a_splitter(sta, stb, result, aux_aux);
-	// b_to_a_orden(sta, stb, result);
-	// a_to_b_to_ord(sta, stb, result, aux);
-	// a_to_b_splitter(sta, stb, result, nums_until_min(sta, min_num_finder(sta)));
-	// b_to_a_orden(sta, stb, result);
-	// a_to_b_to_ord(sta, stb, result, nums_until_min(sta, min_num_finder(sta)));
-	// b_to_a_orden(sta, stb, result);
+	aux_aux = until_next_four_stacks(sta, push);
+	a_to_b_splitter_4(sta, stb, result, push, aux_aux);
+	stack2_split_2(sta, stb, result, push);
+	b_to_a_orden(sta, stb, result);
+	aux_aux = until_next_stack(sta, push);
+	a_to_b_to_ord(sta, stb, result, aux_aux);
+	aux_aux = until_next_two_stacks(sta, push);
+	a_to_b_splitter(sta, stb, result, push, aux_aux);
+	b_to_a_orden(sta, stb, result);
+	aux_aux = until_next_stack(sta, push);
+	a_to_b_to_ord(sta, stb, result, aux_aux);
 }
 
 void	list_stack_init(t_list **sta, t_push *push, int aux)
@@ -152,26 +141,126 @@ void	stack2_split(t_list **sta, t_list **stb, t_list **result, t_push *push)
 	}
 }
 
-void	a_to_b_splitter(t_list **sta, t_list **stb, t_list **result, int a)
+void	stack2_split_2(t_list **sta, t_list **stb, t_list **result, t_push *push)
 {
 	t_list	*temp;
-	int		cla;
-	int		aux;
+	int		current;
 
+	temp = *stb;
+	while (temp != NULL)
+	{
+		if ((int)temp->content <= push->stack5)
+			temp = temp->next;
+		else if (((int)temp->content <= push->stack6)
+			&& ((int)temp->content > push->stack5))
+		{
+			current = (int)temp->content;
+			temp = *stb;
+			while ((int)temp->content != current)
+			{
+				if ((int)temp->content == min_num_finder(stb))
+				{
+					psw_pa(sta, stb, result);
+					psw_ra(sta, result);
+				}
+				temp = *stb;
+				if (r_or_rr(stb, current))
+					psw_rrb(stb, result);
+				else if (!r_or_rr(stb, current))
+					psw_rb(stb, result);
+				temp = *stb;
+			}
+			psw_pa(sta, stb, result);
+			temp = *stb;
+		}
+	}
+}
+
+void	a_to_b_splitter(t_list **sta, t_list **stb, t_list **result, t_push *push, int a)
+{
+	t_list	*temp;
+	int		i;
+	int		c;
+
+	i = a;
+	c = 0;
 	temp = *sta;
-	aux = a / 2;
-	cla = cla_next_finder(sta, a);
-	while (a-- != 0)
+	if ((temp->content > push->stack2) && (temp->content <= push->stack4))
+	{
+		while (i-- != 0)
+		{
+			temp = *sta;
+			if ((temp->content > push->stack2) && (temp->content < push->stack3))
+				psw_pb(sta, stb, result);
+			else
+			{
+				psw_ra(sta, result);
+				c++;
+			}
+		}
+	}
+	else if ((temp->content > push->stack5) && (temp->content <= push->max))
+	{
+		while (i-- != 0)
+		{
+			temp = *sta;
+			if ((temp->content >= push->stack6) && (temp->content < push->stack7))
+				psw_pb(sta, stb, result);
+			else
+			{
+				psw_ra(sta, result);
+				c++;
+			}
+		}
+	}
+	while (c-- != 0)
+		psw_rra(sta, result);
+}
+
+void	a_to_b_splitter_4(t_list **sta, t_list **stb, t_list **result, t_push *push, int a)
+{
+	t_list	*temp;
+	int		i;
+	int		c;
+
+	i = a;
+	c = 0;
+	temp = *sta;
+	while (i-- != 0)
 	{
 		temp = *sta;
-		if ((int)temp->content <= cla)
+		if ((temp->content > push->stack4) && (temp->content < push->stack6))
 			psw_pb(sta, stb, result);
 		else
+		{
 			psw_ra(sta, result);
-		temp = *sta;
+			c++;
+		}
 	}
-	while (aux-- != 0)
+	while (c-- != 0)
 		psw_rra(sta, result);
+}
+
+void	a_to_b_spl_8(t_list **sta, t_list **stb, t_list **result, t_push *push)
+{
+	t_list	*temp;
+	int		i;
+	int		c;
+
+	temp = *sta;
+	i = ft_lstsize(temp);
+	c = 0;
+	while (i-- != 0)
+	{
+		temp = *sta;
+		if ((temp->content >= push->min) && (temp->content <= push->stack4))
+			psw_pb(sta, stb, result);
+		else
+		{
+			psw_ra(sta, result);
+			c++;
+		}
+	}
 }
 
 void	a_to_b_to_ord(t_list **sta, t_list **stb, t_list **result, int a)
@@ -194,7 +283,7 @@ void	b_to_a_orden(t_list **sta, t_list **stb, t_list **result)
 		current = max_num_finder(stb);
 		while ((int)temp->content != current)
 		{
-			if ((int)temp->content == min_num_finder(&temp))
+			if ((int)temp->content == min_num_finder(sta))
 			{
 				psw_pa(sta, stb, result);
 				psw_ra(sta, result);
@@ -221,51 +310,51 @@ void	b_to_a_orden(t_list **sta, t_list **stb, t_list **result)
 		psw_ra(sta, result);
 }
 
-int	b_to_a_splitter(t_list **sta, t_list **stb, t_list **result, int aux_aux)
-{
-	t_list	*tempb;
-	int		cla;
-	int		mid;
+// int	b_to_a_splitter(t_list **sta, t_list **stb, t_list **result, int aux_aux)
+// {
+// 	t_list	*tempb;
+// 	int		cla;
+// 	int		mid;
 
-	tempb = *stb;
-	aux_aux = 0;
-	mid = (ft_lstsize(tempb) / 2);
-	cla = cla_mid_finder(stb, ft_lstsize(tempb));
-	while (ft_lstsize(tempb) > mid)
-	{
-		tempb = *stb;
-		if ((int)tempb->content == min_num_finder(stb))
-		{
-			psw_pa(sta, stb, result);
-			psw_ra(sta, result);
-			aux_aux++;
-		}
-		if ((int)tempb->content > cla)
-			psw_pa(sta, stb, result);
-		else
-			psw_rb(stb, result);
-		tempb = *stb;
-	}
-	return (aux_aux);
-}
+// 	tempb = *stb;
+// 	aux_aux = 0;
+// 	mid = (ft_lstsize(tempb) / 2);
+// 	cla = cla_mid_finder(stb, ft_lstsize(tempb));
+// 	while (ft_lstsize(tempb) > mid)
+// 	{
+// 		tempb = *stb;
+// 		if ((int)tempb->content == min_num_finder(stb))
+// 		{
+// 			psw_pa(sta, stb, result);
+// 			psw_ra(sta, result);
+// 			aux_aux++;
+// 		}
+// 		if ((int)tempb->content > cla)
+// 			psw_pa(sta, stb, result);
+// 		else
+// 			psw_rb(stb, result);
+// 		tempb = *stb;
+// 	}
+// 	return (aux_aux);
+// }
 
-int	cla_mid_finder(t_list	**sta, int a)
-{
-	t_list	*temp;
-	int		i;
-	int		min;
-	int		cla;
+// int	cla_mid_finder(t_list	**sta, int a)
+// {
+// 	t_list	*temp;
+// 	int		i;
+// 	int		min;
+// 	int		cla;
 
-	i = 0;
-	min = min_num_finder(sta);
-	cla = next_min_num(sta, min);
-	while (i < ((a / 2) - 2))
-	{
-		cla = next_min_num(sta, cla);
-		i++;
-	}
-	return (cla);
-}
+// 	i = 0;
+// 	min = min_num_finder(sta);
+// 	cla = next_min_num(sta, min);
+// 	while (i < ((a / 2) - 2))
+// 	{
+// 		cla = next_min_num(sta, cla);
+// 		i++;
+// 	}
+// 	return (cla);
+// }
 
 int	cla_next_finder(t_list	**sta, int a)
 {
@@ -357,6 +446,7 @@ int	until_next_stack(t_list **sta, t_push *push)
 	t_list	*temp;
 	int		i;
 
+	i = 0;
 	temp = *sta;
 	if (temp->content < push->stack1)
 	{
@@ -423,7 +513,7 @@ int	until_next_stack(t_list **sta, t_push *push)
 	}
 	else if ((temp->content >= push->stack7) && (temp->content <= push->max))
 	{
-		while (temp->content <= push->min)
+		while (temp->content != push->min)
 		{
 			temp = temp->next;
 			i++;
@@ -437,6 +527,7 @@ int	until_next_two_stacks(t_list **sta, t_push *push)
 	t_list	*temp;
 	int		i;
 
+	i = 0;
 	temp = *sta;
 	if (temp->content < push->stack2)
 	{
@@ -465,9 +556,36 @@ int	until_next_two_stacks(t_list **sta, t_push *push)
 		}
 		return (i);
 	}
-	else if ((temp->content >= push->stack6) && (temp->content < push->max))
+	else if ((temp->content >= push->stack6) && (temp->content <= push->max))
 	{
-		while (temp->content <= push->max)
+		while (temp->content != push->min)
+		{
+			temp = temp->next;
+			i++;
+		}
+		return (i);
+	}
+}
+
+int	until_next_four_stacks(t_list **sta, t_push *push)
+{
+	t_list	*temp;
+	int		i;
+
+	i = 0;
+	temp = *sta;
+	if (temp->content < push->stack4)
+	{
+		while (temp->content <= push->stack4)
+		{
+			temp = temp->next;
+			i++;
+		}
+		return (i);
+	}
+	else if ((temp->content >= push->stack4) && (temp->content <= push->max))
+	{
+		while (temp->content != push->min)
 		{
 			temp = temp->next;
 			i++;
