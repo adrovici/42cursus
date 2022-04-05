@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:43:23 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/04 18:14:28 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/05 14:54:32 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	psw_ra(t_list **sta, t_list **result);
 void	psw_rb(t_list **sta, t_list **result);
 void	psw_rra(t_list **sta, t_list **result);
 void	psw_rrb(t_list **sta, t_list **result);
+void	psw_rrr(t_list **sta, t_list **stb, t_list **result);
 void	psw_pa(t_list **sta, t_list **stb, t_list **result);
 void	psw_pb(t_list **sta, t_list **stb, t_list **result);
 void	doble_pa(t_list **sta, t_list **stb, t_list **result);
@@ -113,8 +114,9 @@ void	stack4_split(t_list **sta, t_list **stb, t_list **result, t_push *push);
 int		cla_mid_finder(t_list	**sta, int a);
 void	list_stack_init(t_list **sta, t_push *push, int aux);
 int		b_to_a_splitter(t_list **sta, t_list **stb, t_list **result, int aux_aux);
-void	a_to_b_splitter(t_list **sta, t_list **stb, t_list **result, t_push *push, int a);
+int		a_to_b_splitter(t_list **sta, t_list **stb, t_list **result, t_push *push, int a);
 void	a_to_b_splitter_4(t_list **sta, t_list **stb, t_list **result, t_push *push, int a);
+void	rrr_advantage(t_list **sta, t_list **stb, t_list **result, int c);
 void	a_to_b_spl_8(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	b_to_a_orden(t_list **sta, t_list **stb, t_list **result);
 void	a_to_b_to_ord(t_list **sta, t_list **stb, t_list **result, int a);
