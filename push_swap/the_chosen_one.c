@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 12:51:41 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/05 15:52:53 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/05 20:40:45 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,7 @@ void	rrr_advantage(t_list **sta, t_list **stb, t_list **result, int c)
 	int		min;
 	int		size;
 	int		i;
+	int		mov;
 
 	temp = *stb;
 	i = 1;
@@ -193,16 +194,21 @@ void	rrr_advantage(t_list **sta, t_list **stb, t_list **result, int c)
 		temp = temp->next;
 		i++;
 	}
-	if ((i == 1) || (i == 2))
+	mov = size - i + 1;
+	if (mov > c)
 	{
 		while (c-- != 0)
 			psw_rra(sta, result);
 	}
-	else
+	else if (mov == c)
 	{
-		i = size - i + 1;
-		c = c - i;
-		while (i-- != 0)
+		while (c-- != 0)
+			psw_rrr(sta, stb, result);
+	}
+	else if (mov < c)
+	{
+		c = c - mov;
+		while (mov-- != 0)
 			psw_rrr(sta, stb, result);
 		while (c-- != 0)
 			psw_rra(sta, result);
@@ -297,8 +303,23 @@ void	a_to_b_spl_8(t_list **sta, t_list **stb, t_list **result, t_push *push)
 
 void	a_to_b_to_ord(t_list **sta, t_list **stb, t_list **result, int a)
 {
+	t_list	*temp;
+	t_list	*temp2;
+	t_list	*temp3;
+
+	temp = *sta;
 	while (a-- != 0)
-		psw_pb(sta, stb, result);
+	{
+		temp = *sta;
+		temp2 = *sta;
+		while (temp2->next != NULL)
+			temp2 = temp2->next;
+		if (temp->content == (temp2->content + 1))
+			psw_ra(sta, result);
+		else
+			psw_pb(sta, stb, result);
+		temp = temp->next;
+	}
 	b_to_a_orden(sta, stb, result);
 }
 
@@ -429,8 +450,11 @@ int	until_next_two_stacks(t_list **sta, t_push *push)
 {
 	t_list	*temp;
 	int		i;
+	int		c;
+	int		f;
 
 	i = 0;
+	c = 0;
 	temp = *sta;
 	if (temp->content < push->stack2)
 	{
@@ -448,7 +472,14 @@ int	until_next_two_stacks(t_list **sta, t_push *push)
 			temp = temp->next;
 			i++;
 		}
-		return (i);
+		temp = *sta;
+		while (c++ <= i)
+		{
+			if (temp->content <= push->stack3)
+				f = c;
+			temp = temp->next;
+		}
+		return (f);
 	}
 	else if ((temp->content > push->stack4) && (temp->content <= push->stack6))
 	{
@@ -466,7 +497,14 @@ int	until_next_two_stacks(t_list **sta, t_push *push)
 			temp = temp->next;
 			i++;
 		}
-		return (i);
+		temp = *sta;
+		while (c++ <= i)
+		{
+			if (temp->content <= push->stack7)
+				f = c;
+			temp = temp->next;
+		}
+		return (f);
 	}
 }
 
@@ -474,8 +512,11 @@ int	until_next_four_stacks(t_list **sta, t_push *push)
 {
 	t_list	*temp;
 	int		i;
+	int		c;
+	int		f;
 
 	i = 0;
+	c = 0;
 	temp = *sta;
 	if (temp->content <= push->stack4)
 	{
@@ -484,7 +525,14 @@ int	until_next_four_stacks(t_list **sta, t_push *push)
 			temp = temp->next;
 			i++;
 		}
-		return (i);
+		temp = *sta;
+		while (c++ <= i)
+		{
+			if (temp->content <= push->stack2)
+				f = c;
+			temp = temp->next;
+		}
+		return (f);
 	}
 	else if ((temp->content > push->stack4) && (temp->content <= push->max))
 	{
@@ -493,6 +541,13 @@ int	until_next_four_stacks(t_list **sta, t_push *push)
 			temp = temp->next;
 			i++;
 		}
-		return (i);
+		temp = *sta;
+		while (c++ <= i)
+		{
+			if (temp->content <= push->stack6)
+				f = c;
+			temp = temp->next;
+		}
+		return (f);
 	}
 }
