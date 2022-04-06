@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 15:31:35 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/04 19:27:20 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/06 16:12:22 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,25 @@ void	list_init(t_list **stemp, t_list **sta)
 	int		a;
 	int		min;
 	int		min_aux;
-	int		min_min;
 
 	temp = *stemp;
-	a = 2;
-	min_min = 1;
+	a = 1;
 	min = min_num_finder(stemp);
 	min_aux = next_min_num(stemp, min);
 	while (temp != NULL)
 	{
 		if ((int)temp->content == min)
-			ft_lstadd_back(sta, ft_lstnew(min_min));
+			ft_lstadd_back(sta, ft_lstnew(1));
 		else
 		{
-			while ((int)temp->content != min_aux)
-			{
+			while ((++a) && (int)temp->content != min_aux)
 				min_aux = next_min_num(stemp, min_aux);
-				a++;
-			}
 			ft_lstadd_back(sta, ft_lstnew(a));
-			a = 2;
+			a = 1;
 		}
 		temp = temp->next;
 		min_aux = next_min_num(stemp, min);
-		a = 2;
+		a = 1;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 16:46:27 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/05 14:59:11 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/06 13:43:20 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,9 @@ void	psw_rrr(t_list **sta, t_list **stb, t_list **result)
 	t_list	*temp2;
 	t_list	*tempb1;
 	t_list	*tempb2;
-	int		r;
 
 	if ((*stb == NULL) || (*sta == NULL))
 		return ;
-	r = 50;
 	temp1 = *sta;
 	temp2 = *sta;
 	while (temp1->next != NULL)
@@ -79,5 +77,5 @@ void	psw_rrr(t_list **sta, t_list **stb, t_list **result)
 		tempb2 = tempb2->next;
 	tempb2->next = NULL;
 	ft_lstadd_front(stb, tempb1);
-	ft_lstadd_back(result, ft_lstnew(r));
+	ft_lstadd_back(result, ft_lstnew(50));
 }

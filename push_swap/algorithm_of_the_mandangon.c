@@ -6,64 +6,11 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:21:56 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/01 15:00:29 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/06 12:34:50 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	algorithm_of_the_mandangon(t_list **sta, t_list **stb, t_list **result)
-{
-	t_list	*temp;
-	int		current;
-	int		i;
-	int		cla;
-	int		a;
-
-	temp = *sta;
-	a = 9;
-	while (ft_lstsize(temp) > 9)
-	{
-		cla = cla_finder(sta, a);
-		i = 0;
-		temp = *sta;
-		while (i < 8)
-		{
-			temp = *sta;
-			current = current_finder(sta, cla);
-			while ((int)temp->content != current)
-			{
-				if (r_or_rr(sta, current))
-					psw_rra(sta, result);
-				else
-					psw_ra(sta, result);
-				temp = *sta;
-			}
-			temp = *stb;
-			if ((ft_lstsize(temp) == 0) || (ft_lstsize(temp) == 1))
-				psw_pb(sta, stb, result);
-			else if (ft_lstsize(temp) == 2)
-			{
-				psw_pb(sta, stb, result);
-				i_case_3(stb, result);
-			}
-			else
-				case_b(sta, stb, current, result);
-			temp = *sta;
-			i++;
-		}
-	temp = *sta;
-	}
-	temp = *sta;
-	while (ft_lstsize(temp) != 0)
-	{
-		temp = *sta;
-		current = (int)temp->content;
-		case_b(sta, stb, current, result);
-		temp = *sta;
-	}
-	all_b_to_a(sta, stb, result);
-}
 
 int	r_or_rr(t_list **sta, int current)
 {

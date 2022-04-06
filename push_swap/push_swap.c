@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:36:59 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/04 19:27:42 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/06 19:06:20 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	if (checker(ac, av))
-	{
-		ft_printf("Error\n");
-		return (0);
-	}
+		errormsg();
 	else
 	{
 		if (ac > 2)
@@ -39,40 +36,18 @@ int	main(int ac, char **av)
 			addnumbers(&stemp, ft_split(av[1], ' '), -1);
 	}
 	list_init(&stemp, &sta);
-	if (alr_ord(&sta))
-		exit (0);
-	if (rep_nums(&sta))
-		errormsg();
-	arg_num_chkr(&sta, &stb, &result, &push);
-	//real_printer(&result);
-	no_op_printer(&result);
+	main_utils(&sta, &stb, &result, &push);
 	return (0);
 }
 
-void	imprimir(char **sta, char **stb)
+void	main_utils(t_list **sta, t_list **stb, t_list **result, t_push *push)
 {
-	t_list	*tempa;
-	t_list	*tempb;
-
-	tempa = *sta;
-	tempb = *stb;
-	printf("\n");
-	printf ("/////////////////////////////\n");
-	printf ("STACK A\n");
-	while (tempa)
-	{
-		printf("%i\n", (int)tempa->content);
-		tempa = tempa->next;
-	}
-	printf("\n");
-	printf ("STACK B\n");
-	while (tempb)
-	{
-		printf("%i\n", (int)tempb->content);
-		tempb = tempb->next;
-	}
-	printf ("/////////////////////////////\n");
-	printf("\n");
+	if (alr_ord(sta))
+		exit (0);
+	if (rep_nums(sta))
+		errormsg();
+	arg_num_chkr(sta, stb, result, push);
+	no_op_printer(result);
 }
 
 int	checker(int ac, char **av)

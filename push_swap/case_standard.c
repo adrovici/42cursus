@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 14:38:31 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/21 15:55:27 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/06 12:49:48 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	case_standard(t_list **sta, t_list **stb, t_list **result)
 	temp = *sta;
 	cc = min_pos_finder(sta, stb, t, cc);
 	if (cc < (c / 2 + 1))
-		case_standard_utils_ra(sta, stb, t, c, result);
+		utils_ra(sta, stb, t, result);
 	if (cc >= (c / 2 + 1))
-		case_standard_utils_rra(sta, stb, t, c, result);
+		utils_rra(sta, stb, t, result);
 }
 
-void	case_standard_utils_ra(t_list **sta, t_list **stb, int t, int c, t_list **result)
+void	utils_ra(t_list **sta, t_list **stb, int t, t_list **result)
 {
 	t_list	*temp;
 	t_list	*tempb;
@@ -54,8 +54,7 @@ void	case_standard_utils_ra(t_list **sta, t_list **stb, int t, int c, t_list **r
 		else
 		{
 			tempb = *stb;
-			while (c-- != 0)
-				all_b_to_a(sta, stb, result);
+			all_b_to_a(sta, stb, result);
 			return ;
 		}
 	}
@@ -66,7 +65,7 @@ void	case_standard_utils_ra(t_list **sta, t_list **stb, int t, int c, t_list **r
 	}
 }
 
-void	case_standard_utils_rra(t_list **sta, t_list **stb, int t, int c, t_list **result)
+void	utils_rra(t_list **sta, t_list **stb, int t, t_list **result)
 {
 	t_list	*temp;
 	t_list	*tempb;
@@ -81,8 +80,7 @@ void	case_standard_utils_rra(t_list **sta, t_list **stb, int t, int c, t_list **
 		else
 		{
 			tempb = *stb;
-			while (c-- != 0)
-				all_b_to_a(sta, stb, result);
+			all_b_to_a(sta, stb, result);
 			return ;
 		}
 	}

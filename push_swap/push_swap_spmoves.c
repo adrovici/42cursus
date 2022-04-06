@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 18:46:03 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/21 16:46:25 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/06 13:44:41 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	psw_sa(t_list **sta, t_list **result)
 	temp2->next = temp1;
 	*sta = temp2;
 	ft_lstadd_back(result, ft_lstnew(r));
-	//ft_printf("sa\n");
 }
 
 void	psw_sb(t_list **stb, t_list **result)
@@ -47,15 +46,7 @@ void	psw_sb(t_list **stb, t_list **result)
 	temp2->next = temp1;
 	*stb = temp2;
 	ft_lstadd_back(result, ft_lstnew(r));
-	//ft_printf("sb\n");
 }
-
-// void	psw_ss(t_list **sta, t_list **stb)
-// {
-// 	psw_sa(&sta);
-// 	psw_sb(&stb);
-// 	ft_printf("ss\n");
-// }
 
 void	psw_pa(t_list **sta, t_list **stb, t_list **result)
 {
@@ -72,7 +63,6 @@ void	psw_pa(t_list **sta, t_list **stb, t_list **result)
 		*stb = NULL;
 	ft_lstadd_front(sta, temp1);
 	ft_lstadd_back(result, ft_lstnew(r));
-	//ft_printf("pa\n");
 }
 
 void	psw_pb(t_list **sta, t_list **stb, t_list **result)
@@ -90,5 +80,4 @@ void	psw_pb(t_list **sta, t_list **stb, t_list **result)
 		*sta = NULL;
 	ft_lstadd_front(stb, temp1);
 	ft_lstadd_back(result, ft_lstnew(r));
-	//ft_printf("pb\n");
 }

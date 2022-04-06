@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:43:23 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/05 14:54:32 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/06 19:06:58 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@ typedef struct s_push
 	int		stack5;
 	int		stack6;
 	int		stack7;
+	int		stack8;
+	int		stack9;
+	int		stack10;
+	int		stack11;
+	int		stack12;
+	int		stack13;
+	int		stack14;
+	int		stack15;
+	int		a;
 
 }	t_push;
 
@@ -67,6 +76,7 @@ void	case_5(t_list **sta, t_list **stb, t_list **result);
 void	case_5_1(t_list **sta, t_list **stb, t_list **result);
 void	case_5_2(t_list **sta, t_list **stb, int t, t_list **result);
 void	case_5_3(t_list **sta, t_list **stb, int t, t_list **result);
+void	main_utils(t_list **sta, t_list **stb, t_list **result, t_push *push);
 
 int		min_num_finder(t_list	**sta);
 int		max_num_finder(t_list	**sta);
@@ -75,8 +85,8 @@ int		min_pos_finder(t_list **sta, t_list **stb, int t, int cc);
 void	all_b_to_a(t_list **sta, t_list **stb, t_list **result);
 
 void	case_standard(t_list **sta, t_list **stb, t_list **result);
-void	case_standard_utils_ra(t_list **sta, t_list **stb, int t, int c, t_list **result);
-void	case_standard_utils_rra(t_list **sta, t_list **stb, int t, int c, t_list **result);
+void	utils_rra(t_list **sta, t_list **stb, int t, t_list **result);
+void	utils_ra(t_list **sta, t_list **stb, int t, t_list **result);
 
 void	algorithm_of_the_mandangon(t_list **sta, t_list **stb, t_list **result);
 int		next_min_num(t_list	**sta, int min);
@@ -100,10 +110,6 @@ int		case_b_is_possible(t_list **stb, int current);
 int		case_b_is_possible_m(t_list **stb, int current);
 void	is_minim(t_list **sta, t_list **stb, t_list **result);
 
-void	i_case_3(t_list	**stb, t_list **result);
-void	i_case_3_1(t_list	**stb, t_list **result);
-void	i_case_3_2(t_list	**stb, t_list **result);
-
 void	result_printer(t_list **res);
 void	real_printer(t_list **res);
 
@@ -114,8 +120,8 @@ void	stack4_split(t_list **sta, t_list **stb, t_list **result, t_push *push);
 int		cla_mid_finder(t_list	**sta, int a);
 void	list_stack_init(t_list **sta, t_push *push, int aux);
 int		b_to_a_splitter(t_list **sta, t_list **stb, t_list **result, int aux_aux);
-int		a_to_b_splitter(t_list **sta, t_list **stb, t_list **result, t_push *push, int a);
-void	a_to_b_splitter_4(t_list **sta, t_list **stb, t_list **result, t_push *push, int a);
+int		a_to_b_spl(t_list **sta, t_list **stb, t_list **result, t_push *push);
+int		a_b_spl_4(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	rrr_advantage(t_list **sta, t_list **stb, t_list **result, int c);
 void	a_to_b_spl_8(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	b_to_a_orden(t_list **sta, t_list **stb, t_list **result);
@@ -124,12 +130,23 @@ int		until_next_stack(t_list **sta, t_push *push);
 int		until_next_two_stacks(t_list **sta, t_push *push);
 int		until_next_four_stacks(t_list **sta, t_push *push);
 
+void	the_chosen_one_500(t_list **sta, t_list **stb, t_list **result, t_push *push);
+void	list_16stack_init(t_list **sta, t_push *push, int aux);
+void	a_to_b_spl_16(t_list **sta, t_list **stb, t_list **result, t_push *push);
+void	stack8_split(t_list **sta, t_list **stb, t_list **result, t_push *push);
+int		u_n_four_stck_500(t_list **sta, t_push *push);
+int		u_n_two_stck_500(t_list **sta, t_push *push);
+int		u_n_stck_500(t_list **sta, t_push *push);
+int		a_to_b_sp_82(t_list **sta, t_list **stb, t_list **result, t_push *push);
+void	stck4_2_spl(t_list **sta, t_list **stb, t_list **result, t_push *push);
+
 int		cla_next_finder(t_list	**sta, int a);
 int		min_num_finder_algo(t_list	**sta, int a);
 int		next_min_num_algo(t_list	**sta, int min, int a);
 int		max_num_finder_algo(t_list	**sta, int a);
 int		nums_until_min(t_list	**sta, int a);
 void	list_init(t_list **stemp, t_list **sta);
+void	the_game_changer(t_push *push);
 
 void	imprimir(char **sta, char **stb);
 void	no_op_printer(t_list **res);

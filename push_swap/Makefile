@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 15:07:52 by umartin-          #+#    #+#              #
-#    Updated: 2022/03/29 13:57:55 by umartin-         ###   ########.fr        #
+#    Updated: 2022/04/06 15:59:36 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,16 +22,14 @@ push_swap_rmoves.c \
 push_swap_rrmoves.c \
 push_swap_checker.c \
 case_3.c \
-i_case_3.c \
 case_5.c \
 case_standard.c \
 algorithm_of_the_mandangon.c \
-current_finder.c \
 push_swap_utils.c \
-case_b.c \
-result_printer.c \
 the_chosen_one.c \
 no_op_printer.c \
+stack_split.c \
+the_chosen_one_500.c \
 
 
 OBJ = push_swap.o \
@@ -41,16 +39,14 @@ push_swap_rmoves.o \
 push_swap_rrmoves.o \
 push_swap_checker.o \
 case_3.o \
-i_case_3.o \
 case_5.o \
 case_standard.o \
 algorithm_of_the_mandangon.o \
-current_finder.o \
 push_swap_utils.o \
-case_b.o \
-result_printer.o \
 the_chosen_one.o \
 no_op_printer.o \
+stack_split.o \
+the_chosen_one_500.o \
 
 CC = gcc
 CCFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address

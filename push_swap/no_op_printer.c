@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 13:55:28 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/05 14:47:49 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/06 13:49:13 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ void	no_op_printer(t_list **res)
 			ft_printf("rrb\n");
 		if (temp->content == 31)
 			ft_printf("sa\n");
-		if (temp->content == 32)
-			ft_printf("sb\n");
 		if (temp->content == 41)
 			ft_printf("pa\n");
 		if (temp->content == 42)

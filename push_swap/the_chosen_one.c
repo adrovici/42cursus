@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 12:51:41 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/05 20:40:45 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/06 19:12:03 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	the_chosen_one(t_list **sta, t_list **stb, t_list **result, t_push *push)
 {
 	t_list	*temp;
 	int		aux;
-	int		aux_aux;
 	int		c;
 
 	temp = *sta;
@@ -26,155 +25,27 @@ void	the_chosen_one(t_list **sta, t_list **stb, t_list **result, t_push *push)
 	stack4_split(sta, stb, result, push);
 	stack2_split(sta, stb, result, push);
 	b_to_a_orden(sta, stb, result);
-	aux_aux = until_next_stack(sta, push);
-	a_to_b_to_ord(sta, stb, result, aux_aux);
-	aux_aux = until_next_two_stacks(sta, push);
-	c = a_to_b_splitter(sta, stb, result, push, aux_aux);
+	push->a = until_next_stack(sta, push);
+	a_to_b_to_ord(sta, stb, result, push->a);
+	push->a = until_next_two_stacks(sta, push);
+	c = a_to_b_spl(sta, stb, result, push);
 	rrr_advantage(sta, stb, result, c);
 	b_to_a_orden(sta, stb, result);
-	aux_aux = until_next_stack(sta, push);
-	a_to_b_to_ord(sta, stb, result, aux_aux);
-	aux_aux = until_next_four_stacks(sta, push);
-	a_to_b_splitter_4(sta, stb, result, push, aux_aux);
+	push->a = until_next_stack(sta, push);
+	a_to_b_to_ord(sta, stb, result, push->a);
+	push->a = until_next_four_stacks(sta, push);
+	c = a_b_spl_4(sta, stb, result, push);
+	rrr_advantage(sta, stb, result, c);
 	stack2_split_2(sta, stb, result, push);
 	b_to_a_orden(sta, stb, result);
-	aux_aux = until_next_stack(sta, push);
-	a_to_b_to_ord(sta, stb, result, aux_aux);
-	aux_aux = until_next_two_stacks(sta, push);
-	c = a_to_b_splitter(sta, stb, result, push, aux_aux);
+	push->a = until_next_stack(sta, push);
+	a_to_b_to_ord(sta, stb, result, push->a);
+	push->a = until_next_two_stacks(sta, push);
+	c = a_to_b_spl(sta, stb, result, push);
 	rrr_advantage(sta, stb, result, c);
 	b_to_a_orden(sta, stb, result);
-	aux_aux = until_next_stack(sta, push);
-	a_to_b_to_ord(sta, stb, result, aux_aux);
-}
-
-void	list_stack_init(t_list **sta, t_push *push, int aux)
-{
-	int	i;
-
-	i = aux;
-	aux = aux + 1;
-	push->stack1 = cla_finder(sta, aux);
-	aux = aux + i;
-	push->stack2 = cla_finder(sta, aux);
-	aux = aux + i + 1;
-	push->stack3 = cla_finder(sta, aux);
-	aux = aux + i;
-	push->stack4 = cla_finder(sta, aux);
-	aux = aux + i + 1;
-	push->stack5 = cla_finder(sta, aux);
-	aux = aux + i;
-	push->stack6 = cla_finder(sta, aux);
-	aux = aux + i + 1;
-	push->stack7 = cla_finder(sta, aux);
-	aux = aux + i;
-	push->min = min_num_finder(sta);
-	push->max = max_num_finder(sta);
-}
-
-void	stack4_split(t_list **sta, t_list **stb, t_list **result, t_push *push)
-{
-	t_list	*temp;
-	int		current;
-
-	temp = *stb;
-	while (temp != NULL)
-	{
-		if ((int)temp->content <= push->stack2)
-			temp = temp->next;
-		else if (((int)temp->content <= push->stack4)
-			&& ((int)temp->content > push->stack1))
-		{
-			current = (int)temp->content;
-			temp = *stb;
-			while ((int)temp->content != current)
-			{
-				if ((int)temp->content == min_num_finder(stb))
-				{
-					psw_pa(sta, stb, result);
-					psw_ra(sta, result);
-				}
-				temp = *stb;
-				if (r_or_rr(stb, current))
-					psw_rrb(stb, result);
-				else if (!r_or_rr(stb, current))
-					psw_rb(stb, result);
-				temp = *stb;
-			}
-			psw_pa(sta, stb, result);
-			temp = *stb;
-		}
-	}
-}
-
-void	stack2_split(t_list **sta, t_list **stb, t_list **result, t_push *push)
-{
-	t_list	*temp;
-	int		current;
-
-	temp = *stb;
-	while (temp != NULL)
-	{
-		if ((int)temp->content <= push->stack1)
-			temp = temp->next;
-		else if (((int)temp->content <= push->stack2)
-			&& ((int)temp->content > push->stack1))
-		{
-			current = (int)temp->content;
-			temp = *stb;
-			while ((int)temp->content != current)
-			{
-				if ((int)temp->content == min_num_finder(stb))
-				{
-					psw_pa(sta, stb, result);
-					psw_ra(sta, result);
-				}
-				temp = *stb;
-				if (r_or_rr(stb, current))
-					psw_rrb(stb, result);
-				else if (!r_or_rr(stb, current))
-					psw_rb(stb, result);
-				temp = *stb;
-			}
-			psw_pa(sta, stb, result);
-			temp = *stb;
-		}
-	}
-}
-
-void	stack2_split_2(t_list **sta, t_list **stb, t_list **result, t_push *push)
-{
-	t_list	*temp;
-	int		current;
-
-	temp = *stb;
-	while (temp != NULL)
-	{
-		if ((int)temp->content <= push->stack5)
-			temp = temp->next;
-		else if (((int)temp->content <= push->stack6)
-			&& ((int)temp->content > push->stack5))
-		{
-			current = (int)temp->content;
-			temp = *stb;
-			while ((int)temp->content != current)
-			{
-				if ((int)temp->content == min_num_finder(stb))
-				{
-					psw_pa(sta, stb, result);
-					psw_ra(sta, result);
-				}
-				temp = *stb;
-				if (r_or_rr(stb, current))
-					psw_rrb(stb, result);
-				else if (!r_or_rr(stb, current))
-					psw_rb(stb, result);
-				temp = *stb;
-			}
-			psw_pa(sta, stb, result);
-			temp = *stb;
-		}
-	}
+	push->a = until_next_stack(sta, push);
+	a_to_b_to_ord(sta, stb, result, push->a);
 }
 
 void	rrr_advantage(t_list **sta, t_list **stb, t_list **result, int c)
@@ -196,15 +67,11 @@ void	rrr_advantage(t_list **sta, t_list **stb, t_list **result, int c)
 	}
 	mov = size - i + 1;
 	if (mov > c)
-	{
 		while (c-- != 0)
 			psw_rra(sta, result);
-	}
 	else if (mov == c)
-	{
 		while (c-- != 0)
 			psw_rrr(sta, stb, result);
-	}
 	else if (mov < c)
 	{
 		c = c - mov;
@@ -215,13 +82,13 @@ void	rrr_advantage(t_list **sta, t_list **stb, t_list **result, int c)
 	}
 }
 
-int	a_to_b_splitter(t_list **sta, t_list **stb, t_list **result, t_push *push, int a)
+int	a_to_b_spl(t_list **sta, t_list **stb, t_list **result, t_push *push)
 {
 	t_list	*temp;
 	int		i;
 	int		c;
 
-	i = a;
+	i = push->a;
 	c = 0;
 	temp = *sta;
 	if ((temp->content > push->stack2) && (temp->content <= push->stack4))
@@ -255,13 +122,13 @@ int	a_to_b_splitter(t_list **sta, t_list **stb, t_list **result, t_push *push, i
 	return (c);
 }
 
-void	a_to_b_splitter_4(t_list **sta, t_list **stb, t_list **result, t_push *push, int a)
+int	a_b_spl_4(t_list **sta, t_list **stb, t_list **result, t_push *push)
 {
 	t_list	*temp;
 	int		i;
 	int		c;
 
-	i = a;
+	i = push->a;
 	c = 0;
 	temp = *sta;
 	while (i-- != 0)
@@ -275,8 +142,7 @@ void	a_to_b_splitter_4(t_list **sta, t_list **stb, t_list **result, t_push *push
 			c++;
 		}
 	}
-	while (c-- != 0)
-		psw_rra(sta, result);
+	return (c);
 }
 
 void	a_to_b_spl_8(t_list **sta, t_list **stb, t_list **result, t_push *push)
@@ -550,4 +416,28 @@ int	until_next_four_stacks(t_list **sta, t_push *push)
 		}
 		return (f);
 	}
+}
+
+void	list_stack_init(t_list **sta, t_push *push, int aux)
+{
+	int	i;
+
+	i = aux;
+	aux = aux + 1;
+	push->stack1 = cla_finder(sta, aux);
+	aux = aux + i;
+	push->stack2 = cla_finder(sta, aux);
+	aux = aux + i + 1;
+	push->stack3 = cla_finder(sta, aux);
+	aux = aux + i;
+	push->stack4 = cla_finder(sta, aux);
+	aux = aux + i + 1;
+	push->stack5 = cla_finder(sta, aux);
+	aux = aux + i;
+	push->stack6 = cla_finder(sta, aux);
+	aux = aux + i + 1;
+	push->stack7 = cla_finder(sta, aux);
+	aux = aux + i;
+	push->min = min_num_finder(sta);
+	push->max = max_num_finder(sta);
 }
