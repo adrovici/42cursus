@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 14:38:31 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/06 12:49:48 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/08 14:47:59 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	case_standard(t_list **sta, t_list **stb, t_list **result)
 {
 	t_list	*temp;
-	t_list	*tempb;
 	int		t;
 	int		c;
 	int		cc;
@@ -32,7 +31,7 @@ void	case_standard(t_list **sta, t_list **stb, t_list **result)
 		temp = temp->next;
 	}
 	temp = *sta;
-	cc = min_pos_finder(sta, stb, t, cc);
+	cc = min_pos_finder(sta, t, cc);
 	if (cc < (c / 2 + 1))
 		utils_ra(sta, stb, t, result);
 	if (cc >= (c / 2 + 1))

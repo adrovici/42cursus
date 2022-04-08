@@ -16,7 +16,6 @@ void	t_c_o_500(t_list **sta, t_list **stb, t_list **result, t_push *push)
 {
 	t_list	*temp;
 	int		aux;
-	int		c;
 
 	temp = *sta;
 	aux = (ft_lstsize(temp) / 16);
@@ -46,20 +45,16 @@ int	u_n_stck_500(t_list **sta, t_push *push)
 	t_list	*temp;
 	int		i;
 	int		c;
-	int		f;
 
 	i = 0;
 	c = 0;
 	temp = *sta;
-	if ((temp->content > push->stack7) && (temp->content <= push->stack8))
+	while (temp->content > push->stack7 && temp->content <= push->stack8)
 	{
-		while (temp->content > push->stack7 && temp->content <= push->stack8)
-		{
-			temp = temp->next;
-			i++;
-		}
-		return (i);
+		temp = temp->next;
+		i++;
 	}
+	return (i);
 }
 
 void	list_16stack_init(t_list **sta, t_push *push, int aux)
@@ -116,20 +111,17 @@ int	u_n_four_stck_500(t_list **sta, t_push *push)
 	i = 0;
 	c = 0;
 	temp = *sta;
-	if ((temp->content > push->stack4) && (temp->content <= push->stack8))
+	while (temp->content <= push->stack8)
 	{
-		while (temp->content <= push->stack8)
-		{
-			temp = temp->next;
-			i++;
-		}
-		temp = *sta;
-		while (c++ <= i)
-		{
-			if (temp->content <= push->stack6)
-				f = c;
-			temp = temp->next;
-		}
-		return (f);
+		temp = temp->next;
+		i++;
 	}
+	temp = *sta;
+	while (c++ <= i)
+	{
+		if (temp->content <= push->stack6)
+			f = c;
+		temp = temp->next;
+	}
+	return (f);
 }

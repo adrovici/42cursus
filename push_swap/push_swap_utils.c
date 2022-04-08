@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:49:47 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/05 15:11:29 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/08 14:49:55 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,25 +60,4 @@ int	next_min_num(t_list	**sta, int min)
 		temp = temp->next;
 	}
 	return (n);
-}
-
-int	previous_finder(t_list **stb, int min)
-{
-	t_list	*tempb;
-	int		n;
-
-	n = min - 1;
-	while (n != '-2147483647')
-	{
-		tempb = *stb;
-		while (tempb != NULL)
-		{
-			if ((int)tempb->content == n)
-				return (n);
-			tempb = tempb->next;
-		}
-		tempb = *stb;
-		n--;
-	}
-	exit (0);
 }

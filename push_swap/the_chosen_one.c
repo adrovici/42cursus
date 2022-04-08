@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 12:51:41 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/08 11:04:05 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/08 15:01:40 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	t_c_o(t_list **sta, t_list **stb, t_list **result, t_push *push)
 {
 	t_list	*temp;
 	int		aux;
-	int		c;
 
 	temp = *sta;
 	aux = (ft_lstsize(temp) / 8);
@@ -127,7 +126,7 @@ void	b_to_a_orden(t_list **sta, t_list **stb, t_list **result, t_push *push)
 				push->ord_aux = b_to_a_ord_ut(sta, stb, result, push->ord_aux);
 				break ;
 			}
-			b_to_a_ord_2(sta, stb, result, push);
+			b_to_a_ord_2(stb, result, push);
 			temp = *stb;
 		}
 		psw_pa(sta, stb, result);

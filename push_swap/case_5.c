@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:59:41 by umartin-          #+#    #+#             */
-/*   Updated: 2022/03/21 15:36:13 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/08 14:47:00 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	case_5(t_list **sta, t_list **stb, t_list **result)
 {
 	t_list	*temp;
-	t_list	*tempb;
 	int		t;
 	int		c;
 	int		cc;
@@ -32,14 +31,14 @@ void	case_5(t_list **sta, t_list **stb, t_list **result)
 		temp = temp->next;
 	}
 	temp = *sta;
-	cc = min_pos_finder(sta, stb, t, cc);
+	cc = min_pos_finder(sta, t, cc);
 	if (cc < (c / 2 + 1))
 		case_5_2(sta, stb, t, result);
 	if (cc >= (c / 2 + 1))
 		case_5_3(sta, stb, t, result);
 }
 
-int	min_pos_finder(t_list **sta, t_list **stb, int t, int cc)
+int	min_pos_finder(t_list **sta, int t, int cc)
 {
 	t_list	*temp;
 
@@ -55,7 +54,6 @@ int	min_pos_finder(t_list **sta, t_list **stb, int t, int cc)
 void	case_5_2(t_list **sta, t_list **stb, int t, t_list **result)
 {
 	t_list	*temp;
-	t_list	*tempb;
 
 	temp = *sta;
 	if (t == (int)temp->content)
@@ -70,7 +68,6 @@ void	case_5_2(t_list **sta, t_list **stb, int t, t_list **result)
 void	case_5_3(t_list **sta, t_list **stb, int t, t_list **result)
 {
 	t_list	*temp;
-	t_list	*tempb;
 
 	temp = *sta;
 	if (t == (int)temp->content)

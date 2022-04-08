@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 13:58:20 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/07 15:15:40 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/08 14:58:57 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,19 @@ int	until_next_two_stacks_68(t_list **sta, t_push *push)
 	i = 0;
 	c = 0;
 	temp = *sta;
-	if ((temp->content > push->stack6) && (temp->content <= push->max))
+	while (temp->content != push->min)
 	{
-		while (temp->content != push->min)
-		{
-			temp = temp->next;
-			i++;
-		}
-		temp = *sta;
-		while (c++ <= i)
-		{
-			if (temp->content <= push->stack7)
-				f = c;
-			temp = temp->next;
-		}
-		return (f);
+		temp = temp->next;
+		i++;
 	}
+	temp = *sta;
+	while (c++ <= i)
+	{
+		if (temp->content <= push->stack7)
+			f = c;
+		temp = temp->next;
+	}
+	return (f);
 }
 
 int	until_next_two_stacks_24(t_list **sta, t_push *push)
@@ -75,22 +72,19 @@ int	until_next_two_stacks_24(t_list **sta, t_push *push)
 	i = 0;
 	c = 0;
 	temp = *sta;
-	if ((temp->content > push->stack2) && (temp->content <= push->stack4))
+	while (temp->content <= push->stack4)
 	{
-		while (temp->content <= push->stack4)
-		{
-			temp = temp->next;
-			i++;
-		}
-		temp = *sta;
-		while (c++ <= i)
-		{
-			if (temp->content <= push->stack3)
-				f = c;
-			temp = temp->next;
-		}
-		return (f);
+		temp = temp->next;
+		i++;
 	}
+	temp = *sta;
+	while (c++ <= i)
+	{
+		if (temp->content <= push->stack3)
+			f = c;
+		temp = temp->next;
+	}
+	return (f);
 }
 
 int	until_next_stack(t_list **sta, t_push *push)
@@ -107,7 +101,6 @@ int	until_next_stack(t_list **sta, t_push *push)
 			temp = temp->next;
 			i++;
 		}
-		return (i);
 	}
 	else if (temp->content > push->stack7 && temp->content <= push->max)
 	{
@@ -116,8 +109,8 @@ int	until_next_stack(t_list **sta, t_push *push)
 			temp = temp->next;
 			i++;
 		}
-		return (i);
 	}
+	return (i);
 }
 
 int	until_next_stack_2(t_list **sta, t_push *push)
@@ -134,7 +127,6 @@ int	until_next_stack_2(t_list **sta, t_push *push)
 			temp = temp->next;
 			i++;
 		}
-		return (i);
 	}
 	else if ((temp->content > push->stack3) && (temp->content <= push->stack4))
 	{
@@ -143,6 +135,6 @@ int	until_next_stack_2(t_list **sta, t_push *push)
 			temp = temp->next;
 			i++;
 		}
-		return (i);
 	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:43:23 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/08 12:49:55 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/08 15:24:44 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	main_utils(t_list **sta, t_list **stb, t_list **result, t_push *push);
 
 int		min_num_finder(t_list	**sta);
 int		max_num_finder(t_list	**sta);
-int		min_pos_finder(t_list **sta, t_list **stb, int t, int cc);
+int		min_pos_finder(t_list **sta, int t, int cc);
 
 void	all_b_to_a(t_list **sta, t_list **stb, t_list **result);
 
@@ -95,7 +95,6 @@ void	utils_ra(t_list **sta, t_list **stb, int t, t_list **result);
 
 void	algorithm_of_the_mandangon(t_list **sta, t_list **stb, t_list **result);
 int		next_min_num(t_list	**sta, int min);
-int		previous_finder(t_list **stb, int min);
 int		cla_finder(t_list	**sta, int a);
 int		current_finder(t_list **sta, int cla);
 int		current_finder_2(t_list **sta, int current, int counter);
@@ -132,8 +131,8 @@ void	rrr_adv(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	a_to_b_spl_8(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	b_to_a_orden(t_list **sta, t_list **stb, t_list **result, t_push *push);
 int		b_to_a_ord_ut(t_list **sta, t_list **stb, t_list **result, int aux);
-int		b_to_a_ord_2(t_list **sta, t_list **stb, t_list **result, t_push *push);
-void	ra_printer(t_list **sta, t_push **result, int aux);
+void	b_to_a_ord_2(t_list **stb, t_list **result, t_push *push);
+void	ra_printer(t_list **sta, t_list **result, int aux);
 void	a_to_b_ord(t_list **sta, t_list **stb, t_list **result, int a);
 int		until_next_stack(t_list **sta, t_push *push);
 int		until_next_stack_2(t_list **sta, t_push *push);
@@ -165,7 +164,5 @@ void	the_game_changer(t_push *push);
 
 void	imprimir(char **sta, char **stb);
 void	no_op_printer(t_list **res);
-
-// Script
 
 #endif

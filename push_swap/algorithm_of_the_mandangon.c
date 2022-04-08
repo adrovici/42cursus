@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:21:56 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/06 12:34:50 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/08 14:48:33 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int	current_checker(t_list **sta, int cla)
 
 int	cla_finder(t_list	**sta, int a)
 {
-	t_list	*temp;
 	int		i;
 	int		min;
 	int		cla;

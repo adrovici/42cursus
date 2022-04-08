@@ -6,13 +6,13 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 10:49:01 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/08 12:49:52 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/08 15:00:16 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra_printer(t_list **sta, t_push **result, int aux)
+void	ra_printer(t_list **sta, t_list **result, int aux)
 {
 	while (aux-- != 0)
 		psw_ra(sta, result);
@@ -26,7 +26,7 @@ int	b_to_a_ord_ut(t_list **sta, t_list **stb, t_list **result, int aux)
 	return (aux);
 }
 
-int	b_to_a_ord_2(t_list **sta, t_list **stb, t_list **result, t_push *push)
+void	b_to_a_ord_2(t_list **stb, t_list **result, t_push *push)
 {
 	t_list	*temp;
 

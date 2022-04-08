@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 19:24:04 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/07 17:55:48 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/08 14:57:01 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	a_to_b_ord(t_list **sta, t_list **stb, t_list **result, int a)
 {
 	t_list	*temp;
 	t_list	*temp2;
-	t_list	*temp3;
 
 	temp = *sta;
 	while (a-- != 0)

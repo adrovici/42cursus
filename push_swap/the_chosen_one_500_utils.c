@@ -51,22 +51,19 @@ int	u_n_two_stck_500(t_list **sta, t_push *push)
 	i = 0;
 	c = 0;
 	temp = *sta;
-	if ((temp->content > push->stack6) && (temp->content <= push->stack8))
+	while (temp->content <= push->stack8)
 	{
-		while (temp->content <= push->stack8)
-		{
-			temp = temp->next;
-			i++;
-		}
-		temp = *sta;
-		while (c++ <= i)
-		{
-			if (temp->content <= push->stack7)
-				f = c;
-			temp = temp->next;
-		}
-		return (f);
+		temp = temp->next;
+		i++;
 	}
+	temp = *sta;
+	while (c++ <= i)
+	{
+		if (temp->content <= push->stack7)
+			f = c;
+		temp = temp->next;
+	}
+	return (f);
 }
 
 void	a_b_spl_16(t_list **sta, t_list **stb, t_list **result, t_push *push)
