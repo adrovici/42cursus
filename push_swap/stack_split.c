@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 14:39:54 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/06 18:18:31 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/08 10:59:21 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,30 @@ void	stack4_split(t_list **sta, t_list **stb, t_list **result, t_push *push)
 			temp = *stb;
 			while ((int)temp->content != current)
 			{
-				if ((int)temp->content == min_num_finder(stb))
-				{
-					psw_pa(sta, stb, result);
-					psw_ra(sta, result);
-				}
-				temp = *stb;
-				if (r_or_rr(stb, current))
-					psw_rrb(stb, result);
-				else if (!r_or_rr(stb, current))
-					psw_rb(stb, result);
+				split_helper(sta, stb, result, current);
 				temp = *stb;
 			}
 			psw_pa(sta, stb, result);
 			temp = *stb;
 		}
 	}
+}
+
+void	split_helper(t_list **sta, t_list **stb, t_list **result, int a)
+{
+	t_list	*temp;
+
+	temp = *stb;
+	if ((int)temp->content == min_num_finder(stb))
+	{
+		psw_pa(sta, stb, result);
+		psw_ra(sta, result);
+	}
+	temp = *stb;
+	if (r_or_rr(stb, a))
+		psw_rrb(stb, result);
+	else if (!r_or_rr(stb, a))
+		psw_rb(stb, result);
 }
 
 void	stck4_2_spl(t_list **sta, t_list **stb, t_list **result, t_push *push)
@@ -64,16 +72,7 @@ void	stck4_2_spl(t_list **sta, t_list **stb, t_list **result, t_push *push)
 			temp = *stb;
 			while ((int)temp->content != current)
 			{
-				if ((int)temp->content == min_num_finder(stb))
-				{
-					psw_pa(sta, stb, result);
-					psw_ra(sta, result);
-				}
-				temp = *stb;
-				if (r_or_rr(stb, current))
-					psw_rrb(stb, result);
-				else if (!r_or_rr(stb, current))
-					psw_rb(stb, result);
+				split_helper(sta, stb, result, current);
 				temp = *stb;
 			}
 			psw_pa(sta, stb, result);
@@ -99,16 +98,7 @@ void	stack2_split(t_list **sta, t_list **stb, t_list **result, t_push *push)
 			temp = *stb;
 			while ((int)temp->content != current)
 			{
-				if ((int)temp->content == min_num_finder(stb))
-				{
-					psw_pa(sta, stb, result);
-					psw_ra(sta, result);
-				}
-				temp = *stb;
-				if (r_or_rr(stb, current))
-					psw_rrb(stb, result);
-				else if (!r_or_rr(stb, current))
-					psw_rb(stb, result);
+				split_helper(sta, stb, result, current);
 				temp = *stb;
 			}
 			psw_pa(sta, stb, result);
@@ -117,7 +107,7 @@ void	stack2_split(t_list **sta, t_list **stb, t_list **result, t_push *push)
 	}
 }
 
-void	stack2_split_2(t_list **sta, t_list **stb, t_list **result, t_push *push)
+void	stk2_split_2(t_list **sta, t_list **stb, t_list **result, t_push *push)
 {
 	t_list	*temp;
 	int		current;
@@ -134,16 +124,7 @@ void	stack2_split_2(t_list **sta, t_list **stb, t_list **result, t_push *push)
 			temp = *stb;
 			while ((int)temp->content != current)
 			{
-				if ((int)temp->content == min_num_finder(stb))
-				{
-					psw_pa(sta, stb, result);
-					psw_ra(sta, result);
-				}
-				temp = *stb;
-				if (r_or_rr(stb, current))
-					psw_rrb(stb, result);
-				else if (!r_or_rr(stb, current))
-					psw_rb(stb, result);
+				split_helper(sta, stb, result, current);
 				temp = *stb;
 			}
 			psw_pa(sta, stb, result);

@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 19:36:11 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/06 16:00:44 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/07 12:24:05 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	arg_num_chkr(t_list **sta, t_list **stb, t_list **result, t_push *push)
 	else if (n == 2)
 		psw_sa(sta, result);
 	else if ((n >= 50) && (n < 500))
-		the_chosen_one(sta, stb, result, push);
+		t_c_o(sta, stb, result, push);
 	else if (n >= 500)
-		the_chosen_one_500(sta, stb, result, push);
+		t_c_o_500(sta, stb, result, push);
 }

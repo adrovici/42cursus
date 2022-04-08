@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 15:07:52 by umartin-          #+#    #+#              #
-#    Updated: 2022/04/06 15:59:36 by umartin-         ###   ########.fr        #
+#    Updated: 2022/04/08 12:37:37 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,11 @@ the_chosen_one.c \
 no_op_printer.c \
 stack_split.c \
 the_chosen_one_500.c \
+the_chosen_one_500_utils.c \
+the_chosen_one_utils.c \
+the_chosen_one_utils_2.c \
+the_chosen_one_utils_3.c \
+script_utils.c \
 
 
 OBJ = push_swap.o \
@@ -47,9 +52,14 @@ the_chosen_one.o \
 no_op_printer.o \
 stack_split.o \
 the_chosen_one_500.o \
+the_chosen_one_500_utils.o \
+the_chosen_one_utils.o \
+the_chosen_one_utils_2.o \
+the_chosen_one_utils_3.o \
+script_utils.o \
 
 CC = gcc
-CCFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CCFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 ARRC = ar rc
 
@@ -62,7 +72,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CCFLAGS) $(LIBFT) $^ -o $@
 
 %.o: %.c
-	$(CC) -g3 -fsanitize=address -c $^ -o $@
+	$(CC) -c $^ -o $@
 	
 
 #$(CSRC): $(SRC)

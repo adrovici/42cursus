@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:36:59 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/06 19:06:20 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/08 12:48:57 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int	main(int ac, char **av)
 	}
 	list_init(&stemp, &sta);
 	main_utils(&sta, &stb, &result, &push);
-	return (0);
+	free_lists(sta, result, stemp);
+	exit (0);
 }
 
 void	main_utils(t_list **sta, t_list **stb, t_list **result, t_push *push)

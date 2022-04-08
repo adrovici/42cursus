@@ -201,3 +201,148 @@ void	algorithm_of_the_mandangon(t_list **sta, t_list **stb, t_list **result)
 	}
 	all_b_to_a(sta, stb, result);
 }
+
+void	rrr_adv(t_list **sta, t_list **stb, t_list **result, t_push *push)
+{
+	t_list	*temp;
+	int		i;
+	int		mov;
+
+	temp = *stb;
+	i = 1;
+	push->rrr_size = ft_lstsize(stb);
+	push->rrr_min = min_num_finder(stb);
+	while ((i++) && (int)temp->content != push->rrr_min)
+		temp = temp->next;
+	mov = push->rrr_size - i + 1;
+	printf ("MOV = %i\n", mov);
+	if (mov > push->c)
+		while (push->c-- != 0)
+			psw_rra(sta, result);
+	else if (mov == push->c)
+		while (push->c-- != 0)
+			psw_rrr(sta, stb, result);
+	else if (mov < push->c)
+	{
+		push->c = push->c - mov;
+		while (mov-- != 0)
+			psw_rrr(sta, stb, result);
+		while (push->c-- != 0)
+			psw_rra(sta, result);
+	}
+}
+
+void	rrr_adv(t_list **sta, t_list **stb, t_list **result, t_push *push)
+{
+	t_list	*temp;
+	int		min;
+	int		size;
+	int		i;
+	int		mov;
+
+	temp = *stb;
+	i = 1;
+	size = ft_lstsize(temp);
+	min = min_num_finder(stb);
+	while ((int)temp->content != min)
+	{
+		temp = temp->next;
+		i++;
+	}
+	mov = size - i + 1;
+	printf ("MOV = %i\n", mov);
+	if (mov > push->c)
+		while (push->c-- != 0)
+			psw_rra(sta, result);
+	else if (mov == push->c)
+		while (push->c-- != 0)
+			psw_rrr(sta, stb, result);
+	else if (mov < push->c)
+	{
+		push->c = push->c - mov;
+		while (mov-- != 0)
+			psw_rrr(sta, stb, result);
+		while (push->c-- != 0)
+			psw_rra(sta, result);
+	}
+}
+
+void	b_to_a_orden(t_list **sta, t_list **stb, t_list **result)
+{
+	t_list	*temp;
+	int		current;
+	int		aux;
+
+	temp = *stb;
+	aux = (ft_lstsize(temp));
+	while (ft_lstsize(temp) != 0)
+	{
+		current = max_num_finder(stb);
+		while ((int)temp->content != current)
+		{
+			temp = *stb;
+			if ((int)temp->content == min_num_finder(stb))
+				aux = b_to_a_ord_ut(sta, stb, result, aux);
+			temp = *stb;
+			if (ft_lstsize(temp) == 1)
+			{
+				aux = b_to_a_ord_ut(sta, stb, result, aux);
+				break ;
+			}
+			temp = *stb;
+			if ((r_or_rr(stb, current) && (ft_lstsize(temp) != 0)))
+				psw_rrb(stb, result);
+			else if ((!r_or_rr(stb, current) && (ft_lstsize(temp) != 0)))
+				psw_rb(stb, result);
+			temp = *stb;
+		}
+		psw_pa(sta, stb, result);
+		temp = *stb;
+	}
+	while (aux-- != 0)
+		psw_ra(sta, result);
+}
+
+int	b_to_a_ord_ut(t_list **sta, t_list **stb, t_list **result, int aux)
+{
+	psw_pa(sta, stb, result);
+	psw_ra(sta, result);
+	aux--;
+}
+
+
+
+void	b_to_a_orden(t_list **sta, t_list **stb, t_list **result, t_push *push)
+{
+	t_list	*temp;
+	int		aux;
+
+	temp = *stb;
+	aux = (ft_lstsize(temp));
+	while (ft_lstsize(temp) != 0)
+	{
+		push->ord_cu = max_num_finder(stb);
+		while ((int)temp->content != push->ord_cu)
+		{
+			temp = *stb;
+			if ((int)temp->content == min_num_finder(stb))
+				aux = b_to_a_ord_ut(sta, stb, result, aux);
+			temp = *stb;
+			if (ft_lstsize(temp) == 1)
+			{
+				aux = b_to_a_ord_ut(sta, stb, result, aux);
+				break ;
+			}
+			temp = *stb;
+			if ((r_or_rr(stb, push->ord_cu) && (ft_lstsize(temp) != 0)))
+				psw_rrb(stb, result);
+			else if ((!r_or_rr(stb, push->ord_cu) && (ft_lstsize(temp) != 0)))
+				psw_rb(stb, result);
+			temp = *stb;
+		}
+		psw_pa(sta, stb, result);
+		temp = *stb;
+	}
+	while (aux-- != 0)
+		psw_ra(sta, result);
+}

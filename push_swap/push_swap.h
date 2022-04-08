@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:43:23 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/06 19:06:58 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/08 12:49:55 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ typedef struct s_push
 	int		stack14;
 	int		stack15;
 	int		a;
+	int		c;
+	int		rrr_min;
+	int		rrr_size;
+	int		ord_cu;
+	int		ord_aux;
 
 }	t_push;
 
@@ -113,32 +118,42 @@ void	is_minim(t_list **sta, t_list **stb, t_list **result);
 void	result_printer(t_list **res);
 void	real_printer(t_list **res);
 
-void	the_chosen_one(t_list **sta, t_list **stb, t_list **result, t_push *push);
+void	t_c_o(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	stack2_split(t_list **sta, t_list **stb, t_list **result, t_push *push);
-void	stack2_split_2(t_list **sta, t_list **stb, t_list **result, t_push *push);
+void	stk2_split_2(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	stack4_split(t_list **sta, t_list **stb, t_list **result, t_push *push);
+void	split_helper(t_list **sta, t_list **stb, t_list **result, int a);
 int		cla_mid_finder(t_list	**sta, int a);
 void	list_stack_init(t_list **sta, t_push *push, int aux);
-int		b_to_a_splitter(t_list **sta, t_list **stb, t_list **result, int aux_aux);
 int		a_to_b_spl(t_list **sta, t_list **stb, t_list **result, t_push *push);
+int		a_b_spl_t(t_list **sta, t_list **stb, t_list **result, t_push *push);
 int		a_b_spl_4(t_list **sta, t_list **stb, t_list **result, t_push *push);
-void	rrr_advantage(t_list **sta, t_list **stb, t_list **result, int c);
+void	rrr_adv(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	a_to_b_spl_8(t_list **sta, t_list **stb, t_list **result, t_push *push);
-void	b_to_a_orden(t_list **sta, t_list **stb, t_list **result);
-void	a_to_b_to_ord(t_list **sta, t_list **stb, t_list **result, int a);
+void	b_to_a_orden(t_list **sta, t_list **stb, t_list **result, t_push *push);
+int		b_to_a_ord_ut(t_list **sta, t_list **stb, t_list **result, int aux);
+int		b_to_a_ord_2(t_list **sta, t_list **stb, t_list **result, t_push *push);
+void	ra_printer(t_list **sta, t_push **result, int aux);
+void	a_to_b_ord(t_list **sta, t_list **stb, t_list **result, int a);
 int		until_next_stack(t_list **sta, t_push *push);
-int		until_next_two_stacks(t_list **sta, t_push *push);
+int		until_next_stack_2(t_list **sta, t_push *push);
+int		until_next_two_stacks_68(t_list **sta, t_push *push);
+int		until_next_two_stacks_24(t_list **sta, t_push *push);
 int		until_next_four_stacks(t_list **sta, t_push *push);
+void	script1(t_list **sta, t_list **stb, t_list **result, t_push *push);
+void	script2(t_list **sta, t_list **stb, t_list **result, t_push *push);
 
-void	the_chosen_one_500(t_list **sta, t_list **stb, t_list **result, t_push *push);
+void	t_c_o_500(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	list_16stack_init(t_list **sta, t_push *push, int aux);
-void	a_to_b_spl_16(t_list **sta, t_list **stb, t_list **result, t_push *push);
+void	a_b_spl_16(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	stack8_split(t_list **sta, t_list **stb, t_list **result, t_push *push);
 int		u_n_four_stck_500(t_list **sta, t_push *push);
 int		u_n_two_stck_500(t_list **sta, t_push *push);
 int		u_n_stck_500(t_list **sta, t_push *push);
 int		a_to_b_sp_82(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	stck4_2_spl(t_list **sta, t_list **stb, t_list **result, t_push *push);
+void	list_init_utils(t_list **sta, t_push *push, int aux, int i);
+void	free_lists(t_list *sta, t_list *result, t_list *stemp);
 
 int		cla_next_finder(t_list	**sta, int a);
 int		min_num_finder_algo(t_list	**sta, int a);
@@ -150,5 +165,7 @@ void	the_game_changer(t_push *push);
 
 void	imprimir(char **sta, char **stb);
 void	no_op_printer(t_list **res);
+
+// Script
 
 #endif
