@@ -6,11 +6,12 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 15:07:52 by umartin-          #+#    #+#              #
-#    Updated: 2022/04/08 14:41:44 by umartin-         ###   ########.fr        #
+#    Updated: 2022/04/11 14:34:13 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+BONUS = checker
 
 LIBFT_PATH		=	./libft
 LIBFT			=	$(LIBFT_PATH)/libft.a
@@ -35,6 +36,16 @@ the_chosen_one_utils.c \
 the_chosen_one_utils_2.c \
 the_chosen_one_utils_3.c \
 script_utils.c \
+
+BNS = bonus/bonus_main.c \
+bonus/bonus_spmoves.c \
+bonus/bonus_rmoves.c \
+bonus/bonus_rrmoves.c \
+
+BNS_OBJ = bonus/bonus_main.o \
+bonus/bonus_spmoves.o \
+bonus/bonus_rmoves.o \
+bonus/bonus_rrmoves.o \
 
 
 OBJ = push_swap.o \
@@ -67,25 +78,23 @@ all: $(NAME)
 
 m: $(NAME)
 
+bonus: $(BONUS)
+
+$(BONUS): $(BNS_OBJ)
+	$(CC) $(LIBFT) $^ -o $@
+
 $(NAME): $(OBJ)
 	make -C libft
 	$(CC) $(CCFLAGS) $(LIBFT) $^ -o $@
 
 %.o: %.c
-	$(CC) $(CCFLAGS) -c $^ -o $@
-	
-
-#$(CSRC): $(SRC)
-#	$(CC) $(CCFLAGS) -c $(SRC)
-
-#$(CSRC_BONUS): $(SRC_BONUS)
-#	$(CC) $(CCFLAGS) -c $(SRC_BONUS) -o $(CSRC_BONUS)
+	$(CC) -c $^ -o $@
 
 clean: 
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(BNS_OBJ)
 
 fclean: clean
-	$(RM) $(NAME) $(NAME_BONUS)
+	$(RM) $(NAME) $(BONUS)
 	make fclean -C libft/
 
 re: fclean all

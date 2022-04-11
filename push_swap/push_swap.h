@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:43:23 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/08 15:24:44 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/11 13:41:21 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,6 @@ int		nums_until_min(t_list	**sta, int a);
 void	list_init(t_list **stemp, t_list **sta);
 void	the_game_changer(t_push *push);
 
-void	imprimir(char **sta, char **stb);
 void	no_op_printer(t_list **res);
 
 #endif
