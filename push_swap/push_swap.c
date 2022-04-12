@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:36:59 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/08 12:48:57 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:07:16 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	main(int ac, char **av)
 	else
 	{
 		if (ac > 2)
-			addnumbers(&stemp, av, 0);
+			addnumbers(&stemp, av, 0, 0);
 		else
-			addnumbers(&stemp, ft_split(av[1], ' '), -1);
+			addnumbers(&stemp, ft_split(av[1], ' '), -1, 1);
 	}
 	list_init(&stemp, &sta);
 	main_utils(&sta, &stb, &result, &push);
@@ -58,10 +58,15 @@ int	checker(int ac, char **av)
 	i = 0;
 	if (ac == 2)
 	{
-		if (com_num_checker(av[1]))
-			return (1);
+		if (at_least_one_num(av[1]) == 1)
+		{
+			if (com_num_checker(av[1]))
+				return (1);
+			else
+				return (0);
+		}
 		else
-			return (0);
+			exit (0);
 	}
 	else
 	{
@@ -71,6 +76,27 @@ int	checker(int ac, char **av)
 				return (1);
 		}
 	}
+	return (0);
+}
+
+int	at_least_one_num(char *str)
+{
+	int	i;
+	int	c;
+
+	i = -1;
+	c = 0;
+	if ((!str) || str[0] == '\0')
+		exit(0);
+	while (str[++i] != '\0')
+	{
+		if ((str[i] >= 48) && (str[i] <= 57))
+			c++;
+	}
+	if (c == 0)
+		return (0);
+	else if (c > 0)
+		return (1);
 	return (0);
 }
 
@@ -98,33 +124,6 @@ int	com_num_checker(char *str)
 					return (1);
 			}
 		}
-	}
-	return (0);
-}
-
-int	num_checker(char *str)
-{
-	int	i;
-
-	if (str[0] == '-' || str[0] == '+')
-	{
-		if (ft_strlen(str) == 1)
-			return (1);
-		i = 1;
-		while (str[i] != '\0')
-		{
-			if (str[i] < '0' || str[i] > '9')
-				return (1);
-			i++;
-		}
-		return (0);
-	}
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (1);
-		i++;
 	}
 	return (0);
 }

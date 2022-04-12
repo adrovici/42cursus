@@ -87,3 +87,30 @@ void	a_b_spl_16(t_list **sta, t_list **stb, t_list **result, t_push *push)
 		}
 	}
 }
+
+int	num_checker(char *str)
+{
+	int	i;
+
+	if (str[0] == '-' || str[0] == '+')
+	{
+		if (ft_strlen(str) == 1)
+			return (1);
+		i = 1;
+		while (str[i] != '\0')
+		{
+			if (str[i] < '0' || str[i] > '9')
+				return (1);
+			i++;
+		}
+		return (0);
+	}
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (1);
+		i++;
+	}
+	return (0);
+}

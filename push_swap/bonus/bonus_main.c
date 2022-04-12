@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 15:42:27 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/12 12:42:19 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:07:23 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	main(int argc, char **argv)
 	else
 	{
 		if (argc > 2)
-			chk_addnumbers(&sta, argv, 0);
+			chk_addnumbers(&sta, argv, 0, 0);
 		else
-			chk_addnumbers(&sta, ft_split(argv[1], ' '), -1);
+			chk_addnumbers(&sta, ft_split(argv[1], ' '), -1, 1);
 	}
 	main_utils_2(line, &sta, &stb);
 	if ((chk_alr_ord(&sta)) && (ft_lstsize(stb) == 0))
@@ -83,7 +83,7 @@ void	main_utils(char	*line, t_list **sta, t_list **stb)
 	imprimir (sta, stb);
 }
 
-void	chk_addnumbers(t_list **stemp, char **av, int i)
+void	chk_addnumbers(t_list **stemp, char **av, int i, int b)
 {
 	int	number;
 
@@ -91,7 +91,11 @@ void	chk_addnumbers(t_list **stemp, char **av, int i)
 	{
 		number = chk_atoi_psw(av[i]);
 		ft_lstadd_back(stemp, ft_lstnew(number));
+		if (b)
+			free (av[i]);
 	}
+	if (b)
+		free (av);
 }
 
 int	chk_checker(int ac, char **av)
@@ -101,10 +105,15 @@ int	chk_checker(int ac, char **av)
 	i = 0;
 	if (ac == 2)
 	{
-		if (chk_com_num_checker(av[1]))
-			return (1);
+		if (chk_at_least_one_num(av[1]) == 1)
+		{
+			if (chk_com_num_checker(av[1]))
+				return (1);
+			else
+				return (0);
+		}
 		else
-			return (0);
+			exit (0);
 	}
 	else
 	{

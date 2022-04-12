@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 13:38:56 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/12 12:42:29 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:04:40 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 int		main(int argc, char **argv);
 void	chk_errormsg(void);
 void	imprimir(t_list **sta, t_list **stb);
-void	chk_addnumbers(t_list **stemp, char **av, int i);
+void	chk_addnumbers(t_list **stemp, char **av, int i, int b);
 int		chk_checker(int ac, char **av);
 int		chk_atoi_psw(const char *str);
 int		chk_com_num_checker(char *str);
@@ -33,6 +33,7 @@ void	main_utils_2(char	*line, t_list **sta, t_list **stb);
 int		chk_rep_nums(t_list	**sta);
 void	chk_free_lists(t_list *sta, t_list *stb);
 void	chk_list_free(t_list *st);
+int		chk_at_least_one_num(char *str);
 
 // MOVES
 void	chk_pb(t_list **sta, t_list **stb);

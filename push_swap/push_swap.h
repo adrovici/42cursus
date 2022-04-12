@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:43:23 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/11 13:41:21 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:03:09 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 int		main(int ac, char **av);
 void	errormsg(void);
 int		ft_atoi_psw(const char *str);
-void	addnumbers(t_list **sta, char **av, int i);
+void	addnumbers(t_list **stemp, char **av, int i, int b);
 
 typedef struct s_push
 {
@@ -71,6 +71,7 @@ int		alr_ord(t_list	**sta);
 int		num_checker(char *str);
 int		com_num_checker(char *str);
 int		checker(int ac, char **av);
+int		at_least_one_num(char *str);
 
 // Algorithm
 void	case_3(t_list **sta, t_list **result);
@@ -153,6 +154,7 @@ int		a_to_b_sp_82(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	stck4_2_spl(t_list **sta, t_list **stb, t_list **result, t_push *push);
 void	list_init_utils(t_list **sta, t_push *push, int aux, int i);
 void	free_lists(t_list *sta, t_list *result, t_list *stemp);
+void	list_free(t_list *st);
 
 int		cla_next_finder(t_list	**sta, int a);
 int		min_num_finder_algo(t_list	**sta, int a);

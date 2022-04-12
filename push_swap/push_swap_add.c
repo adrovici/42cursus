@@ -6,13 +6,13 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 15:31:35 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/06 16:12:22 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/12 15:05:48 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	addnumbers(t_list **stemp, char **av, int i)
+void	addnumbers(t_list **stemp, char **av, int i, int b)
 {
 	int	number;
 
@@ -20,7 +20,11 @@ void	addnumbers(t_list **stemp, char **av, int i)
 	{
 		number = ft_atoi_psw(av[i]);
 		ft_lstadd_back(stemp, ft_lstnew(number));
+		if (b)
+			free (av[i]);
 	}
+	if (b)
+		free (av);
 }
 
 void	list_init(t_list **stemp, t_list **sta)
