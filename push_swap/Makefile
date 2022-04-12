@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 15:07:52 by umartin-          #+#    #+#              #
-#    Updated: 2022/04/11 14:34:13 by umartin-         ###   ########.fr        #
+#    Updated: 2022/04/12 12:14:50 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,11 +41,17 @@ BNS = bonus/bonus_main.c \
 bonus/bonus_spmoves.c \
 bonus/bonus_rmoves.c \
 bonus/bonus_rrmoves.c \
+bonus/bonus_utils.c \
+bonus/bonus_visual_printer.c \
+bonus/bonus_free.c \
 
 BNS_OBJ = bonus/bonus_main.o \
 bonus/bonus_spmoves.o \
 bonus/bonus_rmoves.o \
 bonus/bonus_rrmoves.o \
+bonus/bonus_utils.o \
+bonus/bonus_visual_printer.o \
+bonus/bonus_free.o \
 
 
 OBJ = push_swap.o \
@@ -70,7 +76,7 @@ the_chosen_one_utils_3.o \
 script_utils.o \
 
 CC = gcc
-CCFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CCFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 ARRC = ar rc
 
@@ -81,7 +87,7 @@ m: $(NAME)
 bonus: $(BONUS)
 
 $(BONUS): $(BNS_OBJ)
-	$(CC) $(LIBFT) $^ -o $@
+	$(CC) $(CCFLAGS) $(LIBFT) $^ -o $@
 
 $(NAME): $(OBJ)
 	make -C libft

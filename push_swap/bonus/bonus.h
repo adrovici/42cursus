@@ -6,7 +6,7 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 13:38:56 by umartin-          #+#    #+#             */
-/*   Updated: 2022/04/11 14:40:43 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/04/12 12:42:29 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,18 @@
 
 int		main(int argc, char **argv);
 void	chk_errormsg(void);
-void	imprimir(char **sta, char **stb);
+void	imprimir(t_list **sta, t_list **stb);
 void	chk_addnumbers(t_list **stemp, char **av, int i);
 int		chk_checker(int ac, char **av);
 int		chk_atoi_psw(const char *str);
 int		chk_com_num_checker(char *str);
 int		chk_num_checker(char *str);
 int		chk_alr_ord(t_list	**sta);
+void	main_utils(char	*line, t_list **sta, t_list **stb);
+void	main_utils_2(char	*line, t_list **sta, t_list **stb);
+int		chk_rep_nums(t_list	**sta);
+void	chk_free_lists(t_list *sta, t_list *stb);
+void	chk_list_free(t_list *st);
 
 // MOVES
 void	chk_pb(t_list **sta, t_list **stb);
@@ -40,5 +45,10 @@ void	chk_rrb(t_list **sta);
 void	chk_rra(t_list **sta);
 void	chk_rrr(t_list **sta, t_list **stb);
 void	chk_rr(t_list **sta, t_list **stb);
+
+// VISUAL PRINTER
+void	visual_printer_1(void);
+void	visual_printer_2(void);
+void	visual_printer_3(void);
 
 #endif
