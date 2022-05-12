@@ -6,7 +6,7 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/02 16:27:22 by umartin-          #+#    #+#              #
-#    Updated: 2022/05/02 16:36:19 by umartin-         ###   ########.fr        #
+#    Updated: 2022/05/05 13:48:50 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CCFLAGS) $(LIBFT) $^ -o $@
 
 $(NAME1): $(OBJ1)
-	$(CC) $(CCFLAGS) $^ -o $@
+	$(CC) $(CCFLAGS) $(LIBFT) $^ -o $@
 
 %.o: %.c
 	$(CC) -c $^ -o $@
