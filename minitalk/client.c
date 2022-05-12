@@ -6,58 +6,62 @@
 /*   By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:34:29 by umartin-          #+#    #+#             */
-/*   Updated: 2022/05/05 14:13:33 by umartin-         ###   ########.fr       */
+/*   Updated: 2022/05/12 13:43:20 by umartin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 #include "libft/libft.h"
 
-void	sighandler(int signal, siginfo_t *a, void *b)
+static void	confirmer(int signal)
 {
-	(void) a;
-	(void) b;
-	(void) signal;
-	write(1, "message delivered\n", 17);
-	exit (0);
+	if (signal == SIGUSR2)
+		ft_putstr_fd("\033[0;32mSignal Recived\033[0;32m\n", 1);
+	else
+		ft_putstr_fd("\033[0;32mError\033[0;32m\n", 1);
 }
 
-void	ft_send(int pid, char c)
+int	ft_send(int pid, char sig)
 {
-	int		i;
+	int	bit;
 
-	i = 0;
-	while (i <= 7)
+	bit = 0;
+	while (bit < 8)
 	{
-		if ((c & (0x01 << i)) != 0)
-			kill(pid, SIGUSR1);
+		if ((sig & (1 << bit)) != 0)
+			kill (pid, SIGUSR1);
 		else
-			kill(pid, SIGUSR2);
-		i++;
-		usleep(1000);
+			kill (pid, SIGUSR2);
+		usleep (1000);
+		bit++;
 	}
+	return (0);
 }
 
 int	main(int argc, char *argv[])
 {
-	int					i;
-	struct sigaction	sa;
+	int		pid;
+	size_t	c;
 
-	sa.sa_sigaction = sighandler;
-	i = 0;
+	c = 0;
 	if (argc == 3)
 	{
-		while (argv[2][i])
+		pid = ft_atoi(argv[1]);
+		if (pid == -1)
+			return (0);
+		while (argv[2][c])
 		{
-			ft_send(ft_atoi(argv[1]), argv[2][i]);
-			i++;
+			signal(SIGUSR1, confirmer);
+			signal(SIGUSR2, confirmer);
+			ft_send(pid, argv[2][c]);
+			c++;
 		}
-		ft_send(ft_atoi(argv[1]), 0);
-		while (1)
-		{	
-			sigaction(SIGUSR1, &sa, NULL);
-			pause();
-		}
+		ft_send(pid, '\n');
+	}
+	else
+	{
+		ft_printf ("Formato Incorrecto: [./client <PID> <STR>]\n");
+		exit (1);
 	}
 	return (0);
 }
