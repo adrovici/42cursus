@@ -6,14 +6,15 @@
 #    By: umartin- <umartin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 11:39:50 by umartin-          #+#    #+#              #
-#    Updated: 2022/05/30 14:44:26 by umartin-         ###   ########.fr        #
+#    Updated: 2022/06/02 14:41:13 by umartin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philosophers
 
-SRC = philosophers.c \
+SRC = philo_main.c \
 philo_utils.c \
+philo.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -28,7 +29,7 @@ EOC = \033[1;0m
 
 HEADERS = philo.h
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -pthread #-g3 -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -pthread -g3 -fsanitize=address
 .c.o: $(SRC)
 	@$(CC) $(FLAGS) -c -o $@ $<
 
